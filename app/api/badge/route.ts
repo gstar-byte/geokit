@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const score = Math.min(100, Math.max(0, Number(searchParams.get("score")) || 0));
