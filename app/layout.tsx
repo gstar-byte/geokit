@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   description:
-    "Free toolkit for Generative Engine Optimization. 10 tools: llms.txt generator, AI robots.txt, schema markup, AI readiness checker, sitemap generator, meta tag generator, Q&A formatter, AI crawler tester, and more. No signup required.",
+    "Free GEO toolkit with 10 tools to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
   keywords: [
     "GEO",
     "Generative Engine Optimization",
