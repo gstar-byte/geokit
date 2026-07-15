@@ -5,6 +5,11 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "GEOKit — 10 Free GEO Tools for AI Search Optimization",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   description:
     "Free toolkit for Generative Engine Optimization. 10 tools: llms.txt generator, AI robots.txt, schema markup, AI readiness checker, sitemap generator, meta tag generator, Q&A formatter, AI crawler tester, and more. No signup required.",
   keywords: [
