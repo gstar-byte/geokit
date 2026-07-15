@@ -7,7 +7,7 @@ export default function Footer() {
             GEOKit — Free GEO Tools for AI Search Optimization
           </p>
           <p className="text-base text-gray-500">
-            100% client-side · No signup · No tracking
+            No data collected · No signup · No tracking
           </p>
         </div>
       </div>

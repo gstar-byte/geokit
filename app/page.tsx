@@ -146,7 +146,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/20 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 text-center">
           <div className="inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm text-brand-300 mb-6">
-            Free · No Signup · 100% Client-Side
+            Free · No Signup · No Data Collected
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Free GEO Tools for{" "}
