@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Schema for AI Generator — JSON-LD Structured Data | GEOKit",
   description:
-    "Generate AI-friendly JSON-LD structured data for your website. Supports Article, Product, FAQ, Organization, HowTo, and SoftwareApplication schemas. Help ChatGPT, Perplexity, and Google AI Overviews understand your content.",
+    "Generate AI-friendly JSON-LD structured data. Supports Article, Product, FAQ, Organization, HowTo & more. Free, no signup.",
   keywords: [
     "schema generator",
     "JSON-LD generator",

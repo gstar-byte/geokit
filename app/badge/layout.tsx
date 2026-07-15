@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Readiness Badge — Show Your GEO Score | GEOKit",
   description:
-    "Show your AI Readiness Score on your website with an embeddable badge. Free GEO score badge that links back to GEOKit. Display your AI search optimization score proudly.",
+    "Display your AI Readiness Score with a free embeddable badge. Shows visitors your site is optimized for AI search. Links back to GEOKit.",
   keywords: [
     "AI readiness badge",
     "GEO score badge",

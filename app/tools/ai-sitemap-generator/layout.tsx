@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Sitemap Generator — XML Sitemap for AI Crawlers | GEOKit",
   description:
-    "Generate an XML sitemap optimized for AI crawlers like GPTBot, ClaudeBot, and PerplexityBot. Set priority hints and update frequencies. Free online sitemap generator with download and copy.",
+    "Generate an XML sitemap optimized for AI crawlers. Set priority hints and update frequencies. Free, no signup.",
   keywords: [
     "AI sitemap generator",
     "XML sitemap generator",

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "llms.txt Generator — Free Online Tool | GEOKit",
   description:
-    "Generate an llms.txt file for your website in seconds. Tell AI models like ChatGPT, Perplexity, and Google AI Overviews what your site is about and which pages matter most. Free, no signup.",
+    "Generate an llms.txt file in seconds. Tell AI models like ChatGPT & Perplexity what your site is about. Free, no signup.",
   keywords: [
     "llms.txt generator",
     "llms.txt creator",

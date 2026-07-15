@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Q&A Content Formatter — AI-Friendly FAQ Generator | GEOKit",
   description:
-    "Transform your content into Q&A format that AI models naturally parse and cite. Outputs HTML with FAQPage schema, Markdown, or JSON-LD. Boost your visibility in ChatGPT, Perplexity, and Google AI Overviews.",
+    "Transform content into Q&A format that AI models parse and cite. Outputs HTML with FAQPage schema, Markdown or JSON-LD. Free, no signup.",
   keywords: [
     "Q&A content formatter",
     "FAQ generator",

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About GEOKit — Free GEO Tools for AI Search Optimization",
   description:
-    "Learn about GEOKit, a free toolkit for Generative Engine Optimization. 10 free tools to optimize your website for ChatGPT, Perplexity, Google AI Overviews. No signup, no tracking, 100% client-side.",
+    "Learn about GEOKit, a free toolkit for Generative Engine Optimization. Optimize your site for ChatGPT, Perplexity & Google AI Overviews. No signup, no tracking.",
   keywords: [
     "about GEOKit",
     "GEO tools",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About GEOKit — Free GEO Tools for AI Search Optimization",
     description:
-      "10 free tools to optimize your website for AI search engines. No signup required.",
+      "Free tools to optimize your website for AI search engines. No signup required.",
     type: "website",
   },
   alternates: {

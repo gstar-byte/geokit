@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Crawler Tester — How AI Bots See Your Page | GEOKit",
   description:
-    "Simulate how AI crawlers (GPTBot, ClaudeBot, PerplexityBot) perceive your website. See what content they can extract, what they miss, and get actionable recommendations. Free AI crawler simulation tool.",
+    "Simulate how AI crawlers like GPTBot, ClaudeBot & PerplexityBot see your website. Get actionable insights. Free, no signup.",
   keywords: [
     "AI crawler tester",
     "GPTBot simulator",

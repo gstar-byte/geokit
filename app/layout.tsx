@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   description:
-    "Free GEO toolkit with 10 tools to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
+    "Free GEO toolkit to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
   keywords: [
     "GEO",
     "Generative Engine Optimization",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GEOKit — Free GEO Tools for AI Search Optimization",
     description:
-      "10 free tools to optimize your website for ChatGPT, Perplexity, and Google AI Overviews. No signup.",
+      "Free tools to optimize your website for ChatGPT, Perplexity, and Google AI Overviews. No signup.",
     type: "website",
     siteName: "GEOKit",
   },

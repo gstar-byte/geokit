@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GEO Checklist — Step-by-Step AI Search Optimization | GEOKit",
+  title: "GEO Checklist — AI Search Optimization Guide | GEOKit",
   description:
-    "A comprehensive 16-point checklist to optimize your website for AI search engines. Track your progress across AI content discovery, structured data, on-page SEO, technical, content quality, and monitoring. Free.",
+    "A comprehensive checklist to optimize your website for AI search. Track progress across content discovery, structured data, on-page SEO & more. Free.",
   keywords: [
     "GEO checklist",
     "AI SEO checklist",
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     "GEO audit checklist",
   ],
   openGraph: {
-    title: "GEO Checklist — Step-by-Step AI Search Optimization | GEOKit",
+    title: "GEO Checklist — AI Search Optimization Guide | GEOKit",
     description:
-      "16-point checklist to optimize your site for AI search. Track progress, free.",
+      "Checklist to optimize your site for AI search. Track progress, free.",
     type: "website",
   },
   alternates: {
