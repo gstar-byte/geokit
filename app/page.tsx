@@ -5,10 +5,10 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: "GEOKit",
   description: "Free GEO tools for AI search optimization",
-  url: "https://geokit.dev",
+  url: "https://geokit.site",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://geokit.dev/tools/{search_term_string}",
+    target: "https://geokit.site/tools/{search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -17,7 +17,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "GEOKit",
-  url: "https://geokit.dev",
+  url: "https://geokit.site",
   description: "Free toolkit for Generative Engine Optimization (GEO). 10 free tools to optimize websites for AI search engines.",
 };
 

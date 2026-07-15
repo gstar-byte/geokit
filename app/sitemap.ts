@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://geokit.dev";
+  const baseUrl = "https://geokit.site";
 
   const routes = [
     "",

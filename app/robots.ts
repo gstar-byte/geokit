@@ -24,6 +24,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://geokit.dev/sitemap.xml",
+    sitemap: "https://geokit.site/sitemap.xml",
   };
 }

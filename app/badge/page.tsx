@@ -22,9 +22,9 @@ function BadgeContent() {
   const scoreLabel =
     score >= 80 ? "Excellent" : score >= 50 ? "Good" : "Needs Work";
 
-  const badgeUrl = `https://geokit.dev/api/badge?score=${score}&url=${encodeURIComponent(url)}&style=${style}`;
+  const badgeUrl = `https://geokit.site/api/badge?score=${score}&url=${encodeURIComponent(url)}&style=${style}`;
 
-  const embedCode = `<a href="https://geokit.dev/tools/ai-readiness-checker?ref=badge" target="_blank" rel="noopener">
+  const embedCode = `<a href="https://geokit.site/tools/ai-readiness-checker?ref=badge" target="_blank" rel="noopener">
   <img src="${badgeUrl}" alt="AI Readiness Score: ${score}/100 — ${scoreLabel}" width="180" height="60" />
 </a>`;
 
