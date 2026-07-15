@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "GEOKit — 10 Free GEO Tools for AI Search Optimization",
+  title: "GEOKit — Free GEO Tools for AI Search Optimization",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "free SEO tools",
   ],
   openGraph: {
-    title: "GEOKit — 10 Free GEO Tools for AI Search Optimization",
+    title: "GEOKit — Free GEO Tools for AI Search Optimization",
     description:
       "10 free tools to optimize your website for ChatGPT, Perplexity, and Google AI Overviews. No signup.",
     type: "website",
