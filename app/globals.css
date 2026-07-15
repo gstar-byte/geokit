@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0e1a;
+  --surface: #111827;
+  --border: #1f2937;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  background: var(--bg);
+  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@layer components {
+  .tool-card {
+    @apply rounded-xl border border-gray-800 bg-gray-900/50 p-6 transition-all hover:border-brand-500/50 hover:bg-gray-900;
+  }
+  .btn-primary {
+    @apply rounded-lg bg-brand-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-brand-500;
+  }
+  .btn-secondary {
+    @apply rounded-lg border border-gray-700 bg-gray-800 px-5 py-2.5 font-medium text-gray-200 transition-colors hover:border-gray-600 hover:bg-gray-700;
+  }
+  .input-field {
+    @apply w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500;
+  }
+  .code-block {
+    @apply rounded-lg border border-gray-800 bg-gray-950 p-4 font-mono text-sm text-gray-300 overflow-x-auto;
+  }
+}
