@@ -17,9 +17,9 @@ const OPENROUTER_MODELS: ModelDef[] = [
   { id: "openai/gpt-4o-mini", name: "ChatGPT (GPT-4o mini)", marketShare: 0.45, free: false, provider: "openrouter" },
   { id: "google/gemini-2.0-flash-001", name: "Google Gemini (2.0 Flash)", marketShare: 0.20, free: false, provider: "openrouter" },
   { id: "anthropic/claude-3.5-haiku", name: "Claude (3.5 Haiku)", marketShare: 0.15, free: false, provider: "openrouter" },
-  { id: "meta-llama/llama-3.3-70b-instruct", name: "Meta Llama 3.3 (70B)", marketShare: 0.10, free: true, provider: "openrouter" },
-  { id: "mistralai/mistral-small-3.2-24b-instruct", name: "Mistral Small (3.2 24B)", marketShare: 0.05, free: true, provider: "openrouter" },
-  { id: "deepseek/deepseek-chat", name: "DeepSeek V3", marketShare: 0.05, free: true, provider: "openrouter" },
+  { id: "meta-llama/llama-3.3-70b-instruct:free", name: "Meta Llama 3.3 (70B)", marketShare: 0.10, free: true, provider: "openrouter" },
+  { id: "mistralai/mistral-small-3.2-24b-instruct:free", name: "Mistral Small (3.2 24B)", marketShare: 0.05, free: true, provider: "openrouter" },
+  { id: "deepseek/deepseek-chat:free", name: "DeepSeek V3", marketShare: 0.05, free: true, provider: "openrouter" },
 ];
 
 const GOOGLE_MODELS: ModelDef[] = [
@@ -181,17 +181,20 @@ export async function POST(req: NextRequest) {
             headers: {
               Authorization: `Bearer ${key}`,
               "Content-Type": "application/json",
+              "HTTP-Referer": "https://geokit.site",
+              "X-Title": "GEOKit AI Search Grader",
             },
             body: JSON.stringify({
               model: model.id,
               messages: [{ role: "user", content: prompt }],
               max_tokens: 2000,
             }),
-            signal: AbortSignal.timeout(20000),
+            signal: AbortSignal.timeout(30000),
           });
 
           if (!res.ok) {
-            return { prompt, response: "", error: `OpenRouter API error: ${res.status}` };
+            const errText = await res.text();
+            return { prompt, response: "", error: `OpenRouter API error ${res.status}: ${errText.slice(0, 200)}` };
           }
 
           const data = await res.json();

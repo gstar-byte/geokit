@@ -432,7 +432,7 @@ export default function AiSearchGraderPage() {
           <p className="text-sm mb-4">
             Enter your brand name and niche above. We&apos;ll send prompts to{" "}
             {serverProvider === "google" ? "3 Google Gemini models" : "6 AI models (ChatGPT, Gemini, Claude, Llama, Mistral, DeepSeek)"}{" "}
-            and analyze how often your brand appears in their answers.
+            and analyze how often your brand appears in their answers. Free-tier models (Llama, Mistral, DeepSeek) use OpenRouter&apos;s free routing.
           </p>
           <div className="flex flex-wrap gap-2 justify-center text-xs">
             {(serverProvider === "google"
