@@ -11,6 +11,7 @@ const tools = [
   { href: "/tools/meta-tag-generator", label: "Meta Tag Generator" },
   { href: "/tools/qa-content-formatter", label: "Q&A Content Formatter" },
   { href: "/tools/ai-crawler-tester", label: "AI Crawler Tester" },
+  { href: "/tools/ai-search-grader", label: "AI Search Grader" },
 ];
 
 export default function Header() {
