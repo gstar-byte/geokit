@@ -1,27 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Sitemap Generator — XML Sitemap for AI Crawlers | GEOKit",
-  description:
-    "Generate an XML sitemap optimized for AI crawlers. Set priority hints and update frequencies. Free, no signup.",
-  keywords: [
-    "AI sitemap generator",
-    "XML sitemap generator",
-    "sitemap for AI crawlers",
-    "GPTBot sitemap",
-    "sitemap.xml generator",
-  ],
+  title: "AI Sitemap Generator — XML Sitemap for AI Bots",
+  description: "Generate XML sitemaps optimized for AI crawler indexing, highlighting key content priorities and update rates.",
   openGraph: {
-    title: "AI Sitemap Generator — XML Sitemap for AI Crawlers | GEOKit",
-    description:
-      "Generate an XML sitemap optimized for AI crawlers. Free online tool.",
+    title: "AI Sitemap Generator — XML Sitemap for AI Bots",
+    description: "Generate XML sitemaps optimized for AI crawler indexing, highlighting key content priorities and update rates.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/ai-sitemap-generator",
+    url: "https://geokit.site/tools/ai-sitemap-generator",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Sitemap Generator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/ai-sitemap-generator",
+  "description": "Generate XML sitemaps optimized for AI crawler indexing, highlighting key content priorities and update rates."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

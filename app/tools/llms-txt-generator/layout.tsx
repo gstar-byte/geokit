@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "llms.txt Generator — Free Online Tool | GEOKit",
-  description:
-    "Generate an llms.txt file in seconds. Tell AI models like ChatGPT & Perplexity what your site is about. Free, no signup.",
-  keywords: [
-    "llms.txt generator",
-    "llms.txt creator",
-    "generate llms.txt",
-    "AI content file",
-    "LLM website summary",
-    "GEO tool",
-  ],
+  title: "llms.txt Generator — Free GEO Tools for AI Optimization",
+  description: "Generate a standardized llms.txt file to help LLMs and AI crawlers understand your site structure and index relevant content.",
   openGraph: {
-    title: "llms.txt Generator — Free Online Tool | GEOKit",
-    description:
-      "Generate an llms.txt file that tells AI models what your site is about. Free, no signup.",
+    title: "llms.txt Generator — Free GEO Tools for AI Optimization",
+    description: "Generate a standardized llms.txt file to help LLMs and AI crawlers understand your site structure and index relevant content.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/llms-txt-generator",
+    url: "https://geokit.site/tools/llms-txt-generator",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "llms.txt Generator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/llms-txt-generator",
+  "description": "Generate a standardized llms.txt file to help LLMs and AI crawlers understand your site structure and index relevant content."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

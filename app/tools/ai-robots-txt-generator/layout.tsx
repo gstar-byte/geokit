@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Robots.txt Generator — Control AI Crawler Access | GEOKit",
-  description:
-    "Generate a robots.txt to control AI crawler access (GPTBot, ClaudeBot, PerplexityBot). Presets for allow-all, block-all, or selective. Free.",
-  keywords: [
-    "AI robots.txt generator",
-    "robots.txt for AI",
-    "GPTBot robots.txt",
-    "ClaudeBot robots.txt",
-    "AI crawler control",
-    "block AI bots",
-  ],
+  title: "AI Robots.txt Generator — Control LLM Crawlers",
+  description: "Generate a production-ready robots.txt to allow or block AI training bots like GPTBot, ClaudeBot, and PerplexityBot.",
   openGraph: {
-    title: "AI Robots.txt Generator — Control AI Crawler Access | GEOKit",
-    description:
-      "Control which AI crawlers can access your site. Free robots.txt generator for AI SEO.",
+    title: "AI Robots.txt Generator — Control LLM Crawlers",
+    description: "Generate a production-ready robots.txt to allow or block AI training bots like GPTBot, ClaudeBot, and PerplexityBot.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/ai-robots-txt-generator",
+    url: "https://geokit.site/tools/ai-robots-txt-generator",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Robots.txt Generator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/ai-robots-txt-generator",
+  "description": "Generate a production-ready robots.txt to allow or block AI training bots like GPTBot, ClaudeBot, and PerplexityBot."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Checker — Score Your Site for AI Search | GEOKit",
-  description:
-    "Get an instant 0-100 AI readiness score. Checks robots.txt, llms.txt, structured data, meta tags & more. Free, no signup.",
-  keywords: [
-    "AI readiness checker",
-    "AI SEO audit",
-    "AI search readiness",
-    "GEO score",
-    "AI optimization check",
-    "ChatGPT visibility check",
-  ],
+  title: "AI Readiness Checker — Audit Your Site for AI Search",
+  description: "Test your URL instantly to check if AI search engines can crawl, understand, and cite your website. Get a 0-100 score.",
   openGraph: {
-    title: "AI Readiness Checker — Score Your Site for AI Search | GEOKit",
-    description:
-      "Get an instant 0-100 AI readiness score for your website. Free, no signup.",
+    title: "AI Readiness Checker — Audit Your Site for AI Search",
+    description: "Test your URL instantly to check if AI search engines can crawl, understand, and cite your website. Get a 0-100 score.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/ai-readiness-checker",
+    url: "https://geokit.site/tools/ai-readiness-checker",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Readiness Checker",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/ai-readiness-checker",
+  "description": "Test your URL instantly to check if AI search engines can crawl, understand, and cite your website."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

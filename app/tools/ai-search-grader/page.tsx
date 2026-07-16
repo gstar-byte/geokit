@@ -147,10 +147,12 @@ export default function AiSearchGraderPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">AI Search Grader</h1>
+        <h1 className="text-3xl font-bold text-white mb-3">
+          AI Search Grader — Test Your Brand Visibility in ChatGPT, Gemini &amp; Claude
+        </h1>
         <p className="text-lg text-gray-400">
           Enter your brand name and niche to see how visible you are across AI search engines.
-          We&apos;ll query multiple AI models and measure your brand&apos;s visibility and ranking.
+          We&apos;ll query 6 AI models with niche prompts and measure your brand&apos;s visibility, ranking, and share of voice vs competitors.
         </p>
       </div>
 

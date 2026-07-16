@@ -1,27 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "llms.txt Validator — Check Spec Compliance | GEOKit",
-  description:
-    "Validate your llms.txt against the spec. Checks H1 title, markdown format, link structure, file size & best practices. Free.",
-  keywords: [
-    "llms.txt validator",
-    "validate llms.txt",
-    "llms.txt checker",
-    "llms.txt spec",
-    "llms.txt syntax check",
-  ],
+  title: "llms.txt Validator — Check Markdown Syntax",
+  description: "Validate your llms.txt file format, headings, structure, and links against the official specifications.",
   openGraph: {
-    title: "llms.txt Validator — Check Spec Compliance | GEOKit",
-    description:
-      "Validate your llms.txt against the spec. Free with detailed errors.",
+    title: "llms.txt Validator — Check Markdown Syntax",
+    description: "Validate your llms.txt file format, headings, structure, and links against the official specifications.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/llms-txt-validator",
+    url: "https://geokit.site/tools/llms-txt-validator",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "llms.txt Validator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/llms-txt-validator",
+  "description": "Validate your llms.txt file format, headings, structure, and links against the official specifications."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

@@ -6,11 +6,6 @@ const websiteJsonLd = {
   name: "GEOKit",
   description: "Free GEO tools for AI search optimization",
   url: "https://geokit.site",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://geokit.site/tools/{search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const organizationJsonLd = {

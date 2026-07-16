@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/meta-tag-generator",
     "/tools/qa-content-formatter",
     "/tools/ai-crawler-tester",
+    "/tools/ai-search-grader",
     "/badge",
   ];
 

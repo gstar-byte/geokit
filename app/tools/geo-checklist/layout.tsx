@@ -1,27 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GEO Checklist — AI Search Optimization Guide | GEOKit",
-  description:
-    "A comprehensive checklist to optimize your website for AI search. Track progress across content discovery, structured data, on-page SEO & more. Free.",
-  keywords: [
-    "GEO checklist",
-    "AI SEO checklist",
-    "generative engine optimization checklist",
-    "AI search optimization guide",
-    "GEO audit checklist",
-  ],
+  title: "GEO Checklist — Step-by-Step AI SEO Guide",
+  description: "Follow a complete, structured checklist of technical and content optimization steps to prepare your site for generative search.",
   openGraph: {
-    title: "GEO Checklist — AI Search Optimization Guide | GEOKit",
-    description:
-      "Checklist to optimize your site for AI search. Track progress, free.",
+    title: "GEO Checklist — Step-by-Step AI SEO Guide",
+    description: "Follow a complete, structured checklist of technical and content optimization steps to prepare your site for generative search.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/geo-checklist",
+    url: "https://geokit.site/tools/geo-checklist",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GEO Checklist",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/geo-checklist",
+  "description": "Follow a complete, structured checklist of technical and content optimization steps to prepare your site for generative search."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

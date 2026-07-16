@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Q&A Content Formatter — AI-Friendly FAQ Generator | GEOKit",
-  description:
-    "Transform content into Q&A format that AI models parse and cite. Outputs HTML with FAQPage schema, Markdown or JSON-LD. Free, no signup.",
-  keywords: [
-    "Q&A content formatter",
-    "FAQ generator",
-    "FAQPage schema generator",
-    "AI content formatter",
-    "question answer format",
-    "AI citation content",
-  ],
+  title: "Q&A Content Formatter — AI Citation Optimizer",
+  description: "Transform your web content into structured Q&A format, making it easier for LLMs to retrieve and cite as direct answers.",
   openGraph: {
-    title: "Q&A Content Formatter — AI-Friendly FAQ Generator | GEOKit",
-    description:
-      "Convert content into AI-friendly Q&A format with FAQPage schema. Free online tool.",
+    title: "Q&A Content Formatter — AI Citation Optimizer",
+    description: "Transform your web content into structured Q&A format, making it easier for LLMs to retrieve and cite as direct answers.",
     type: "website",
-  },
-  alternates: {
-    canonical: "/tools/qa-content-formatter",
+    url: "https://geokit.site/tools/qa-content-formatter",
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Q&A Content Formatter",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://geokit.site/tools/qa-content-formatter",
+  "description": "Transform your web content into structured Q&A format, making it easier for LLMs to retrieve and cite as direct answers."
+};
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

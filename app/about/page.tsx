@@ -50,6 +50,26 @@ export default function AboutPage() {
             <h3 className="text-white font-medium group-hover:text-brand-400">GEO Checklist</h3>
             <p className="text-sm text-gray-500 mt-1">Step-by-step GEO optimization guide</p>
           </Link>
+          <Link href="/tools/ai-sitemap-generator" className="tool-card group">
+            <h3 className="text-white font-medium group-hover:text-brand-400">AI Sitemap Generator</h3>
+            <p className="text-sm text-gray-500 mt-1">Generate an XML sitemap optimized for AI crawlers</p>
+          </Link>
+          <Link href="/tools/meta-tag-generator" className="tool-card group">
+            <h3 className="text-white font-medium group-hover:text-brand-400">Meta Tag Generator</h3>
+            <p className="text-sm text-gray-500 mt-1">Generate Open Graph and AI-specific meta tags</p>
+          </Link>
+          <Link href="/tools/qa-content-formatter" className="tool-card group">
+            <h3 className="text-white font-medium group-hover:text-brand-400">Q&A Content Formatter</h3>
+            <p className="text-sm text-gray-500 mt-1">Transform content into Q&A format for AI retrieval</p>
+          </Link>
+          <Link href="/tools/ai-crawler-tester" className="tool-card group">
+            <h3 className="text-white font-medium group-hover:text-brand-400">AI Crawler Tester</h3>
+            <p className="text-sm text-gray-500 mt-1">Simulate how AI crawlers see your page</p>
+          </Link>
+          <Link href="/tools/ai-search-grader" className="tool-card group">
+            <h3 className="text-white font-medium group-hover:text-brand-400">AI Search Grader</h3>
+            <p className="text-sm text-gray-500 mt-1">Test your brand visibility in AI search models</p>
+          </Link>
         </div>
         <h2 className="text-xl font-semibold text-white">What is GEO?</h2>
         <p>
