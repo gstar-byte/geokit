@@ -64,6 +64,8 @@ export default function AiSearchGraderPage() {
   const [showSamples, setShowSamples] = useState(false);
   const [serverHasKey, setServerHasKey] = useState<boolean | null>(null);
   const [serverProvider, setServerProvider] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("");
 
   useEffect(() => {
     fetch("/api/ai-search-grader/status")
@@ -81,6 +83,28 @@ export default function AiSearchGraderPage() {
     setLoading(true);
     setError("");
     setResult(null);
+    setProgress(0);
+
+    const modelNames =
+      serverProvider === "google"
+        ? ["Gemini 2.0 Flash", "Gemini 2.0 Flash Lite", "Gemini 1.5 Flash"]
+        : ["ChatGPT", "Google Gemini", "Claude", "Meta Llama", "Mistral", "DeepSeek"];
+    const estimatedMs = serverProvider === "google" ? 15000 : 25000;
+
+    const progressInterval = setInterval(() => {
+      setProgress((p) => {
+        const next = p + 100 / (estimatedMs / 200);
+        return next >= 95 ? 95 : next;
+      });
+    }, 200);
+
+    const statusInterval = setInterval(() => {
+      const model = modelNames[Math.floor(Date.now() / 3000) % modelNames.length];
+      setStatusText(`Querying ${model}...`);
+    }, 3000);
+
+    setStatusText(`Querying ${modelNames[0]}...`);
+
     try {
       const res = await fetch("/api/ai-search-grader", {
         method: "POST",
@@ -101,6 +125,10 @@ export default function AiSearchGraderPage() {
     } catch {
       setError("Network error. Please try again.");
     } finally {
+      clearInterval(progressInterval);
+      clearInterval(statusInterval);
+      setProgress(100);
+      setStatusText("Analysis complete");
       setLoading(false);
     }
   };
@@ -220,12 +248,30 @@ export default function AiSearchGraderPage() {
       )}
 
       {loading && (
-        <div className="space-y-4">
-          <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-500" />
+        <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-8 space-y-5">
+          <div className="flex items-center justify-center">
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-500" />
           </div>
-          <p className="text-center text-gray-400 text-sm">
-            Sending prompts to {serverProvider === "google" ? "3 Gemini" : "6"} AI models ({serverProvider === "google" ? "15" : "30"} API calls). This takes ~10-20 seconds...
+          <div className="text-center">
+            <p className="text-brand-400 font-medium text-base mb-1">{statusText}</p>
+            <p className="text-gray-500 text-sm">
+              Sending 5 prompts to {serverProvider === "google" ? "3 Gemini" : "6"} AI models
+            </p>
+          </div>
+          <div className="space-y-2">
+            <div className="h-2.5 rounded-full bg-gray-800 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-400 transition-all duration-200 ease-linear"
+                style={{ width: `${Math.min(progress, 100)}%` }}
+              />
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-500">
+              <span>Est. time: {serverProvider === "google" ? "10-15" : "15-30"} seconds</span>
+              <span>{Math.round(Math.min(progress, 100))}%</span>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-600">
+            Free-tier models may take longer during peak hours. Paid models usually respond faster.
           </p>
         </div>
       )}
