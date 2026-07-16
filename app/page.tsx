@@ -122,6 +122,12 @@ const tools = [
     title: "AI Crawler Tester",
     desc: "Simulate how AI crawlers see your page. Check what content GPTBot, ClaudeBot, and others can extract.",
     icon: "🔍",
+  },
+  {
+    href: "/tools/ai-search-grader",
+    title: "AI Search Grader",
+    desc: "See how visible your brand is in AI search. We query 6 AI models with niche-relevant prompts and measure your brand's visibility and ranking.",
+    icon: "🎯",
     tag: "New",
   },
 ];

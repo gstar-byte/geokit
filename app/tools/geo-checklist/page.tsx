@@ -118,6 +118,14 @@ const checklistItems: ChecklistItem[] = [
     toolLink: "/tools/ai-readiness-checker",
     toolLabel: "Check Now",
   },
+  {
+    id: "search-grader",
+    category: "Monitoring",
+    title: "Grade your brand's AI search visibility",
+    desc: "Use our AI Search Grader to query 6 AI models and measure how often your brand appears in AI-generated answers vs competitors.",
+    toolLink: "/tools/ai-search-grader",
+    toolLabel: "Grade Now",
+  },
 ];
 
 const categories = [...new Set(checklistItems.map((item) => item.category))];
