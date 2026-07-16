@@ -1,4 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#0a0a0a"/>
-  <text x="32" y="44" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#6366f1">G</text>
+  <defs>
+    <!-- 主体科技渐变：亮蓝到深蓝 -->
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#59c0ff" />
+      <stop offset="100%" stop-color="#1c85f5" />
+    </linearGradient>
+    <!-- AI Sparkle 渐变：白色发光到明亮蓝 -->
+    <linearGradient id="spark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#33a4ff" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 现代几何字母 G：加粗的圆角科技描边，无繁琐底色，保证超清可读性 -->
+  <path d="M 46 22 A 20 20 0 1 0 46 44 L 46 32 L 32 32" 
+        fill="none" 
+        stroke="url(#brand-grad)" 
+        stroke-width="9" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+        
+  <!-- 右上角象征 Generative AI 智能的精致四角星 (Sparkle) -->
+  <path d="M 48 8 Q 48 16 40 16 Q 48 16 48 24 Q 48 16 56 16 Q 48 16 48 8 Z" 
+        fill="url(#spark-grad)" />
 </svg>
