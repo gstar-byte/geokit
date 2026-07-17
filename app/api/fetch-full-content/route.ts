@@ -8,18 +8,39 @@ interface PageContent {
   content: string;
 }
 
-function extractMainContent(html: string): string {
-  // Remove script, style, nav, header, footer, aside tags
-  let text = html
+interface ScrapingOptions {
+  stripHeader?: boolean;
+  stripFooter?: boolean;
+  stripSidebar?: boolean;
+  maxWords?: number;
+}
+
+function extractMainContent(html: string, options: ScrapingOptions): string {
+  let text = html;
+
+  // 1. Remove script, style, noscript tags universally
+  text = text
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
-    .replace(/<header[\s\S]*?<\/header>/gi, "")
-    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
-    .replace(/<aside[\s\S]*?<\/aside>/gi, "")
     .replace(/<noscript[\s\S]*?<\/noscript>/gi, "");
 
-  // Try to extract main/article content first
+  // 2. Selectively strip layout elements based on filters
+  if (options.stripHeader) {
+    text = text
+      .replace(/<header[\s\S]*?<\/header>/gi, "")
+      .replace(/<nav[\s\S]*?<\/nav>/gi, "");
+  }
+  if (options.stripFooter) {
+    text = text.replace(/<footer[\s\S]*?<\/footer>/gi, "");
+  }
+  if (options.stripSidebar) {
+    text = text
+      .replace(/<aside[\s\S]*?<\/aside>/gi, "")
+      .replace(/<div[^>]*id=["']sidebar["'][^>]*>[\s\S]*?<\/div>/gi, "")
+      .replace(/<div[^>]*class=["'][^"']*sidebar[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, "");
+  }
+
+  // 3. Try to extract main/article content container first for focus
   const mainMatch = text.match(/<(?:main|article)[^>]*>([\s\S]*?)<\/(?:main|article)>/i);
   if (mainMatch) {
     text = mainMatch[1];
@@ -64,10 +85,11 @@ function extractMainContent(html: string): string {
     .join("\n")
     .trim();
 
-  // Limit per page (about 2000 words max)
+  // Limit per page based on maxWords
+  const maxWords = options.maxWords || 1000;
   const words = text.split(/\s+/);
-  if (words.length > 2000) {
-    text = words.slice(0, 2000).join(" ") + "\n\n[Content truncated...]";
+  if (words.length > maxWords) {
+    text = words.slice(0, maxWords).join(" ") + `\n\n[Content truncated at ${maxWords} words...]`;
   }
 
   return text;
@@ -75,10 +97,14 @@ function extractMainContent(html: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { urls } = await req.json();
+    const body = await req.json();
+    const { urls, stripHeader = true, stripFooter = true, stripSidebar = true, maxWords = 1000 } = body;
+
     if (!urls || !Array.isArray(urls) || urls.length === 0) {
       return NextResponse.json({ error: "URLs array is required" }, { status: 400 });
     }
+
+    const options: ScrapingOptions = { stripHeader, stripFooter, stripSidebar, maxWords };
 
     // Limit to 10 pages for performance
     const pagesToFetch = urls.slice(0, 10);
@@ -104,7 +130,7 @@ export async function POST(req: NextRequest) {
               ? titleMatch[1].replace(/\s*[|–—-]\s*.+$/, "").replace(/&amp;/g, "&").trim()
               : new URL(pageUrl).pathname;
 
-            const content = extractMainContent(html);
+            const content = extractMainContent(html, options);
             if (!content || content.length < 50) return null;
 
             return { url: pageUrl, title, content };

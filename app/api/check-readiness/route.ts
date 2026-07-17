@@ -221,6 +221,31 @@ export async function POST(req: NextRequest) {
       });
     }
 
+
+    // 1.5 llms-full.txt Check
+    try {
+      const llmsFullRes = await fetchWithTimeout(`${baseUrl}/llms-full.txt`);
+      const hasLlmsFull = llmsFullRes.ok;
+      results.push({
+        name: "llms-full.txt File",
+        category: "ai_crawlers",
+        status: hasLlmsFull ? "pass" : "info",
+        message: hasLlmsFull ? "llms-full.txt found. AI models can read full-page Markdown content." : "No llms-full.txt found. Adding one helps LLMs ingest complete page contents.",
+        points: hasLlmsFull ? 10 : 0,
+        maxPoints: 10,
+      });
+    } catch {
+      results.push({
+        name: "llms-full.txt File",
+        category: "ai_crawlers",
+        status: "info",
+        message: "Could not check for llms-full.txt.",
+        points: 0,
+        maxPoints: 10,
+      });
+    }
+
+
     // ═══════════════════════════════════════════
     // CATEGORY 2: Fetch page HTML for remaining checks
     // ═══════════════════════════════════════════
@@ -658,7 +683,19 @@ export async function POST(req: NextRequest) {
       maxPoints: 4,
     });
 
+    // 8.4 WebMCP Integration
+    const hasMcpTag = /<link[^>]*rel=["']mcp["']/i.test(html) || /<meta[^>]*name=["']mcp-server["']/i.test(html);
+    results.push({
+      name: "WebMCP Integration",
+      category: "ai_agent",
+      status: hasMcpTag ? "pass" : "info",
+      message: hasMcpTag ? "WebMCP link or metadata found — AI agents can interact programmatically." : "No WebMCP integration links found in page metadata. Consider adding to support Agent integrations.",
+      points: hasMcpTag ? 5 : 0,
+      maxPoints: 5,
+    });
+
     return buildResponse(normalizedUrl, siteType, results, weights);
+
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Unknown error" },
