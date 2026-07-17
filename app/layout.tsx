@@ -7,9 +7,9 @@ import CookieConsent from "@/components/CookieConsent";
 export const metadata: Metadata = {
   title: "GEOKit — Free GEO Tools for AI Search Optimization",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
   },
   description:
     "Free GEO toolkit to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
