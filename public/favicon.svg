@@ -1,40 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <!-- 科技蓝渐变：用于工具箱主体 -->
-    <linearGradient id="kit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#59c0ff" />
-      <stop offset="100%" stop-color="#136ae1" />
+    <!-- 工业科技橙金渐变：用于工具箱主体，高对比高醒目 -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />  <!-- 金黄 -->
+      <stop offset="100%" stop-color="#ea580c" /> <!-- 深橙 -->
     </linearGradient>
-    <!-- 发光白蓝渐变：用于机器人面部和 AI 星芒 -->
-    <linearGradient id="bright-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#33a4ff" />
+    <!-- 高光亮黄渐变：用于提手和星芒锁扣 -->
+    <linearGradient id="light-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />  <!-- 纯白 -->
+      <stop offset="100%" stop-color="#fde047" /> <!-- 亮黄 -->
     </linearGradient>
   </defs>
 
-  <!-- 1. 工具箱提手 (Kit Handle) -->
-  <path d="M 22 20 L 22 12 A 4 4 0 0 1 26 8 L 38 8 A 4 4 0 0 1 42 12 L 42 20" 
+  <!-- 1. 结实的工业提手 (Heavy-Duty Handle) -->
+  <path d="M 20 21 L 20 12 A 4 4 0 0 1 24 8 L 40 8 A 4 4 0 0 1 44 12 L 44 21" 
         fill="none" 
-        stroke="url(#kit-grad)" 
-        stroke-width="5" 
+        stroke="url(#light-grad)" 
+        stroke-width="6" 
         stroke-linecap="round" />
 
-  <!-- 2. 螺母耳机 (Kit Bolts / Bot Ears) -->
-  <rect x="6" y="31" width="6" height="12" rx="3" fill="url(#kit-grad)" />
-  <rect x="52" y="31" width="6" height="12" rx="3" fill="url(#kit-grad)" />
+  <!-- 2. 工具箱上盖 (Lid) -->
+  <rect x="10" y="19" width="44" height="12" rx="4" fill="url(#gold-grad)" />
 
-  <!-- 3. 机器人/工具箱主体 (Kit Box / Bot Body) -->
-  <rect x="10" y="19" width="44" height="34" rx="9" fill="url(#kit-grad)" />
+  <!-- 3. 工具箱下部箱体 (Box Body) -->
+  <rect x="10" y="33" width="44" height="23" rx="6" fill="url(#gold-grad)" />
 
-  <!-- 4. 机器人发光眼睛 (Bot Eyes) -->
-  <rect x="18" y="28" width="8" height="4" rx="2" fill="url(#bright-grad)" />
-  <rect x="38" y="28" width="8" height="4" rx="2" fill="url(#bright-grad)" />
+  <!-- 4. 工业防滑条/加固槽 (Structural Grooves) — 增强工具箱硬核质感 -->
+  <line x1="16" y1="47" x2="24" y2="39" stroke="#0a0e1a" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="40" y1="47" x2="48" y2="39" stroke="#0a0e1a" stroke-width="4.5" stroke-linecap="round" />
 
-  <!-- 5. AI 对话气泡嘴巴 (Chat Bubble Mouth) -->
-  <rect x="25" y="37" width="14" height="8" rx="3.5" fill="url(#bright-grad)" />
-  <path d="M 28 45 L 32 45 L 30 48 Z" fill="url(#bright-grad)" />
-
-  <!-- 6. AI 智慧天线与发光星芒 (Antenna & Sparkle) -->
-  <line x1="44" y1="19" x2="49" y2="11" stroke="url(#bright-grad)" stroke-width="3" stroke-linecap="round" />
-  <path d="M 49 3 Q 49 11 41 11 Q 49 11 49 19 Q 49 11 57 11 Q 49 11 49 3 Z" fill="url(#bright-grad)" />
+  <!-- 5. AI 星芒锁扣 (AI Sparkle Latch) — 精致交融 AI 智能与工具箱锁扣 -->
+  <path d="M 32 22 Q 32 32 22 32 Q 32 32 32 42 Q 32 32 42 32 Q 32 32 32 22 Z" 
+        fill="url(#light-grad)" />
 </svg>
