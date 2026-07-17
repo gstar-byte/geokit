@@ -60,14 +60,6 @@ export default function Header() {
           >
             {t("About", "About")}
           </Link>
-
-          {/* Language Toggle */}
-          <button
-            onClick={() => setLang(lang === "en" ? "zh" : "en")}
-            className="ml-2 rounded-lg border border-gray-700 bg-gray-900 px-2.5 py-1 text-xs font-semibold text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-          >
-            {lang === "en" ? "🌐 中文" : "🌐 EN"}
-          </button>
         </nav>
       </div>
     </header>
