@@ -752,6 +752,58 @@ export default function AiReadinessCheckerPage() {
           </p>
         </div>
       )}
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">📊 AI Readiness Assessment Pillars &amp; FAQ</h2>
+          <p className="text-gray-400">Discover the details behind our 30+ audit checks and how to optimize your site for Large Language Models.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">🛡️ 1. AI Crawler Access</h3>
+            <p>
+              AI models rely on web scrapers to build training corpuses or fetch real-time search context. We check if your <code>robots.txt</code> allows crawlers like <code>GPTBot</code> or <code>ClaudeBot</code>. Blocking these bots keeps your content secure but prevents your brand from being cited in answers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">💎 2. Structured JSON-LD Schema</h3>
+            <p>
+              Schema markup provides clear semantic context. AI search engines are 3x more likely to cite pages with well-defined <code>FAQPage</code>, <code>Product</code>, or <code>Person</code> schemas because they present answers in pre-parsed, structured blocks.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">✏️ 3. Content Structure &amp; Depth</h3>
+            <p>
+              AI models evaluate content depth and heading clarity. We analyze heading levels (H1-H6), word counts, readability (mix of short/long sentences), and keyword density to ensure your content is authoritative and easy to index.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">📑 4. Machine-Readable Files</h3>
+            <p>
+              Modern AI agents search for specific helper files at your domain root. We scan for the existence of <code>llms.txt</code> (high-level index) and <code>llms-full.txt</code> (full plain text corpus) to check if your site provides an optimized road map.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">🔒 5. Technical &amp; SSR Rendering</h3>
+            <p>
+              Many crawlers do not execute JavaScript. If your website relies entirely on Client-Side Rendering (SPA), bots will fetch an empty page. We check for Server-Side Rendering (SSR) signals and security headers to confirm bots can access your site.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">🔗 6. How can I improve my score?</h3>
+            <p>
+              Start by defining a clear <code>llms.txt</code> file at your root, adding structured <code>FAQPage</code> and <code>Organization</code> schemas, and ensuring your site content doesn't rely entirely on client-side JS rendering.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

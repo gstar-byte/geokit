@@ -244,14 +244,55 @@ export default function AiRobotsTxtPage() {
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">
             {output}
           </pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-sm text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">How to deploy:</p>
-            <ol className="list-decimal list-inside space-y-1">
-              <li>Download as <code className="text-brand-400">robots.txt</code></li>
-              <li>Upload to your website root directory</li>
-              <li>Verify at <code className="text-brand-400">yoursite.com/robots.txt</code></li>
-              <li>Test with Google Search Console</li>
-            </ol>
+          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-5 text-sm text-gray-400 space-y-4">
+            <div>
+              <p className="mb-2 font-bold text-gray-300">How to deploy:</p>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Download as <code className="text-brand-400">robots.txt</code></li>
+                <li>Upload to your website root directory</li>
+                <li>Verify at <code className="text-brand-400">yoursite.com/robots.txt</code></li>
+                <li>Test using Google Search Console or robots.txt validators</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🤖 AI Robots.txt Configuration Guide &amp; FAQ</h2>
+          <p className="text-gray-400">Learn how to manage crawler access for modern artificial intelligence training bots and search scrapers.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What is an AI Robots.txt?</h3>
+            <p>
+              It is a standard <code>robots.txt</code> file containing specific directives for AI crawlers (like <code>GPTBot</code>, <code>ClaudeBot</code>, and <code>PerplexityBot</code>). While traditional robots.txt managed search engine indexing, modern configurations help you toggle whether AI models can scrape your content for LLM training.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Should I block or allow AI crawlers?</h3>
+            <p>
+              <strong>Allowing</strong> bots helps your brand get cited and recommended in real-time answers (e.g., in Perplexity or ChatGPT search summaries). 
+              <strong>Blocking</strong> bots prevents them from using your copyright or proprietary content to train their future LLM models.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. What is the difference between robots.txt and llms.txt?</h3>
+            <p>
+              <code>robots.txt</code> is a gatekeeper file used to block or allow access at the URL crawl level. <code>llms.txt</code> is an open markdown guide that actively helps allowed AI bots read and understand your site structure with high token efficiency.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. Is robots.txt legally binding?</h3>
+            <p>
+              No, robots.txt is a voluntary standard. Respected AI giants like OpenAI, Anthropic, and Google honor these directives. However, malicious scrapers will bypass them. If you need hard protection, you must block IP addresses using Web Application Firewalls (WAF) like Cloudflare.
+            </p>
           </div>
         </div>
       </div>

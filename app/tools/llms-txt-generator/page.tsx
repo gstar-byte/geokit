@@ -702,16 +702,57 @@ export default function LlmsTxtGeneratorPage() {
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">
             {output || (activeTab === "standard" ? "# Your llms.txt will appear here" : "# Your llms-full.txt will appear here")}
           </pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-sm text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">How to deploy:</p>
-            <ol className="list-decimal list-inside space-y-1">
-              <li>Download the file as <code className="text-brand-400">{activeTab === "standard" ? "llms.txt" : "llms-full.txt"}</code></li>
-              <li>Upload to your website root directory</li>
-              <li>Make sure it&apos;s accessible at <code className="text-brand-400">yoursite.com/{activeTab === "standard" ? "llms.txt" : "llms-full.txt"}</code></li>
-              {activeTab === "standard" && (
-                <li>Validate it with our <a href="/tools/llms-txt-validator" className="text-brand-400 hover:underline">llms.txt Validator</a></li>
-              )}
-            </ol>
+          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-5 text-sm text-gray-400 space-y-4">
+            <div>
+              <p className="mb-2 font-bold text-gray-300">How to deploy:</p>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Download the file as <code className="text-brand-400">{activeTab === "standard" ? "llms.txt" : "llms-full.txt"}</code></li>
+                <li>Upload to your website root directory</li>
+                <li>Make sure it&apos;s accessible at <code className="text-brand-400">yoursite.com/{activeTab === "standard" ? "llms.txt" : "llms-full.txt"}</code></li>
+                {activeTab === "standard" && (
+                  <li>Validate it with our <a href="/tools/llms-txt-validator" className="text-brand-400 hover:underline">llms.txt Validator</a></li>
+                )}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">📄 llms.txt Specification Guide &amp; FAQ</h2>
+          <p className="text-gray-400">Everything you need to know about implementing machine-readable site maps for LLMs and AI agents.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What is the llms.txt standard?</h3>
+            <p>
+              It is a community-driven specification that provides a lightweight, markdown-formatted table of contents for your website. It is designed to be easily read by LLM scrapers (like GPTBot or ClaudeBot) to give them quick context about your page hierarchies.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. llms.txt vs. llms-full.txt: What is the difference?</h3>
+            <p>
+              <code>llms.txt</code> acts as the <strong>Index</strong>, containing only your H1 site title, a blockquote summary, and lists of structured links. 
+              <code>llms-full.txt</code> acts as the <strong>Corpus</strong>, containing the actual full plain-text markdown content of all key pages compiled into a single file for direct injection into AI context windows.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. Where should these files be placed?</h3>
+            <p>
+              Both files must be served over HTTPS from the root directory of your website (e.g. <code>https://example.com/llms.txt</code>). AI crawlers are hardcoded to check this location by default.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How does this help my website's AI rankings?</h3>
+            <p>
+              By providing AI search engines with clean, high-density markdown devoid of heavy HTML/JS scripts, you reduce crawler overhead. It helps models understand exact page topics, leading to more accurate citations and fewer answer hallucinations.
+            </p>
           </div>
         </div>
       </div>
