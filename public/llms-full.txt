@@ -1,0 +1,93 @@
+# GEOKit — Comprehensive Full Documentation for AI & LLM Systems
+
+> GEOKit is a free, 100% client-side, privacy-focused web toolkit dedicated to Generative Engine Optimization (GEO). It empowers developers, webmasters, SEO professionals, and content creators to optimize websites for citation, recommendation, and indexing by AI search engines including ChatGPT, Perplexity, Google AI Overviews, Gemini, Claude, and DeepSeek.
+
+---
+
+## Table of Contents
+1. Overview & Architectural Principles
+2. Detailed Specifications for All 11 Tools
+3. Key Technical Standards (llms.txt, AI Robots, Schema)
+4. Frequently Asked Questions (FAQ)
+5. Privacy, Data Security, & License
+
+---
+
+## 1. Overview & Architectural Principles
+
+Generative Engine Optimization (GEO) represents the paradigm shift from traditional search engine optimization (ranking blue links for keywords) to generative AI optimization (getting cited, synthesized, and recommended in direct conversational answers).
+
+GEOKit provides zero-signup, client-side browser utilities designed to solve technical and structural hurdles in AI indexing:
+- **Zero Remote Storage**: Inputs and processing remain in the client browser DOM.
+- **Standards Compliant**: Follows official specifications for `llms.txt`, schema.org JSON-LD, and robots.txt User-Agent rules.
+- **Machine Readable**: All generated outputs prioritize high signal-to-noise ratio for LLM tokenization.
+
+---
+
+## 2. Detailed Tool Documentation
+
+### 2.1 llms.txt Generator (`/tools/llms-txt-generator`)
+- **Purpose**: Generates standardized `/llms.txt` markdown files following the official specification.
+- **Inputs**: Site H1 Title, Summary, Section Headings, Link Titles, URLs, and optional notes.
+- **Outputs**: Properly formatted H1, blockquote summary, H2 section headers, and bulleted markdown links.
+
+### 2.2 AI Search Grader (`/tools/ai-search-grader`)
+- **Purpose**: Evaluates brand visibility and Share of Voice across major LLM search engines.
+- **Models Targeted**: ChatGPT (OpenAI), Gemini (Google), Claude (Anthropic), Llama (Meta), Mistral, DeepSeek.
+- **Metrics**: Mentions count, position ranking, sentiment, citation presence.
+
+### 2.3 AI Robots.txt Generator (`/tools/ai-robots-txt-generator`)
+- **Purpose**: Configures granular crawler permissions for AI scrapers vs traditional search bots.
+- **Default User-Agents Handled**: `*`, `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `CCBot`, `Bytespider`.
+
+### 2.4 Schema for AI Generator (`/tools/schema-generator`)
+- **Purpose**: Produces JSON-LD structured data formats optimized for semantic LLM parsing.
+- **Supported Schemas**: WebSite, WebApplication, Organization, Article, Product, FAQPage, HowTo.
+
+### 2.5 AI Readiness Checker (`/tools/ai-readiness-checker`)
+- **Purpose**: Audits a given URL against a 0–100 GEO score rubric checking metadata, robots headers, sitemaps, and llms.txt presence.
+
+### 2.6 llms.txt Validator (`/tools/llms-txt-validator`)
+- **Purpose**: Lints pasted markdown for H1 presence, valid link syntax, non-relative URLs, and structural compliance.
+
+### 2.7 GEO Checklist (`/tools/geo-checklist`)
+- **Purpose**: Interactive, client-persisted checklist guiding users through technical, structural, and content-level GEO tasks.
+
+### 2.8 AI Sitemap Generator (`/tools/ai-sitemap-generator`)
+- **Purpose**: Constructs XML sitemaps with custom priority weighting and frequency flags tailored for LLM scrapers.
+
+### 2.9 Meta Tag Generator (`/tools/meta-tag-generator`)
+- **Purpose**: Generates HTML `<meta>` tags incorporating OpenGraph, Twitter Cards, citation licenses, and author metadata.
+
+### 2.10 Q&A Content Formatter (`/tools/qa-content-formatter`)
+- **Purpose**: Converts dense unstructured prose into conversational Q&A pairs optimal for RAG (Retrieval-Augmented Generation) and direct LLM answer extraction.
+
+### 2.11 AI Crawler Tester (`/tools/ai-crawler-tester`)
+- **Purpose**: Simulates requests using AI User-Agents to verify server response codes, JS rendering requirements, and clean text extraction.
+
+---
+
+## 3. Key Technical Standards
+
+### The `llms.txt` Standard
+`llms.txt` is placed at the root of a website domain (`https://example.com/llms.txt`). It serves as an LLM-friendly index pointing to key documentation and resources, bypassing HTML boilerplate, script overhead, and navigation menus.
+
+### Recommended `robots.txt` for AI Crawling
+Allowing AI web crawlers (`GPTBot`, `ClaudeBot`, `PerplexityBot`) ensures your content can be ingested into real-time search indexes while maintaining control over training data permissions via `Google-Extended`.
+
+---
+
+## 4. Frequently Asked Questions (FAQ)
+
+**Q: What is the difference between SEO and GEO?**
+A: Traditional SEO aims to rank web pages on search engine result pages (SERPs) for specific keywords. GEO (Generative Engine Optimization) aims to make content easily digestible, authoritative, and direct for Large Language Models so that AI search engines (like ChatGPT and Perplexity) cite your website as an authoritative source in conversational answers.
+
+**Q: Is GEOKit free to use for commercial projects?**
+A: Yes. All tools on GEOKit are 100% free for both personal and commercial use without registration or subscription.
+
+---
+
+## 5. Contact & Links
+- **Website**: https://geokit.site
+- **Sitemap**: https://geokit.site/sitemap.xml
+- **llms.txt**: https://geokit.site/llms.txt

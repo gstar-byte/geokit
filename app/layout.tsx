@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://geokit.site"),
   title: "GEOKit — Free GEO Tools for AI Search Optimization",
   icons: {
     icon: "/favicon.png",
@@ -31,9 +32,25 @@ export const metadata: Metadata = {
       "Free tools to optimize your website for ChatGPT, Perplexity, and Google AI Overviews. No signup.",
     type: "website",
     siteName: "GEOKit",
+    url: "https://geokit.site",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "GEOKit — Free GEO Tools for AI Search Optimization",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GEOKit — Free GEO Tools for AI Search Optimization",
+    description:
+      "Free tools to optimize your website for ChatGPT, Perplexity, and Google AI Overviews. No signup.",
+    images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://geokit.site",
   },
 };
 
