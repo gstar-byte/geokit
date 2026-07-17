@@ -11,10 +11,12 @@ function BadgeContent() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const s = searchParams.get("score");
-    const u = searchParams.get("url");
-    if (s) setScore(Math.min(100, Math.max(0, Number(s))));
-    if (u) setUrl(u);
+    if (searchParams) {
+      const s = searchParams.get("score");
+      const u = searchParams.get("url");
+      if (s) setScore(Math.min(100, Math.max(0, Number(s))));
+      if (u) setUrl(u);
+    }
   }, [searchParams]);
 
   const scoreColor =
