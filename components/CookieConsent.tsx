@@ -6,10 +6,20 @@ import Link from "next/link";
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
+  const updateConsentGranted = () => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+    }
+  };
+
   useEffect(() => {
-    // 延迟少许展示，体验更好
     const consent = localStorage.getItem("geokit-consent");
-    if (!consent) {
+    if (consent === "true") {
+      updateConsentGranted();
+    } else {
+      // 延迟少许展示，体验更好
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 1000);
@@ -19,6 +29,7 @@ export default function CookieConsent() {
 
   const acceptConsent = () => {
     localStorage.setItem("geokit-consent", "true");
+    updateConsentGranted();
     setIsVisible(false);
   };
 
