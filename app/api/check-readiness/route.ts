@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
           if (bot.regex.test(robotsTxt)) {
             mentionedBots.push(bot.name);
             // Check if blocked (User-agent: BotName followed by Disallow: /)
-            const blockPattern = new RegExp(`User-agent:\\s*${bot.regex.source}[\\s\\S]*?Disallow:\\s*\\/`, "i");
+            const blockPattern = new RegExp(`User-agent:\\s*${bot.regex.source}[\\s\\S]*?Disallow:\\s*\\/(\\r?\\n|\\s*$)`, "i");
             if (blockPattern.test(robotsTxt)) {
               blockedBots.push(bot.name);
             }

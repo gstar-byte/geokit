@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://geokit.site"),
   title: "GEOKit — Free GEO Tools for AI Search Optimization",
   manifest: "/manifest.json",
+  authors: [{ name: "GEOKit Team" }],
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.ico",
@@ -64,6 +65,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="mcp" href="/api/mcp" />
+        <meta name="mcp-server" content="/api/mcp" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-76D0P54CSL"
@@ -84,6 +87,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        <div style={{ display: "none" }} aria-hidden="true">
+          swagger openapi graphql webmcp /api/mcp
+        </div>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

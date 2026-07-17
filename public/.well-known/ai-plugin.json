@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "geokit",
+  "name_for_human": "GEOKit",
+  "description_for_model": "Plugin to analyze website GEO and SEO readiness.",
+  "description_for_human": "Check your website's search engine and AI indexing readiness.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://geokit.site/openapi.yaml"
+  },
+  "logo_url": "https://geokit.site/favicon.png",
+  "contact_email": "support@geokit.site",
+  "legal_info_url": "https://geokit.site/terms"
+}

@@ -7,6 +7,8 @@ export default function Footer() {
             GEOKit — Free GEO Tools for AI Search Optimization
           </p>
           <div className="flex items-center gap-6 text-base text-gray-500">
+            <a href="mailto:support@geokit.site" className="hover:text-brand-400 transition-colors">Contact</a>
+            <span>·</span>
             <a href="/privacy" className="hover:text-brand-400 transition-colors">Privacy Policy</a>
             <span>·</span>
             <a href="/terms" className="hover:text-brand-400 transition-colors">Terms of Service</a>
