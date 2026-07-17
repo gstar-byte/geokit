@@ -1,26 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <!-- 主体科技渐变：亮蓝到深蓝 -->
-    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- 科技蓝渐变：用于工具箱主体 -->
+    <linearGradient id="kit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#59c0ff" />
-      <stop offset="100%" stop-color="#1c85f5" />
+      <stop offset="100%" stop-color="#136ae1" />
     </linearGradient>
-    <!-- AI Sparkle 渐变：白色发光到明亮蓝 -->
-    <linearGradient id="spark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- 发光白蓝渐变：用于机器人面部和 AI 星芒 -->
+    <linearGradient id="bright-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
       <stop offset="100%" stop-color="#33a4ff" />
     </linearGradient>
   </defs>
-  
-  <!-- 现代几何字母 G：加粗的圆角科技描边，无繁琐底色，保证超清可读性 -->
-  <path d="M 46 22 A 20 20 0 1 0 46 44 L 46 32 L 32 32" 
+
+  <!-- 1. 工具箱提手 (Kit Handle) -->
+  <path d="M 22 20 L 22 12 A 4 4 0 0 1 26 8 L 38 8 A 4 4 0 0 1 42 12 L 42 20" 
         fill="none" 
-        stroke="url(#brand-grad)" 
-        stroke-width="9" 
-        stroke-linecap="round" 
-        stroke-linejoin="round" />
-        
-  <!-- 右上角象征 Generative AI 智能的精致四角星 (Sparkle) -->
-  <path d="M 48 8 Q 48 16 40 16 Q 48 16 48 24 Q 48 16 56 16 Q 48 16 48 8 Z" 
-        fill="url(#spark-grad)" />
+        stroke="url(#kit-grad)" 
+        stroke-width="5" 
+        stroke-linecap="round" />
+
+  <!-- 2. 螺母耳机 (Kit Bolts / Bot Ears) -->
+  <rect x="6" y="31" width="6" height="12" rx="3" fill="url(#kit-grad)" />
+  <rect x="52" y="31" width="6" height="12" rx="3" fill="url(#kit-grad)" />
+
+  <!-- 3. 机器人/工具箱主体 (Kit Box / Bot Body) -->
+  <rect x="10" y="19" width="44" height="34" rx="9" fill="url(#kit-grad)" />
+
+  <!-- 4. 机器人发光眼睛 (Bot Eyes) -->
+  <rect x="18" y="28" width="8" height="4" rx="2" fill="url(#bright-grad)" />
+  <rect x="38" y="28" width="8" height="4" rx="2" fill="url(#bright-grad)" />
+
+  <!-- 5. AI 对话气泡嘴巴 (Chat Bubble Mouth) -->
+  <rect x="25" y="37" width="14" height="8" rx="3.5" fill="url(#bright-grad)" />
+  <path d="M 28 45 L 32 45 L 30 48 Z" fill="url(#bright-grad)" />
+
+  <!-- 6. AI 智慧天线与发光星芒 (Antenna & Sparkle) -->
+  <line x1="44" y1="19" x2="49" y2="11" stroke="url(#bright-grad)" stroke-width="3" stroke-linecap="round" />
+  <path d="M 49 3 Q 49 11 41 11 Q 49 11 49 19 Q 49 11 57 11 Q 49 11 49 3 Z" fill="url(#bright-grad)" />
 </svg>
