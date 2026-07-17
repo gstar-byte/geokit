@@ -14,7 +14,9 @@ const ASSETS_TO_CACHE = [
   "/tools/qa-content-formatter",
   "/tools/geo-score",
   "/tools/schema-validator",
-  "/favicon.png"
+  "/favicon.png",
+  "/icon-192.png",
+  "/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
