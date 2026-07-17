@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/components/i18n";
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
@@ -13,46 +16,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "GEOKit",
   url: "https://geokit.site",
-  description: "Free toolkit for Generative Engine Optimization (GEO). 10 free tools to optimize websites for AI search engines.",
-};
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is GEO (Generative Engine Optimization)?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GEO is the practice of optimizing your website so that AI search engines like ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and recommend your content. It includes technical signals like llms.txt, AI crawler access, and structured data.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is llms.txt?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "llms.txt is a markdown file placed at the root of your website (e.g., example.com/llms.txt) that provides LLM-friendly content. It tells AI models what your site is about and which pages are most important, similar to how robots.txt guides search engine crawlers.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need to sign up or pay?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. All GEOKit tools are 100% free with no signup required. Just open a tool and start using it. Everything runs in your browser.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are these tools safe to use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab.",
-      },
-    },
-  ],
+  description: "Free toolkit for Generative Engine Optimization (GEO). 13 free tools to optimize websites for AI search engines.",
 };
 
 const tools = [
@@ -142,6 +106,8 @@ const tools = [
 ];
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <>
       <script
@@ -152,36 +118,33 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/20 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 text-center">
-          <div className="inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm text-brand-300 mb-6">
-            Free · No Signup · No Data Collected
+          <div className="inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm text-brand-300 mb-6 animate-fade-in">
+            {t("Free · No Signup · No Data Collected", "Free · No Signup · No Data Collected")}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Free GEO Tools for{" "}
+            {t("Free GEO Tools for ", "Free GEO Tools for ")}
             <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
-              AI Search
+              {t("AI Search", "AI Search")}
             </span>{" "}
-            Optimization
+            {t("Optimization", "Optimization")}
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-400 mb-8">
-            Optimize your website for ChatGPT, Perplexity, Google AI Overviews,
-            and other AI search engines. Generate llms.txt, AI robots.txt,
-            AI-friendly schema markup, and check your AI readiness score — all
-            in one place.
+            {t(
+              "Free GEO toolkit to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
+              "Optimize your website for ChatGPT, Perplexity, Google AI Overviews, and other AI search engines. Generate llms.txt, AI robots.txt, AI-friendly schema markup, and check your AI readiness score — all in one place."
+            )}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/tools/ai-readiness-checker" className="btn-primary">
-              Check Your AI Readiness →
+              {t("Check Your AI Readiness →", "Check Your AI Readiness →")}
             </Link>
             <Link href="/tools/llms-txt-generator" className="btn-secondary">
-              Generate llms.txt
+              {t("Generate llms.txt", "Generate llms.txt")}
             </Link>
           </div>
         </div>
@@ -189,9 +152,12 @@ export default function HomePage() {
 
       {/* Tools Grid */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold text-white mb-2">All Tools</h2>
+        <h2 className="text-3xl font-bold text-white mb-2">{t("All Tools", "All Tools")}</h2>
         <p className="text-lg text-gray-400 mb-8">
-          Thirteen free tools to make your website visible to AI search engines.
+          {t(
+            "Thirteen free tools to make your website visible to AI search engines.",
+            "Thirteen free tools to make your website visible to AI search engines."
+          )}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tools.map((tool) => (
@@ -200,15 +166,15 @@ export default function HomePage() {
                 <span className="text-3xl">{tool.icon}</span>
                 {tool.tag && (
                   <span className="rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-300">
-                    {tool.tag}
+                    {t(tool.tag, tool.tag)}
                   </span>
                 )}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors">
-                {tool.title}
+                {t(tool.title, tool.title)}
               </h3>
               <p className="text-base text-gray-400 leading-relaxed">
-                {tool.desc}
+                {t(tool.desc, tool.desc)}
               </p>
             </Link>
           ))}
@@ -221,31 +187,37 @@ export default function HomePage() {
           <div>
             <div className="text-2xl mb-3">🔒</div>
             <h3 className="text-lg font-semibold text-white mb-2">
-              100% Private
+              {t("100% Private", "100% Private")}
             </h3>
             <p className="text-base text-gray-400">
-              All tools run in your browser. Your data never leaves your device.
-              No servers, no tracking, no logs.
+              {t(
+                "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs.",
+                "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs."
+              )}
             </p>
           </div>
           <div>
             <div className="text-2xl mb-3">⚡</div>
             <h3 className="text-lg font-semibold text-white mb-2">
-              Instant Results
+              {t("Instant Results", "Instant Results")}
             </h3>
             <p className="text-base text-gray-400">
-              No signup, no waiting. Open a tool and start using it immediately.
-              Everything is processed locally.
+              {t(
+                "No signup, no waiting. Open a tool and start using it immediately. Everything is processed locally.",
+                "No signup, no waiting. Open a tool and start using it immediately. Everything is processed locally."
+              )}
             </p>
           </div>
           <div>
             <div className="text-2xl mb-3">🆓</div>
             <h3 className="text-lg font-semibold text-white mb-2">
-              Free Forever
+              {t("Free Forever", "Free Forever")}
             </h3>
             <p className="text-base text-gray-400">
-              All tools are completely free with no limits. No premium plans,
-              no credits, no hidden fees.
+              {t(
+                "All tools are completely free with no limits. No premium plans, no credits, no hidden fees.",
+                "All tools are completely free with no limits. No premium plans, no credits, no hidden fees."
+              )}
             </p>
           </div>
         </div>
@@ -254,50 +226,51 @@ export default function HomePage() {
       {/* FAQ */}
       <section className="mx-auto max-w-3xl px-4 py-16">
         <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Frequently Asked Questions
+          {t("Frequently Asked Questions", "Frequently Asked Questions")}
         </h2>
         <div className="space-y-6">
           <div>
             <h3 className="text-white font-medium mb-2">
-              What is GEO (Generative Engine Optimization)?
+              {t("What is GEO (Generative Engine Optimization)?", "What is GEO (Generative Engine Optimization)?")}
             </h3>
             <p className="text-gray-400 text-base">
-              GEO is the practice of optimizing your website so that AI search
-              engines like ChatGPT, Perplexity, and Google AI Overviews can
-              understand, cite, and recommend your content. It includes
-              technical signals like llms.txt, AI crawler access, and structured
-              data.
+              {t(
+                "GEO is the practice of optimizing your website so that AI search engines like ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and recommend your content. It includes technical signals like llms.txt, AI crawler access, and structured data.",
+                "GEO is the practice of optimizing your website so that AI search engines like ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and recommend your content. It includes technical signals like llms.txt, AI crawler access, and structured data."
+              )}
             </p>
           </div>
           <div>
             <h3 className="text-white font-medium mb-2">
-              What is llms.txt?
+              {t("What is llms.txt?", "What is llms.txt?")}
             </h3>
             <p className="text-gray-400 text-base">
-              llms.txt is a markdown file placed at the root of your website
-              (e.g., example.com/llms.txt) that provides LLM-friendly content.
-              It tells AI models what your site is about and which pages are
-              most important, similar to how robots.txt guides search engine
-              crawlers.
+              {t(
+                "llms.txt is a markdown file placed at the root of your website (e.g., example.com/llms.txt) that provides LLM-friendly content. It tells AI models what your site is about and which pages are most important, similar to how robots.txt guides search engine crawlers.",
+                "llms.txt is a markdown file placed at the root of your website (e.g., example.com/llms.txt) that provides LLM-friendly content. It tells AI models what your site is about and which pages are most important, similar to how robots.txt guides search engine crawlers."
+              )}
             </p>
           </div>
           <div>
             <h3 className="text-white font-medium mb-2">
-              Do I need to sign up or pay?
+              {t("Do I need to sign up or pay?", "Do I need to sign up or pay?")}
             </h3>
             <p className="text-gray-400 text-base">
-              No. All GEOKit tools are 100% free with no signup required. Just
-              open a tool and start using it. Everything runs in your browser.
+              {t(
+                "No. All GEOKit tools are 100% free with no signup required. Just open a tool and start using it. Everything runs in your browser.",
+                "No. All GEOKit tools are 100% free with no signup required. Just open a tool and start using it. Everything runs in your browser."
+              )}
             </p>
           </div>
           <div>
             <h3 className="text-white font-medium mb-2">
-              Are these tools safe to use?
+              {t("Are these tools safe to use?", "Are these tools safe to use?")}
             </h3>
             <p className="text-gray-400 text-base">
-              Yes. All processing happens client-side in your browser. Your
-              inputs and outputs are never sent to any server. You can verify
-              this by checking your browser&apos;s network tab.
+              {t(
+                "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab.",
+                "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab."
+              )}
             </p>
           </div>
         </div>

@@ -38,6 +38,12 @@ export default function CookieConsent() {
     setIsVisible(false);
   };
 
+  const handleRejectAll = () => {
+    localStorage.setItem("geokit-consent", "denied");
+    updateConsentState(false);
+    setIsVisible(false);
+  };
+
   const handleSavePreferences = () => {
     const status = analyticsConsent ? "granted" : "denied";
     localStorage.setItem("geokit-consent", status);
@@ -110,27 +116,36 @@ export default function CookieConsent() {
       )}
 
       {/* Footer Link & Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-gray-800/60">
-        <Link
-          href="/about"
-          onClick={closeBanner}
-          className="text-xs font-medium text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
-        >
-          Learn more about our policy
-        </Link>
+      <div className="flex flex-col gap-3 pt-3 border-t border-gray-800/60">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <Link
+            href="/about"
+            onClick={closeBanner}
+            className="text-xs font-medium text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
+          >
+            Learn more about our policy
+          </Link>
 
-        <div className="flex items-center gap-2">
-          {!showCustomizer ? (
+          <button
+            onClick={() => setShowCustomizer(!showCustomizer)}
+            className="text-xs font-medium text-gray-400 hover:text-white transition-colors"
+          >
+            {showCustomizer ? "Hide Preferences" : "Customize Preferences"}
+          </button>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2">
+          {showCustomizer ? (
             <>
               <button
-                onClick={() => setShowCustomizer(true)}
-                className="rounded-xl border border-gray-700 bg-gray-800/80 px-3.5 py-2 text-xs font-semibold text-gray-200 hover:bg-gray-700 hover:text-white transition-colors"
+                onClick={handleSavePreferences}
+                className="flex-1 rounded-xl border border-gray-700 bg-gray-800/80 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700 transition-colors text-center"
               >
-                Customize Preferences
+                Save Preferences
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20"
+                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
               >
                 Accept All
               </button>
@@ -138,14 +153,14 @@ export default function CookieConsent() {
           ) : (
             <>
               <button
-                onClick={handleSavePreferences}
-                className="rounded-xl border border-gray-700 bg-gray-800/80 px-3.5 py-2 text-xs font-semibold text-white hover:bg-gray-700 transition-colors"
+                onClick={handleRejectAll}
+                className="flex-1 rounded-xl border border-gray-700 bg-transparent px-4 py-2 text-xs font-semibold text-gray-300 hover:bg-gray-850 hover:text-white transition-colors text-center"
               >
-                Save Preferences
+                Reject All
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20"
+                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
               >
                 Accept All
               </button>
@@ -156,3 +171,4 @@ export default function CookieConsent() {
     </div>
   );
 }
+

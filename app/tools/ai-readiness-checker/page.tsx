@@ -127,6 +127,143 @@ export default function AiReadinessCheckerPage() {
     }
   };
 
+  const handleDownloadReport = () => {
+    if (!result) return;
+
+    const statusIcon = (s: string) => {
+      switch (s) {
+        case "pass": return "✓";
+        case "fail": return "✗";
+        case "warn": return "⚠";
+        case "info": return "ℹ";
+        default: return "";
+      }
+    };
+
+    const statusColor = (s: string) => {
+      switch (s) {
+        case "pass": return "#16a34a";
+        case "fail": return "#dc2626";
+        case "warn": return "#ca8a04";
+        case "info": return "#2563eb";
+        default: return "#333";
+      }
+    };
+
+    const scoreBarColor = (score: number) => {
+      if (score >= 80) return "#16a34a";
+      if (score >= 50) return "#ca8a04";
+      return "#dc2626";
+    };
+
+    const categoriesHtml = result.categories
+      .map(
+        (cat) => `
+        <div class="category">
+          <div class="cat-header">
+            <span class="cat-title">${cat.icon} ${cat.label}</span>
+            <span class="cat-score" style="color: ${scoreBarColor(cat.score)}">${cat.score}%</span>
+          </div>
+          <div class="cat-bar-bg"><div class="cat-bar" style="width: ${cat.score}%; background: ${scoreBarColor(cat.score)}"></div></div>
+          <table class="checks">
+            <tbody>
+              ${cat.results
+                .map(
+                  (c) => `
+                <tr>
+                  <td class="status-icon" style="color: ${statusColor(c.status)}">${statusIcon(c.status)}</td>
+                  <td class="check-name">${c.name}</td>
+                  <td class="check-score" style="color: ${statusColor(c.status)}">${Math.round(c.weightedPoints)}/${Math.round(c.weightedMax)}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2" class="check-msg">${c.message}</td>
+                </tr>`
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>`
+      )
+      .join("");
+
+    const reportDate = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Readiness Report — ${result.url}</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fff; padding: 40px; line-height: 1.5; max-width: 800px; margin: 0 auto; }
+    .header { border-bottom: 2px solid #e5e7eb; padding-bottom: 20px; margin-bottom: 24px; }
+    .header h1 { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    .header .meta { font-size: 13px; color: #6b7280; }
+    .score-section { display: flex; align-items: center; gap: 24px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 28px; background: #f9fafb; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 6px solid ${scoreBarColor(result.score)}; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+    .score-circle .num { font-size: 32px; font-weight: 700; color: ${scoreBarColor(result.score)}; line-height: 1; }
+    .score-circle .grade { font-size: 14px; color: #6b7280; margin-top: 2px; }
+    .score-detail h2 { font-size: 16px; font-weight: 600; color: #111; margin-bottom: 4px; }
+    .score-detail p { font-size: 13px; color: #6b7280; }
+    .category { margin-bottom: 20px; page-break-inside: avoid; }
+    .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .cat-title { font-size: 15px; font-weight: 600; color: #111; }
+    .cat-score { font-size: 15px; font-weight: 700; }
+    .cat-bar-bg { height: 6px; background: #e5e7eb; border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
+    .cat-bar { height: 100%; border-radius: 3px; }
+    .checks { width: 100%; border-collapse: collapse; }
+    .checks td { padding: 3px 6px; vertical-align: top; font-size: 13px; }
+    .status-icon { width: 20px; text-align: center; font-weight: 700; }
+    .check-name { font-weight: 500; color: #1a1a1a; }
+    .check-score { text-align: right; font-weight: 600; white-space: nowrap; }
+    .check-msg { color: #6b7280; font-size: 12px; padding-bottom: 8px; }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 12px; color: #9ca3af; }
+    @media print {
+      body { padding: 20px; }
+      .category { page-break-inside: avoid; }
+      .score-section { background: #f9fafb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cat-bar, .cat-bar-bg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>GEOKit AI Readiness Report</h1>
+    <div class="meta">${result.url} · ${reportDate} · Site type: ${result.siteType}</div>
+  </div>
+
+  <div class="score-section">
+    <div class="score-circle">
+      <span class="num">${result.score}</span>
+      <span class="grade">${getGrade(result.score)}</span>
+    </div>
+    <div class="score-detail">
+      <h2>${getScoreLabel(result.score)}</h2>
+      <p>${result.checkCount} checks completed · ${result.totalPoints}/${result.maxTotal} weighted points</p>
+    </div>
+  </div>
+
+  ${categoriesHtml}
+
+  <div class="footer">Generated by GEOKit — geokit.site</div>
+</body>
+</html>`;
+
+    const win = window.open("", "_blank");
+    if (win) {
+      win.document.write(html);
+      win.document.close();
+      setTimeout(() => {
+        win.print();
+      }, 400);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
@@ -316,6 +453,12 @@ export default function AiReadinessCheckerPage() {
             >
               Get Your Badge →
             </a>
+            <button
+              onClick={handleDownloadReport}
+              className="btn-secondary inline-block ml-3"
+            >
+              📄 Download Report
+            </button>
           </div>
 
           {/* Improvement CTAs */}
