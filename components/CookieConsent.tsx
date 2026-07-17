@@ -119,7 +119,7 @@ export default function CookieConsent() {
       <div className="flex flex-col gap-3 pt-3 border-t border-gray-800/60">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <Link
-            href="/about"
+            href="/privacy"
             onClick={closeBanner}
             className="text-xs font-medium text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
           >
