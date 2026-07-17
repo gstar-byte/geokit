@@ -343,12 +343,51 @@ export default function SchemaValidatorPage() {
   const [parsedSchema, setParsedSchema] = useState<any | null>(null);
   const [copied, setCopied] = useState(false);
 
+  /* URL 提取相关状态 */
+  const [urlInput, setUrlInput] = useState("");
+  const [urlLoading, setUrlLoading] = useState(false);
+  const [urlMessage, setUrlMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
   const handleValidate = () => {
     const trimmed = input.trim();
     if (!trimmed) return;
     const { items, parsed } = validateSchema(trimmed);
     setResults(items);
     setParsedSchema(parsed);
+  };
+
+  const handleFetchUrl = async () => {
+    const trimmedUrl = urlInput.trim();
+    if (!trimmedUrl) return;
+    setUrlLoading(true);
+    setUrlMessage(null);
+    try {
+      const res = await fetch("/api/fetch-schema", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: trimmedUrl }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setUrlMessage({ type: "error", text: data.error || "Failed to fetch schemas." });
+        return;
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const schemas: any[] = data.schemas;
+      const jsonStr = schemas.length === 1
+        ? JSON.stringify(schemas[0], null, 2)
+        : JSON.stringify(schemas, null, 2);
+      setInput(jsonStr);
+      setUrlMessage({ type: "success", text: `✓ Found ${schemas.length} schema(s) from URL` });
+      // 自动触发验证
+      const { items, parsed } = validateSchema(jsonStr);
+      setResults(items);
+      setParsedSchema(parsed);
+    } catch (e) {
+      setUrlMessage({ type: "error", text: `Network error: ${(e as Error).message}` });
+    } finally {
+      setUrlLoading(false);
+    }
   };
 
   const loadExample = () => {
@@ -380,6 +419,52 @@ export default function SchemaValidatorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* ── 左列：输入 & 校验结果 ── */}
         <div className="space-y-6">
+          {/* URL 自动提取 */}
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Extract from URL</label>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={urlInput}
+                onChange={(e) => setUrlInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleFetchUrl();
+                }}
+                placeholder="https://yoursite.com"
+                className="input-field flex-1"
+              />
+              <button
+                onClick={handleFetchUrl}
+                disabled={!urlInput.trim() || urlLoading}
+                className="btn-primary whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {urlLoading ? (
+                  <span className="flex items-center gap-2">
+                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Fetching…
+                  </span>
+                ) : (
+                  "Fetch & Validate"
+                )}
+              </button>
+            </div>
+            {urlMessage && (
+              <p className={`text-sm mt-2 ${urlMessage.type === "success" ? "text-green-400" : "text-red-400"}`}>
+                {urlMessage.text}
+              </p>
+            )}
+          </div>
+
+          {/* 分隔线 */}
+          <div className="flex items-center gap-3">
+            <div className="flex-1 border-t border-gray-800" />
+            <span className="text-xs text-gray-500">or paste JSON-LD directly</span>
+            <div className="flex-1 border-t border-gray-800" />
+          </div>
+
           {/* 输入框 */}
           <div>
             <div className="flex items-center justify-between mb-2">

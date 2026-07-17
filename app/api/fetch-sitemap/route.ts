@@ -97,14 +97,17 @@ async function parseSitemapXml(baseUrl: string): Promise<string[]> {
   return [...new Set(urls)].slice(0, 50);
 }
 
-async function fetchPageTitle(url: string): Promise<string> {
+async function fetchPageTitle(url: string): Promise<{ title: string; description: string }> {
   try {
     const res = await fetchWithTimeout(url, 5000);
-    if (!res.ok) return "";
+    if (!res.ok) return { title: "", description: "" };
     const text = await res.text();
+
+    // 提取 title
+    let title = "";
     const titleMatch = text.match(/<title[^>]*>(.*?)<\/title>/i);
     if (titleMatch) {
-      return titleMatch[1]
+      title = titleMatch[1]
         .replace(/\s*[|\-–—]\s*.+$/, "")
         .replace(/&amp;/g, "&")
         .replace(/&lt;/g, "<")
@@ -113,9 +116,22 @@ async function fetchPageTitle(url: string): Promise<string> {
         .replace(/&quot;/g, '"')
         .trim();
     }
-    return "";
+
+    // 提取 meta description
+    let description = "";
+    const descMatch = text.match(/<meta[^>]*name=["']description["'][^>]*content=["'](.*?)["']/i)
+      || text.match(/<meta[^>]*content=["'](.*?)["'][^>]*name=["']description["']/i);
+    if (descMatch) {
+      description = descMatch[1]
+        .replace(/&amp;/g, "&")
+        .replace(/&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .trim();
+    }
+
+    return { title, description };
   } catch {
-    return "";
+    return { title: "", description: "" };
   }
 }
 
@@ -194,11 +210,11 @@ export async function POST(req: NextRequest) {
       const batch = pagesToFetch.slice(i, i + 5);
       const results = await Promise.allSettled(
         batch.map(async (pageUrl) => {
-          const title = await fetchPageTitle(pageUrl);
+          const { title, description } = await fetchPageTitle(pageUrl);
           return {
             title: title || new URL(pageUrl).pathname.replace(/\//g, " ").trim(),
             url: pageUrl,
-            note: "",
+            note: description,
           };
         })
       );
