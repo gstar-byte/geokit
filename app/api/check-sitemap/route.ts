@@ -115,6 +115,7 @@ export async function POST(req: NextRequest) {
       totalUrls: urls.length,
       urlsChecked: checkResults.length,
       results: checkResults,
+      urls,
       xmlSizeKb: (xmlText.length / 1024).toFixed(1),
     });
   } catch (error) {

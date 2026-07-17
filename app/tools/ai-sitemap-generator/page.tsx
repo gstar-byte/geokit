@@ -40,6 +40,67 @@ export default function AiSitemapGeneratorPage() {
   ]);
   const [copied, setCopied] = useState(false);
 
+  // Import Sitemap state
+  const [importUrl, setImportUrl] = useState("");
+  const [importLoading, setImportLoading] = useState(false);
+  const [importError, setImportError] = useState("");
+  const [importSuccess, setImportSuccess] = useState("");
+
+  const handleImport = async () => {
+    if (!importUrl.trim()) return;
+    setImportLoading(true);
+    setImportError("");
+    setImportSuccess("");
+    try {
+      const res = await fetch("/api/check-sitemap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sitemapUrl: importUrl }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setImportError(data.error || "Failed to parse sitemap.");
+      } else if (data.urls && data.urls.length > 0) {
+        // Set Base URL if empty
+        let parsedBase = baseUrl;
+        try {
+          const firstUrlObj = new URL(data.urls[0]);
+          parsedBase = `${firstUrlObj.protocol}//${firstUrlObj.hostname}`;
+          if (!baseUrl) {
+            setBaseUrl(parsedBase);
+          }
+        } catch {}
+
+        // Map imported urls
+        const importedUrls: SitemapUrl[] = data.urls.map((rawUrl: string) => {
+          let relUrl = rawUrl;
+          if (parsedBase && rawUrl.startsWith(parsedBase)) {
+            relUrl = rawUrl.substring(parsedBase.length);
+            if (!relUrl.startsWith("/")) {
+              relUrl = "/" + relUrl;
+            }
+          }
+          return {
+            url: relUrl,
+            lastmod: new Date().toISOString().split("T")[0],
+            changefreq: "weekly",
+            priority: "0.8",
+          };
+        });
+
+        setUrls(importedUrls);
+        setImportSuccess(`✓ Successfully imported ${importedUrls.length} URLs!`);
+        setImportUrl("");
+      } else {
+        setImportError("No URLs found in the sitemap.");
+      }
+    } catch {
+      setImportError("Failed to fetch and load sitemap.");
+    } finally {
+      setImportLoading(false);
+    }
+  };
+
   const output = generateSitemap(urls, baseUrl || "https://yoursite.com");
 
   const copyToClipboard = () => {
@@ -73,6 +134,38 @@ export default function AiSitemapGeneratorPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
+          {/* Import Section */}
+          <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5 space-y-3">
+            <label className="block text-sm font-semibold text-white">
+              📥 Import from existing Sitemap
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={importUrl}
+                onChange={(e) => setImportUrl(e.target.value)}
+                placeholder="https://example.com/sitemap.xml"
+                className="input-field flex-1 text-sm"
+              />
+              <button
+                onClick={handleImport}
+                disabled={importLoading || !importUrl.trim()}
+                className="btn-secondary whitespace-nowrap text-sm disabled:opacity-50"
+              >
+                {importLoading ? "Importing..." : "Import"}
+              </button>
+            </div>
+            {importError && (
+              <p className="text-xs text-red-400">{importError}</p>
+            )}
+            {importSuccess && (
+              <p className="text-xs text-green-400">{importSuccess}</p>
+            )}
+            <p className="text-xs text-gray-500">
+              Quickly load all URLs from your current sitemap to edit, add priority markers, and customize.
+            </p>
+          </div>
+
           <div>
             <label className="block text-base font-medium text-gray-300 mb-2">
               Base URL

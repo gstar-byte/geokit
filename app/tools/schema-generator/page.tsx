@@ -2,15 +2,29 @@
 
 import { useState } from "react";
 
-type SchemaType = "Article" | "Product" | "FAQPage" | "Organization" | "HowTo" | "SoftwareApplication";
+type SchemaType =
+  | "Article"
+  | "Product"
+  | "FAQPage"
+  | "Organization"
+  | "HowTo"
+  | "SoftwareApplication"
+  | "Person"
+  | "LocalBusiness"
+  | "BreadcrumbList"
+  | "VideoObject";
 
 const schemaTypes: { value: SchemaType; label: string; desc: string }[] = [
   { value: "Article", label: "Article", desc: "Blog posts, news articles, editorial content" },
   { value: "Product", label: "Product", desc: "E-commerce products with pricing" },
-  { value: "FAQPage", label: "FAQ Page", desc: "Question and answer pages — 3.2x more likely to be cited in AI Overviews" },
+  { value: "FAQPage", label: "FAQ Page", desc: "Question and answer pages — 3.2x more cited in AI Overviews" },
   { value: "Organization", label: "Organization", desc: "Company/brand info for knowledge panels" },
   { value: "HowTo", label: "How-To", desc: "Step-by-step guides and tutorials" },
   { value: "SoftwareApplication", label: "Software Application", desc: "SaaS products and apps" },
+  { value: "Person", label: "Person", desc: "Personal E-E-A-T credentials and social links" },
+  { value: "LocalBusiness", label: "Local Business", desc: "Physical stores, offices, and services" },
+  { value: "BreadcrumbList", label: "Breadcrumbs", desc: "Navigation structure for rich snippets" },
+  { value: "VideoObject", label: "Video", desc: "Video descriptions, thumbnails, and dates" },
 ];
 
 interface FaqItem {
@@ -23,11 +37,17 @@ interface HowToStep {
   text: string;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 function generateSchema(
   type: SchemaType,
   data: Record<string, string>,
   faqs: FaqItem[],
-  steps: HowToStep[]
+  steps: HowToStep[],
+  breadcrumbs: BreadcrumbItem[]
 ): string {
   const base: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -109,6 +129,45 @@ function generateSchema(
         reviewCount: data.reviewCount,
       };
     }
+  } else if (type === "Person") {
+    base.name = data.name || "";
+    if (data.jobTitle) base.jobTitle = data.jobTitle;
+    if (data.worksFor) base.worksFor = { "@type": "Organization", name: data.worksFor };
+    if (data.url) base.url = data.url;
+    if (data.image) base.image = data.image;
+    if (data.sameAs) {
+      base.sameAs = data.sameAs.split(",").map((s) => s.trim()).filter(Boolean);
+    }
+  } else if (type === "LocalBusiness") {
+    base.name = data.name || "";
+    if (data.image) base.image = data.image;
+    if (data.telephone) base.telephone = data.telephone;
+    if (data.url) base.url = data.url;
+    if (data.priceRange) base.priceRange = data.priceRange;
+    base.address = {
+      "@type": "PostalAddress",
+      streetAddress: data.streetAddress || "",
+      addressLocality: data.locality || "",
+      addressRegion: data.region || "",
+      postalCode: data.postalCode || "",
+      addressCountry: data.country || "US",
+    };
+  } else if (type === "BreadcrumbList") {
+    base.itemListElement = breadcrumbs
+      .filter((b) => b.name && b.url)
+      .map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: b.name,
+        item: b.url,
+      }));
+  } else if (type === "VideoObject") {
+    base.name = data.name || "";
+    base.description = data.description || "";
+    if (data.thumbnailUrl) base.thumbnailUrl = data.thumbnailUrl.split(",").map((s) => s.trim()).filter(Boolean);
+    if (data.uploadDate) base.uploadDate = data.uploadDate;
+    if (data.contentUrl) base.contentUrl = data.contentUrl;
+    if (data.embedUrl) base.embedUrl = data.embedUrl;
   }
 
   return JSON.stringify(base, null, 2);
@@ -123,13 +182,17 @@ export default function SchemaGeneratorPage() {
   const [steps, setSteps] = useState<HowToStep[]>([
     { name: "", text: "" },
   ]);
+  const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>([
+    { name: "Home", url: "https://yoursite.com" },
+    { name: "Blog", url: "https://yoursite.com/blog" },
+  ]);
   const [copied, setCopied] = useState(false);
 
   const update = (key: string, value: string) => {
     setData({ ...data, [key]: value });
   };
 
-  const output = generateSchema(type, data, faqs, steps);
+  const output = generateSchema(type, data, faqs, steps, breadcrumbs);
   const jsonLdBlock = `<script type="application/ld+json">\n${output}\n</script>`;
 
   const copyToClipboard = () => {
@@ -231,6 +294,65 @@ export default function SchemaGeneratorPage() {
             <Field label="Currency" value={data.currency} onChange={(v) => update("currency", v)} placeholder="USD" />
             <Field label="Rating (0-5)" value={data.rating} onChange={(v) => update("rating", v)} placeholder="4.5" />
             <Field label="Review Count" value={data.reviewCount} onChange={(v) => update("reviewCount", v)} placeholder="128" />
+          </>
+        );
+      case "Person":
+        return (
+          <>
+            <Field label="Person Name *" value={data.name} onChange={(v) => update("name", v)} placeholder="Jane Doe" />
+            <Field label="Job Title" value={data.jobTitle} onChange={(v) => update("jobTitle", v)} placeholder="Chief SEO Specialist" />
+            <Field label="Works For (Organization)" value={data.worksFor} onChange={(v) => update("worksFor", v)} placeholder="Acme Corp" />
+            <Field label="Website URL" value={data.url} onChange={(v) => update("url", v)} placeholder="https://janedoe.com" />
+            <Field label="Image URL" value={data.image} onChange={(v) => update("image", v)} placeholder="https://janedoe.com/avatar.jpg" />
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Social Profiles (comma-separated URLs)</label>
+              <textarea value={data.sameAs} onChange={(e) => update("sameAs", e.target.value)} placeholder="https://linkedin.com/in/jane, https://github.com/jane" rows={2} className="input-field text-sm" />
+            </div>
+          </>
+        );
+      case "LocalBusiness":
+        return (
+          <>
+            <Field label="Business Name *" value={data.name} onChange={(v) => update("name", v)} placeholder="SuperDental Clinic" />
+            <Field label="Street Address" value={data.streetAddress} onChange={(v) => update("streetAddress", v)} placeholder="123 Main St" />
+            <Field label="Locality / City" value={data.locality} onChange={(v) => update("locality", v)} placeholder="New York" />
+            <Field label="Region / State" value={data.region} onChange={(v) => update("region", v)} placeholder="NY" />
+            <Field label="Postal / Zip Code" value={data.postalCode} onChange={(v) => update("postalCode", v)} placeholder="10001" />
+            <Field label="Country Code" value={data.country} onChange={(v) => update("country", v)} placeholder="US" />
+            <Field label="Telephone" value={data.telephone} onChange={(v) => update("telephone", v)} placeholder="+1-555-555-5555" />
+            <Field label="Price Range ($$, $$$)" value={data.priceRange} onChange={(v) => update("priceRange", v)} placeholder="$$" />
+            <Field label="Website URL" value={data.url} onChange={(v) => update("url", v)} placeholder="https://superdental.com" />
+            <Field label="Image URL" value={data.image} onChange={(v) => update("image", v)} placeholder="https://superdental.com/facade.jpg" />
+          </>
+        );
+      case "BreadcrumbList":
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-gray-400">Define the breadcrumb navigation items in hierarchical order.</p>
+            {breadcrumbs.map((bc, i) => (
+              <div key={i} className="space-y-2 rounded-lg border border-gray-800 bg-gray-900/50 p-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">Breadcrumb {i + 1}</span>
+                  {breadcrumbs.length > 1 && (
+                    <button onClick={() => setBreadcrumbs(breadcrumbs.filter((_, idx) => idx !== i))} className="text-xs text-red-400 hover:text-red-300">Remove</button>
+                  )}
+                </div>
+                <input type="text" value={bc.name} onChange={(e) => setBreadcrumbs(breadcrumbs.map((b, idx) => idx === i ? { ...b, name: e.target.value } : b))} placeholder="Page Name (e.g. Products)" className="input-field text-sm" />
+                <input type="text" value={bc.url} onChange={(e) => setBreadcrumbs(breadcrumbs.map((b, idx) => idx === i ? { ...b, url: e.target.value } : b))} placeholder="URL (e.g. https://yoursite.com/products)" className="input-field text-sm" />
+              </div>
+            ))}
+            <button onClick={() => setBreadcrumbs([...breadcrumbs, { name: "", url: "" }])} className="text-sm text-brand-400 hover:text-brand-300">+ Add Level</button>
+          </div>
+        );
+      case "VideoObject":
+        return (
+          <>
+            <Field label="Video Title *" value={data.name} onChange={(v) => update("name", v)} placeholder="Product Walkthrough" />
+            <Field label="Description" value={data.description} onChange={(v) => update("description", v)} placeholder="A detailed walk through video of the SaaS tool" />
+            <Field label="Thumbnail URLs (comma-separated)" value={data.thumbnailUrl} onChange={(v) => update("thumbnailUrl", v)} placeholder="https://yoursite.com/thumb.jpg" />
+            <Field label="Upload Date" value={data.uploadDate} onChange={(v) => update("uploadDate", v)} placeholder="2026-01-15T08:00:00+08:00" />
+            <Field label="Content Video File URL" value={data.contentUrl} onChange={(v) => update("contentUrl", v)} placeholder="https://yoursite.com/video.mp4" />
+            <Field label="Embed HTML Page URL" value={data.embedUrl} onChange={(v) => update("embedUrl", v)} placeholder="https://yoursite.com/video-embed" />
           </>
         );
     }
