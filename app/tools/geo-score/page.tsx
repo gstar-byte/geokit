@@ -710,6 +710,44 @@ export default function GeoScorePage() {
           </div>
         </div>
       )}
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">✍️ GEO &amp; SEO Content Scoring FAQ</h2>
+          <p className="text-gray-400">Learn how modern copy-scoring algorithms grade your writing for AI and traditional search engines.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What is the difference between GEO and traditional SEO scoring?</h3>
+            <p>
+              Traditional SEO checks for strict keyword repetition, meta title placement, and length. GEO (Generative Engine Optimization) scoring measures how well your text satisfies **AI retrieval criteria**—specifically checking for clear citation anchors, lexical diversity, and readability patterns that bots can extract.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Why does word diversity affect AI rankings?</h3>
+            <p>
+              Lexical diversity measures the ratio of unique terms to total words. AI search models (like Perplexity and Gemini) are trained to distinguish high-information content from repetitive, keyword-stuffed SEO blogs. Higher word diversity indicates comprehensive research, increasing citation odds.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. How do citations and reference patterns impact my score?</h3>
+            <p>
+              AI models are designed to reduce "hallucinations." They look for external validation indicators: URLs, bracketed sources (e.g. <code>[1]</code>), or names of authors/research papers. Content that cites its sources is deemed 2.5x more trustworthy by LLM retrieval algorithms.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. What is the optimal sentence length for readability?</h3>
+            <p>
+              Aim for an average sentence length of **15 to 20 words**. Very long sentences confuse parser models and increase readability index scores, while repetitive very short sentences lack the detail models need to synthesize structured summaries.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

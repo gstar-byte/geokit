@@ -497,6 +497,44 @@ export default function AiSearchGraderPage() {
           </div>
         </div>
       )}
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">📊 AI Search Brand Visibility FAQ</h2>
+          <p className="text-gray-400">Discover how AI answer engines evaluate your brand and how to benchmark your share of voice.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What is an AI Search Grader?</h3>
+            <p>
+              It is a specialized diagnostic utility that simulates user inquiries on multiple LLMs (such as ChatGPT, Gemini, and Claude). It scans the model's text responses to check if, when, and how your brand is recommended or cited for niche topics.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. How is my AI Brand Visibility score calculated?</h3>
+            <p>
+              The score (0–100) measures how frequently your brand appears in recommendations, your average ranking position when listed alongside competitors, the sentiment (positive vs. neutral), and your relative share of voice across the 6 queried models.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. Why does my brand rank differently across different LLMs?</h3>
+            <p>
+              Each model uses distinct training databases, crawl schedules, and retrieval pipelines. Anthropic's Claude favors deep, technical documentation (making <code>llms.txt</code> highly effective), Google's Gemini prioritizes live Google search integration, and ChatGPT favors broad brand consensus.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How can I boost my brand visibility in AI responses?</h3>
+            <p>
+              Focus on entity-building: establish consistent brand descriptions on authoritative off-site domains (LinkedIn, Crunchbase, Wikipedia). Earn positive discussions on forums like Reddit, and ensure your site has complete schema metadata to make it easily readable for real-time search crawlers.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

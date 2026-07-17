@@ -599,12 +599,50 @@ export default function SchemaValidatorPage() {
             </ul>
           </div>
 
-          {/* CTA — 链接到 Schema Generator */}
+          {/* CTA — 链接 to Schema Generator */}
           <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-center">
             <p className="text-sm text-white font-medium mb-2">Need to create schema from scratch?</p>
             <a href="/tools/schema-generator" className="btn-secondary text-sm inline-block">
               Open Schema Generator →
             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🔍 Schema Validation &amp; Rich Results FAQ</h2>
+          <p className="text-gray-400">Ensure your structured JSON-LD syntax is flawless before deploying to avoid crawling errors.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What does a Schema Validator do?</h3>
+            <p>
+              It parses your raw JSON-LD markup to detect structural syntax errors (such as trailing commas, mismatched braces, or invalid properties) and validates it against Schema.org vocabulary definitions so that search engines can read it without errors.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Why does a trailing comma break JSON-LD schema?</h3>
+            <p>
+              JSON-LD is standard JSON under the hood. Standard JSON parsers do not tolerate trailing commas at the end of object parameters or array lists. A single trailing comma causes the parser to throw a syntax error, resulting in the entire schema block being skipped by crawlers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. What is a Rich Results search preview?</h3>
+            <p>
+              It is a simulated visual representation of how your structured metadata (like FAQPage, Product ratings, or Article headline) will look on a Google search results page. Previews help you ensure key details are correctly extracted by search engines.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. Can I have multiple schema types on a single page?</h3>
+            <p>
+              Yes. You can declare multiple schemas within a single <code>&lt;script&gt;</code> block by using a JSON-LD array or linking them via an <code>@graph</code> block. For example, you can combine an <code>Organization</code> schema and a <code>WebSite</code> schema on your homepage.
+            </p>
           </div>
         </div>
       </div>

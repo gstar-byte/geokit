@@ -170,6 +170,44 @@ export default function MetaTagGeneratorPage() {
           </div>
         </div>
       </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🏷️ Open Graph &amp; AI-Specific Meta Tags FAQ</h2>
+          <p className="text-gray-400">Understand how social metadata and AI attribution tags help chatbots index and cite your pages.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. Do AI search engines use Open Graph and Twitter Cards?</h3>
+            <p>
+              Yes. When Perplexity or ChatGPT Search cites your website in an answer, they generate a rich visual preview card. They crawl your <code>og:title</code>, <code>og:description</code>, and <code>og:image</code> tags to build these preview snippets.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. What are AI-specific tags (like ai:summary)?</h3>
+            <p>
+              AI-specific meta tags (such as <code>ai:summary</code> or <code>ai:keywords</code>) are custom tags that target LLM crawlers. By providing a clean, one-sentence page summary, you give AI models an instant summary that bypasses parsing noise, reducing hallucination in citations.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. What is the role of Google Scholar Citation tags?</h3>
+            <p>
+              If you host technical papers, case studies, or blog guides, adding citation metadata (e.g. <code>citation_title</code>, <code>citation_author</code>) helps academic and technical search models (like Consensus or Google Scholar) parse and cite your pages correctly.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How do I test if my meta tags are active?</h3>
+            <p>
+              You can test your metadata by using official sharing checkers like the **Facebook Sharing Debugger** or **LinkedIn Post Inspector**, or use our **AI Crawler Tester** to see exactly how bots scrape your tag blocks.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

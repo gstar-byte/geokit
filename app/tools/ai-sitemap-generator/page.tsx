@@ -291,6 +291,44 @@ export default function AiSitemapGeneratorPage() {
           </div>
         </div>
       </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🗺️ XML Sitemap &amp; AI Crawler Optimization FAQ</h2>
+          <p className="text-gray-400">Learn how to build and maintain clean XML sitemaps to optimize crawl budget for AI search engines.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. Why do AI crawlers need an XML sitemap?</h3>
+            <p>
+              AI search engines (such as Perplexity and ChatGPT Search) crawl the web to find primary content sources. An XML sitemap serves as an explicit directory, helping AI crawlers discover new pages faster without needing to brute-force click internal links.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. What is a "clean" sitemap and why does it matter?</h3>
+            <p>
+              A clean sitemap should only contain indexable URLs that return a `200 OK` status code. Including redirected pages (301/302), broken pages (404), or pages with `noindex` tags wastes the crawl budget of AI scrapers, which can lead to important pages being ignored.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. Do AI crawlers respect Priority and Change Frequency tags?</h3>
+            <p>
+              Yes. AI crawlers use the <code>&lt;priority&gt;</code> tag (0.0 to 1.0) to understand which pages are core resources (like documentation or key features) versus secondary pages. The <code>&lt;changefreq&gt;</code> tag helps crawlers schedule re-visits efficiently.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How do I help AI crawlers find my sitemap automatically?</h3>
+            <p>
+              First, submit the sitemap URL directly to Google Search Console. Second, add the absolute sitemap link directive at the very bottom of your <code>robots.txt</code> file (e.g. <code>Sitemap: https://yourdomain.com/sitemap.xml</code>) so all bots can discover it.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

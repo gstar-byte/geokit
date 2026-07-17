@@ -158,6 +158,44 @@ export default function QaContentFormatterPage() {
           </pre>
         </div>
       </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">❓ Q&amp;A Content Formatting &amp; AI Retrieval FAQ</h2>
+          <p className="text-gray-400">Discover why structuring your website content as Question-and-Answer pairs improves discovery by LLMs.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. Why does formatting content as Q&amp;A improve AI citations?</h3>
+            <p>
+              AI search engines (like Perplexity and ChatGPT Search) process user queries as natural language questions. During retrieval, their algorithms look for semantic matches. Storing content in explicit Q&amp;A blocks matches their query embeddings directly, making your site 3.2x more likely to be cited.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Q&amp;A for RAG vs. Q&amp;A for Fine-Tuning: What is the difference?</h3>
+            <p>
+              For **RAG (Retrieval-Augmented Generation)**, clean Markdown or HTML headers help models locate the direct answer. For **Fine-Tuning (Instruction Tuning)**, the output JSON format structures input-response pairs to train custom models (e.g. Alpaca format) on your brand's data.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. How long should the question and answer be?</h3>
+            <p>
+              Keep questions concise (under 15 words) and match common search queries. For answers, provide a direct 1-to-2 sentence answer (ideal for quick extraction), followed by 2-3 sentences of supporting detail to establish authority.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. Should I use FAQPage schema with Q&amp;A content?</h3>
+            <p>
+              Absolutely. FAQPage structured JSON-LD tells crawlers exactly where questions start and end. When you export as HTML, our tool embeds this schema automatically, making it ready to drop into your page CMS.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

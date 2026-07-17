@@ -181,6 +181,44 @@ export default function SitemapValidatorPage() {
           </div>
         </div>
       )}
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🔍 XML Sitemap Validation &amp; Link Health FAQ</h2>
+          <p className="text-gray-400">Learn why auditing status codes and namespaces in your sitemaps is critical for AI crawl budget.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What does a Sitemap Validator check?</h3>
+            <p>
+              It checks three critical layers: **XML Namespace Compliance** (ensuring sitemaps.org standards are defined), **File Integrity &amp; Size** (under 50,000 URLs / 50MB), and **HTTP Status Audit** (verifying if listed URLs return `200 OK` rather than redirects or errors).
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Why does a missing XML schema namespace break indexing?</h3>
+            <p>
+              XML parsers require a formal namespace definition (e.g. <code>xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"</code>) to understand tags like <code>&lt;loc&gt;</code> and <code>&lt;lastmod&gt;</code>. Without it, the file parses as generic XML, preventing search bots from recognizing it as a sitemap.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. What is the difference between a Sitemap and a Sitemap Index?</h3>
+            <p>
+              A single Sitemap contains up to 50,000 page URLs. If your site has more pages, you must divide them into multiple files and list them in a **Sitemap Index** file (which links to the individual sitemaps). Our validator detects and parses both types.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. Why are 301 redirects and 404 errors bad in sitemaps?</h3>
+            <p>
+              Your sitemap is a declaration of the pages you *want* indexed. Including 404 pages or 301 redirects forces bots to waste crawl budget on useless requests. Sitemaps should exclusively contain clean canonical endpoints.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

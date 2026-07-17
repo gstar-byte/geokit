@@ -410,6 +410,44 @@ export default function SchemaGeneratorPage() {
           </div>
         </div>
       </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">💎 Schema Markup &amp; AI Entity Optimization FAQ</h2>
+          <p className="text-gray-400">Learn how structured JSON-LD helps ChatGPT, Claude, and Perplexity index and attribute your website.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. Why is Schema markup important for AI search?</h3>
+            <p>
+              AI models construct "knowledge graphs" of entities (people, products, places, organizations). Standard HTML is difficult to parse reliably. JSON-LD schema acts as an explicit translation layer, feeding AI crawlers clear relationships, which increases your citation rate by up to 3.2x.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. How does the Person schema help with E-E-A-T?</h3>
+            <p>
+              AI crawlers look for signs of Experience, Expertise, Authoritativeness, and Trust (E-E-A-T). By generating a <code>Person</code> schema for your authors—including links to their LinkedIn or GitHub via the <code>sameAs</code> attribute—you verify their identity and authority in the model's training data.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. What is the difference between Schema.org Validator and Google Rich Results Test?</h3>
+            <p>
+              The **Schema.org Validator** checks general vocabulary syntax and logical schema compliance globally. The **Google Rich Results Test** checks if your markup qualifies for specific search features on Google (like review stars, product prices, or FAQ dropdowns). You should use both.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. Where should I insert the JSON-LD script?</h3>
+            <p>
+              You can insert the generated <code>&lt;script type="application/ld+json"&gt;</code> block anywhere in the HTML—either in the <code>&lt;head&gt;</code> or the <code>&lt;body&gt;</code>. We recommend pasting it into the head section for better crawling speed.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -229,6 +229,44 @@ export default function LlmsTxtValidatorPage() {
           </div>
         )}
       </div>
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🔍 llms.txt Syntax &amp; Validation FAQ</h2>
+          <p className="text-gray-400">Ensure your AI roadmap file is perfectly structured for LLM parsers and crawler ingestion.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. What are the key rules for a valid llms.txt?</h3>
+            <p>
+              A valid <code>llms.txt</code> file must begin with exactly one H1 header (e.g., <code># Project Name</code>), followed immediately by a blockquote summary (e.g., <code>&gt; A brief description</code>). All subheadings must use H2 (<code>##</code>) format, and links should follow the standard list link pattern.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Why are HTML tags and code blocks discouraged in llms.txt?</h3>
+            <p>
+              The <code>llms.txt</code> file is designed to be a high-density, low-token directory index. Adding complex HTML tags, inline scripts, or markdown code blocks adds unnecessary token overhead and parsing noise for LLM crawlers. Keep it to pure, clean markdown.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. Why is there a 50KB size warning?</h3>
+            <p>
+              AI agents ingest this file into their active context window to map out your site's resources. If the index exceeds 50KB, it consumes valuable tokens that the model could use for processing actual page content. If you have extensive links, split them into multiple sub-sections or use a full-text <code>llms-full.txt</code>.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How often should I re-validate?</h3>
+            <p>
+              You should validate your file whenever you update your website architecture, add new API documentation, or change key landing page URLs. Validating ensures no broken absolute URLs or malformed markdown syntax slips into your live configuration.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

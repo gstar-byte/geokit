@@ -147,6 +147,44 @@ export default function AiCrawlerTesterPage() {
           </p>
         </div>
       )}
+
+      {/* Educational FAQ Section */}
+      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">🕷️ AI Crawler Behavior &amp; Crawlability FAQ</h2>
+          <p className="text-gray-400">Discover how search bots and AI agents read your website and how to fix accessibility gaps.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">1. Do AI crawlers execute JavaScript?</h3>
+            <p>
+              Generally, **no**. Unlike Googlebot (which has a rendering queue to execute JS), AI crawlers (like GPTBot, ClaudeBot, and PerplexityBot) fetch raw HTML directly to save compute. If your site relies on client-side JS (like standard SPA React/Vue), the bot sees an empty page. You should use SSR (Server-Side Rendering) or pre-rendering.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">2. Which AI bots are simulated by this tester?</h3>
+            <p>
+              We simulate three core perspectives: **GPTBot** (OpenAI's primary scraping bot), **ClaudeBot / Claude-Web** (Anthropic's indexer), and **PerplexityBot** (Perplexity's real-time retrieval crawler). This shows you how these distinct entities read your page structure.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">3. Why does PerplexityBot prioritize canonicals and schemas?</h3>
+            <p>
+              Perplexity functions as an answer engine that pulls real-time sources. It uses the <code>canonical URL</code> to ensure it cites the primary authority page, and parses structured data (like FAQ schema) to pull direct question-answer blocks to generate citations.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-semibold text-white text-base">4. How do I block crawlers if I don't want them scraping my site?</h3>
+            <p>
+              You can add Disallow rules in your <code>robots.txt</code> file for user-agents like <code>GPTBot</code> or <code>ClaudeBot</code>. To block all AI scrapers globally, you can block their known IP ranges or user-agents using a WAF (Web Application Firewall).
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
