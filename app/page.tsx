@@ -103,6 +103,13 @@ const tools = [
     icon: "🔎",
     tag: "New",
   },
+  {
+    href: "/tools/sitemap-validator",
+    title: "Sitemap Validator & Checker",
+    desc: "Enter your sitemap URL to check XML syntax compliance, sitemaps.org format, file weight, and run instant HTTP status checks for page URLs to find broken links.",
+    icon: "🗺️",
+    tag: "New",
+  },
 ];
 
 export default function HomePage() {

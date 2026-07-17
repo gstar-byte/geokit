@@ -136,11 +136,19 @@ export async function POST(req: NextRequest) {
     const hasRobots = /<meta\s+name=["']robots["']/i.test(html);
     techFindings.push(`Robots meta: ${hasRobots ? "present" : "not set (default: index, follow)"}`);
 
+    // SPA/JS Client-Side Rendering Detection
+    const hasSpaRoot = /<div[^>]*(?:id|class)=["'](?:root|app|__next)["'][^>]*>\s*<\/div>/i.test(html);
+    const bodyCharCount = html.replace(/<[^>]+>/g, "").trim().length;
+    if (hasSpaRoot && bodyCharCount < 150) {
+      techFindings.push("⚠ JS SSR Warning: Very low text content detected in static HTML with empty SPA mount tags. AI search bots do not execute JavaScript and will see a blank page! Consider using SSR or pre-rendering.");
+    }
+
     results.push({
       crawler: "Technical Summary",
       perspective: "Raw page diagnostics",
       findings: techFindings,
     });
+
 
     return NextResponse.json({
       url: normalizedUrl,

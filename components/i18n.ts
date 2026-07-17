@@ -129,6 +129,9 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     "Schema Validator & Preview": "Schema 验证与预览工具",
     "Validate your JSON-LD structured data and preview how it appears in Google Rich Results.":
       "验证 JSON-LD 结构化数据是否正确，并实时模拟它在 Google 富媒体搜索结果中的展示效果。",
+    "Sitemap Validator & Checker": "Sitemap 验证与死链检测工具",
+    "Enter your sitemap URL to check XML syntax compliance, sitemaps.org format, file weight, and run instant HTTP status checks for page URLs to find broken links.":
+      "输入您的网站地图 URL，检查 XML 语法合规性、sitemaps.org 格式声明、文件体积，并对页面 URL 运行即时 HTTP 状态检测以查找死链。",
 
     // Common Tool Buttons
     "Check Now": "开始检测",

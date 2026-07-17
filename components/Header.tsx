@@ -17,6 +17,7 @@ const tools = [
   { href: "/tools/ai-search-grader", label: "AI Search Grader" },
   { href: "/tools/geo-score", label: "GEO Score" },
   { href: "/tools/schema-validator", label: "Schema Validator & Preview" },
+  { href: "/tools/sitemap-validator", label: "Sitemap Validator & Checker" },
 ];
 
 export default function Header() {
