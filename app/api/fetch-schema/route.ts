@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       targetUrl = `https://${targetUrl}`;
     }
 
-    // 验证 URL 格式
+    // Validate URL format
     try {
       new URL(targetUrl);
     } catch {
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 带超时的 HTML 抓取
+    // HTML fetch with timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 8000);
 
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
       clearTimeout(timeoutId);
     }
 
-    // 提取所有 <script type="application/ld+json"> 块
+    // Extract all <script type="application/ld+json"> blocks
     const scriptRegex =
       /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
     const rawBlocks: string[] = [];
@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 解析每个 JSON 块，跳过格式错误的块
+    // Parse each JSON block, skip malformed blocks
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const schemas: any[] = [];
     const parseErrors: string[] = [];
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
     for (let i = 0; i < rawBlocks.length; i++) {
       try {
         const parsed = JSON.parse(rawBlocks[i]);
-        // 如果解析结果是数组，展开到 schemas 中
+        // If parsed result is array, spread into schemas
         if (Array.isArray(parsed)) {
           schemas.push(...parsed);
         } else {

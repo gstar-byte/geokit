@@ -304,7 +304,7 @@ function RichResultsPreview({ schema }: { schema: any }) {
   );
 }
 
-/* FAQ 手风琴子组件 */
+/* FAQ Accordion Sub-component */
 function FaqAccordionItem({ question, answer, defaultOpen }: { question: string; answer: string; defaultOpen: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
@@ -320,7 +320,7 @@ function FaqAccordionItem({ question, answer, defaultOpen }: { question: string;
   );
 }
 
-/* ── 示例 JSON-LD ── */
+/* -- Example JSON-LD -- */
 const EXAMPLE_JSON = `{
   "@context": "https://schema.org",
   "@type": "Article",
@@ -335,7 +335,7 @@ const EXAMPLE_JSON = `{
   }
 }`;
 
-/* ── 主页面 ── */
+/* -- Main Page -- */
 export default function SchemaValidatorPage() {
   const [input, setInput] = useState("");
   const [results, setResults] = useState<ValidationItem[] | null>(null);
@@ -550,7 +550,7 @@ export default function SchemaValidatorPage() {
           )}
         </div>
 
-        {/* ── 右列：Rich Results Preview ── */}
+        {/* -- Right Column: Rich Results Preview -- */}
         <div className="space-y-4">
           <h3 className="text-sm font-medium text-gray-300">Rich Results Preview</h3>
 
@@ -575,7 +575,7 @@ export default function SchemaValidatorPage() {
             </div>
           )}
 
-          {/* 支持的 type 列表 */}
+          {/* Supported type list */}
           <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
             <p className="text-sm font-medium text-gray-300 mb-3">Supported Rich Result Types</p>
             <div className="flex flex-wrap gap-1.5">
@@ -587,7 +587,7 @@ export default function SchemaValidatorPage() {
             </div>
           </div>
 
-          {/* 提示 */}
+          {/* Tips */}
           <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-sm text-gray-400">
             <p className="mb-2 font-medium text-gray-300">Tips for Rich Results</p>
             <ul className="list-disc list-inside space-y-1 text-xs">
