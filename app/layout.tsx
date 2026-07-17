@@ -8,6 +8,7 @@ import PWARegister from "@/components/PWARegister";
 export const metadata: Metadata = {
   metadataBase: new URL("https://geokit.site"),
   title: "GEOKit — Free GEO Tools for AI Search Optimization",
+  manifest: "/manifest.json",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.ico",
