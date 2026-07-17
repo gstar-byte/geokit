@@ -125,6 +125,20 @@ const tools = [
     icon: "🎯",
     tag: "New",
   },
+  {
+    href: "/tools/geo-score",
+    title: "GEO Score",
+    desc: "Paste your content and get an instant 0–100 score measuring how likely AI search engines are to cite it.",
+    icon: "📈",
+    tag: "New",
+  },
+  {
+    href: "/tools/schema-validator",
+    title: "Schema Validator & Preview",
+    desc: "Validate your JSON-LD structured data and preview how it appears in Google Rich Results.",
+    icon: "🔎",
+    tag: "New",
+  },
 ];
 
 export default function HomePage() {
@@ -177,7 +191,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-3xl font-bold text-white mb-2">All Tools</h2>
         <p className="text-lg text-gray-400 mb-8">
-          Ten free tools to make your website visible to AI search engines.
+          Thirteen free tools to make your website visible to AI search engines.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tools.map((tool) => (
