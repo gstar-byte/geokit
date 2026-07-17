@@ -190,7 +190,7 @@ export default function HomePage() {
 
       {/* Features */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-2xl mb-3">🔒</div>
             <h3 className="text-lg font-semibold text-white mb-2">
@@ -224,6 +224,18 @@ export default function HomePage() {
               {t(
                 "All tools are completely free with no limits. No premium plans, no credits, no hidden fees.",
                 "All tools are completely free with no limits. No premium plans, no credits, no hidden fees."
+              )}
+            </p>
+          </div>
+          <div>
+            <div className="text-2xl mb-3">📶</div>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              {t("PWA & Offline Ready", "PWA & Offline Ready")}
+            </h3>
+            <p className="text-base text-gray-400">
+              {t(
+                "Install GEOKit on your desktop or mobile device. Core utility tools run fully offline without any network access.",
+                "Install GEOKit on your desktop or mobile device. Core utility tools run fully offline without any network access."
               )}
             </p>
           </div>
@@ -277,6 +289,17 @@ export default function HomePage() {
               {t(
                 "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab.",
                 "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab."
+              )}
+            </p>
+          </div>
+          <div>
+            <h3 className="text-white font-medium mb-2">
+              {t("Can I use GEOKit tools offline?", "Can I use GEOKit tools offline?")}
+            </h3>
+            <p className="text-gray-400 text-base">
+              {t(
+                "Yes! GEOKit is built as a Progressive Web App (PWA). You can install it on your device and use all core utility tools (like generators, validators, lists, and copy formatters) completely offline. Only diagnostic crawler tools require a network connection.",
+                "Yes! GEOKit is built as a Progressive Web App (PWA). You can install it on your device and use all core utility tools (like generators, validators, lists, and copy formatters) completely offline. Only diagnostic crawler tools require a network connection."
               )}
             </p>
           </div>
