@@ -379,7 +379,7 @@ export default function SchemaGeneratorPage() {
                   className={`rounded-lg border p-3 text-left transition-colors ${
                     type === st.value
                       ? "border-brand-500 bg-brand-500/10"
-                      : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
+                      : "border-gray-200 bg-gray-50 hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-gray-700"
                   }`}
                 >
                   <div className="text-sm font-medium text-gray-900 dark:text-white">{st.label}</div>
