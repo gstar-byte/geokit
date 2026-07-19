@@ -55,8 +55,8 @@ export default function AiCrawlerTesterPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">AI Crawler Tester</h1>
-        <p className="text-lg text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">AI Crawler Tester</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           Enter your URL and see exactly how AI crawlers (GPTBot, ClaudeBot, PerplexityBot) perceive your page. Find out what content they can extract and what they&apos;re missing.
         </p>
       </div>
@@ -99,14 +99,14 @@ export default function AiCrawlerTesterPage() {
               className={`rounded-xl border p-6 ${crawlerColors[r.crawler] || "border-gray-800 bg-gray-900/50"}`}
             >
               <div className="flex items-center gap-3 mb-4">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   {r.crawler}
                 </h3>
               </div>
-              <p className="text-sm text-gray-400 mb-4">{r.perspective}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{r.perspective}</p>
               <ul className="space-y-2">
                 {r.findings.map((f, j) => (
-                  <li key={j} className="text-base text-gray-300 flex items-start gap-2">
+                  <li key={j} className="text-base text-gray-600 dark:text-gray-300 flex items-start gap-2">
                     <span className="text-gray-500 flex-shrink-0">•</span>
                     <span>{f}</span>
                   </li>
@@ -116,18 +116,18 @@ export default function AiCrawlerTesterPage() {
           ))}
 
           {/* Text preview */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-3">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Extracted Text Preview (first 500 chars)
             </h3>
-            <p className="text-base text-gray-400 font-mono leading-relaxed">
+            <p className="text-base text-gray-500 dark:text-gray-400 font-mono leading-relaxed">
               {result.textPreview || "No text could be extracted."}
             </p>
           </div>
 
           {/* CTA */}
           <div className="rounded-lg border border-brand-500/30 bg-brand-500/10 p-6 text-center">
-            <p className="text-white font-medium mb-3 text-lg">
+            <p className="text-gray-900 dark:text-white font-medium mb-3 text-lg">
               Want to improve how AI sees your site?
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -141,7 +141,7 @@ export default function AiCrawlerTesterPage() {
       )}
 
       {!result && !loading && !error && (
-        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <p className="text-base">
             Enter your website URL above to see how AI crawlers perceive your page. We&apos;ll simulate GPTBot, ClaudeBot, and PerplexityBot perspectives and show you exactly what content they can extract.
           </p>
@@ -149,36 +149,36 @@ export default function AiCrawlerTesterPage() {
       )}
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🕷️ AI Crawler Behavior &amp; Crawlability FAQ</h2>
-          <p className="text-gray-400">Discover how search bots and AI agents read your website and how to fix accessibility gaps.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🕷️ AI Crawler Behavior &amp; Crawlability FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Discover how search bots and AI agents read your website and how to fix accessibility gaps.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. Do AI crawlers execute JavaScript?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. Do AI crawlers execute JavaScript?</h3>
             <p>
               Generally, **no**. Unlike Googlebot (which has a rendering queue to execute JS), AI crawlers (like GPTBot, ClaudeBot, and PerplexityBot) fetch raw HTML directly to save compute. If your site relies on client-side JS (like standard SPA React/Vue), the bot sees an empty page. You should use SSR (Server-Side Rendering) or pre-rendering.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. Which AI bots are simulated by this tester?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Which AI bots are simulated by this tester?</h3>
             <p>
               We simulate three core perspectives: **GPTBot** (OpenAI's primary scraping bot), **ClaudeBot / Claude-Web** (Anthropic's indexer), and **PerplexityBot** (Perplexity's real-time retrieval crawler). This shows you how these distinct entities read your page structure.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Why does PerplexityBot prioritize canonicals and schemas?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why does PerplexityBot prioritize canonicals and schemas?</h3>
             <p>
               Perplexity functions as an answer engine that pulls real-time sources. It uses the <code>canonical URL</code> to ensure it cites the primary authority page, and parses structured data (like FAQ schema) to pull direct question-answer blocks to generate citations.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How do I block crawlers if I don't want them scraping my site?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How do I block crawlers if I don't want them scraping my site?</h3>
             <p>
               You can add Disallow rules in your <code>robots.txt</code> file for user-agents like <code>GPTBot</code> or <code>ClaudeBot</code>. To block all AI scrapers globally, you can block their known IP ranges or user-agents using a WAF (Web Application Firewall).
             </p>

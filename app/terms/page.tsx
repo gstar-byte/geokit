@@ -1,12 +1,12 @@
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <div className="mb-12 border-b border-gray-800 pb-8">
+      <div className="mb-12 border-b border-gray-200 dark:border-gray-800 pb-8">
         <h1 className="text-4xl font-extrabold text-white mb-4">Terms of Service</h1>
-        <p className="text-base text-gray-400">Last updated: July 17, 2026</p>
+        <p className="text-base text-gray-500 dark:text-gray-400">Last updated: July 17, 2026</p>
       </div>
 
-      <div className="space-y-8 text-base text-gray-400 leading-relaxed">
+      <div className="space-y-8 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
         <section className="space-y-3">
           <h2 className="text-2xl font-bold text-white">1. Agreement to Terms</h2>
           <p>
@@ -23,7 +23,7 @@ export default function TermsPage() {
           <p>
             We grant you a personal, non-exclusive, non-transferable, revocable license to access and use our free optimization tools for personal or commercial analysis of websites you own or have explicit authorization to audit.
           </p>
-          <p className="font-semibold text-gray-300">Under this license, you may not:</p>
+          <p className="font-semibold text-gray-600 dark:text-gray-300">Under this license, you may not:</p>
           <ul className="list-disc list-inside space-y-2 pl-4">
             <li>Attempt to bypass site request rate limits or dynamically scrape our internal API endpoints.</li>
             <li>Use our Service to conduct denial-of-service (DoS) attacks or automated bulk requests.</li>
@@ -60,7 +60,7 @@ export default function TermsPage() {
           </p>
         </section>
 
-        <section className="space-y-3 pt-6 border-t border-gray-800">
+        <section className="space-y-3 pt-6 border-t border-gray-200 dark:border-gray-800">
           <h2 className="text-xl font-bold text-white">Contact Us</h2>
           <p>
             For any inquiries regarding these Terms of Service, please contact us at{" "}

@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="text-3xl font-bold text-white mb-6">About GEOKit</h1>
-      <div className="prose prose-invert max-w-none space-y-6 text-gray-400">
+      <div className="prose prose-invert max-w-none space-y-6 text-gray-500 dark:text-gray-400">
         <p>
           GEOKit is a free toolkit for <strong className="text-white">Generative Engine Optimization (GEO)</strong> —
           the practice of optimizing your website so that AI search engines like

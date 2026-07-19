@@ -520,10 +520,10 @@ function DimensionCards({ dimensions }: { dimensions: DimensionResult[] }) {
         return (
           <div
             key={i}
-            className="rounded-lg border border-gray-800 bg-gray-900/50 p-3"
+            className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3"
           >
             <div className="flex items-center justify-between mb-1.5">
-              <h3 className="text-xs font-medium text-white">{dim.name}</h3>
+              <h3 className="text-xs font-medium text-gray-900 dark:text-white">{dim.name}</h3>
               <span className={`text-xs font-bold ${getScoreColor(pct)}`}>
                 {dim.score}/{dim.max}
               </span>
@@ -534,7 +534,7 @@ function DimensionCards({ dimensions }: { dimensions: DimensionResult[] }) {
                 style={{ width: `${pct}%` }}
               />
             </div>
-            <p className="text-[11px] text-gray-400 leading-relaxed">{dim.tip}</p>
+            <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">{dim.tip}</p>
           </div>
         );
       })}
@@ -560,10 +560,10 @@ export default function GeoScorePage() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       {/* Header */}
       <div className="mb-10">
-        <h1 className="text-3xl font-bold text-white mb-3">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
           GEO + SEO Score — Dual Content Grader
         </h1>
-        <p className="text-lg text-gray-400 max-w-3xl">
+        <p className="text-lg text-gray-500 dark:text-gray-400 max-w-3xl">
           Paste your content and get instant 0–100 scores for both{" "}
           <span className="text-brand-400 font-medium">GEO</span> (AI citability) and{" "}
           <span className="text-blue-400 font-medium">SEO</span> (search engine optimization).
@@ -573,7 +573,7 @@ export default function GeoScorePage() {
 
       {/* Input area */}
       <div className="mb-8">
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
           Paste your article or page content
         </label>
         <textarea
@@ -612,7 +612,7 @@ export default function GeoScorePage() {
 
       {/* Results area */}
       {!hasResults ? (
-        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-12 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-12 text-center text-gray-500">
           <svg
             className="w-12 h-12 mx-auto mb-4 text-gray-600"
             fill="none"
@@ -637,7 +637,7 @@ export default function GeoScorePage() {
           {/* Dual Score Rings */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* GEO Score Panel */}
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
               <div className="text-center mb-5">
                 <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20">
                   <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">🤖 GEO Score</span>
@@ -651,7 +651,7 @@ export default function GeoScorePage() {
             </div>
 
             {/* SEO Score Panel */}
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
               <div className="text-center mb-5">
                 <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
                   <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">🔍 SEO Score</span>
@@ -666,31 +666,31 @@ export default function GeoScorePage() {
           </div>
 
           {/* Combined Summary */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
             <div className="flex items-center justify-center gap-8 mb-4">
               <div className="text-center">
-                <span className="text-3xl font-bold text-white">{geoResult.total}</span>
-                <span className="text-sm text-gray-400 ml-1">GEO</span>
+                <span className="text-3xl font-bold text-gray-900 dark:text-white">{geoResult.total}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 ml-1">GEO</span>
               </div>
               <div className="text-2xl text-gray-600">+</div>
               <div className="text-center">
-                <span className="text-3xl font-bold text-white">{seoResult.total}</span>
-                <span className="text-sm text-gray-400 ml-1">SEO</span>
+                <span className="text-3xl font-bold text-gray-900 dark:text-white">{seoResult.total}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 ml-1">SEO</span>
               </div>
               <div className="text-2xl text-gray-600">=</div>
               <div className="text-center">
                 <span className="text-3xl font-bold text-brand-400">{Math.round((geoResult.total + seoResult.total) / 2)}</span>
-                <span className="text-sm text-gray-400 ml-1">Avg</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 ml-1">Avg</span>
               </div>
             </div>
-            <p className="text-center text-sm text-gray-400">
+            <p className="text-center text-sm text-gray-500 dark:text-gray-400">
               Combined score averages both dimensions — aim for 80+ on each for maximum visibility in both AI and traditional search.
             </p>
           </div>
 
           {/* CTA */}
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-6 text-center">
-            <p className="text-white font-medium mb-3">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 text-center">
+            <p className="text-gray-900 dark:text-white font-medium mb-3">
               Improve your scores with these tools
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -712,36 +712,36 @@ export default function GeoScorePage() {
       )}
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">✍️ GEO &amp; SEO Content Scoring FAQ</h2>
-          <p className="text-gray-400">Learn how modern copy-scoring algorithms grade your writing for AI and traditional search engines.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">✍️ GEO &amp; SEO Content Scoring FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Learn how modern copy-scoring algorithms grade your writing for AI and traditional search engines.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What is the difference between GEO and traditional SEO scoring?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What is the difference between GEO and traditional SEO scoring?</h3>
             <p>
               Traditional SEO checks for strict keyword repetition, meta title placement, and length. GEO (Generative Engine Optimization) scoring measures how well your text satisfies **AI retrieval criteria**—specifically checking for clear citation anchors, lexical diversity, and readability patterns that bots can extract.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. Why does word diversity affect AI rankings?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Why does word diversity affect AI rankings?</h3>
             <p>
               Lexical diversity measures the ratio of unique terms to total words. AI search models (like Perplexity and Gemini) are trained to distinguish high-information content from repetitive, keyword-stuffed SEO blogs. Higher word diversity indicates comprehensive research, increasing citation odds.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. How do citations and reference patterns impact my score?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. How do citations and reference patterns impact my score?</h3>
             <p>
               AI models are designed to reduce "hallucinations." They look for external validation indicators: URLs, bracketed sources (e.g. <code>[1]</code>), or names of authors/research papers. Content that cites its sources is deemed 2.5x more trustworthy by LLM retrieval algorithms.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. What is the optimal sentence length for readability?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. What is the optimal sentence length for readability?</h3>
             <p>
               Aim for an average sentence length of **15 to 20 words**. Very long sentences confuse parser models and increase readability index scores, while repetitive very short sentences lack the detail models need to synthesize structured summaries.
             </p>

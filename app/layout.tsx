@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import PWARegister from "@/components/PWARegister";
+import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geokit.site"),
@@ -63,8 +64,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* FOUC prevention: apply theme class before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var t = localStorage.getItem('geokit-theme');
+                  if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         <link rel="mcp" href="/api/mcp" />
         <meta name="mcp-server" content="/api/mcp" />
         <script
@@ -87,14 +103,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <div style={{ display: "none" }} aria-hidden="true">
-          swagger openapi graphql webmcp /api/mcp
-        </div>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <CookieConsent />
-        <PWARegister />
+        <ThemeProvider>
+          <div style={{ display: "none" }} aria-hidden="true">
+            swagger openapi graphql webmcp /api/mcp
+          </div>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CookieConsent />
+          <PWARegister />
+        </ThemeProvider>
       </body>
     </html>
   );

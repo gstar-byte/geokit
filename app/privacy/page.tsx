@@ -1,12 +1,12 @@
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <div className="mb-12 border-b border-gray-800 pb-8">
+      <div className="mb-12 border-b border-gray-200 dark:border-gray-800 pb-8">
         <h1 className="text-4xl font-extrabold text-white mb-4">Privacy Policy</h1>
-        <p className="text-base text-gray-400">Last updated: July 17, 2026</p>
+        <p className="text-base text-gray-500 dark:text-gray-400">Last updated: July 17, 2026</p>
       </div>
 
-      <div className="space-y-8 text-base text-gray-400 leading-relaxed">
+      <div className="space-y-8 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
         <section className="space-y-3">
           <h2 className="text-2xl font-bold text-white">1. Introduction</h2>
           <p>
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-3 pt-6 border-t border-gray-800">
+        <section className="space-y-3 pt-6 border-t border-gray-200 dark:border-gray-800">
           <h2 className="text-xl font-bold text-white">Contact Us</h2>
           <p>
             If you have any questions or feedback regarding this Privacy Policy, please reach out to us at{" "}

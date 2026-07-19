@@ -50,7 +50,7 @@ function generateMetaTags(data: Record<string, string>): string {
 function Field({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (v: string) => void; placeholder: string }) {
   return (
     <div>
-      <label className="block text-base font-medium text-gray-300 mb-2">{label}</label>
+      <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">{label}</label>
       <input type="text" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="input-field" />
     </div>
   );
@@ -72,8 +72,8 @@ export default function MetaTagGeneratorPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">Meta Tag Generator</h1>
-        <p className="text-lg text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Meta Tag Generator</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           Generate Open Graph, Twitter Card, and AI-specific meta tags. Includes citation tags that help AI search engines attribute and cite your content.
         </p>
       </div>
@@ -88,13 +88,13 @@ export default function MetaTagGeneratorPage() {
               <Field label="Keywords" value={data.keywords} onChange={(v) => update("keywords", v)} placeholder="comma, separated, keywords" />
               <Field label="Author" value={data.author} onChange={(v) => update("author", v)} placeholder="Author name" />
               <div>
-                <label className="block text-base font-medium text-gray-300 mb-2">Robots</label>
+                <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">Robots</label>
                 <select value={data.robots} onChange={(e) => update("robots", e.target.value)} className="input-field">
-                  <option value="" className="bg-gray-800">—</option>
-                  <option value="index, follow" className="bg-gray-800">index, follow</option>
-                  <option value="noindex, follow" className="bg-gray-800">noindex, follow</option>
-                  <option value="index, nofollow" className="bg-gray-800">index, nofollow</option>
-                  <option value="noindex, nofollow" className="bg-gray-800">noindex, nofollow</option>
+                  <option value="" className="bg-gray-100 dark:bg-gray-800">—</option>
+                  <option value="index, follow" className="bg-gray-100 dark:bg-gray-800">index, follow</option>
+                  <option value="noindex, follow" className="bg-gray-100 dark:bg-gray-800">noindex, follow</option>
+                  <option value="index, nofollow" className="bg-gray-100 dark:bg-gray-800">index, nofollow</option>
+                  <option value="noindex, nofollow" className="bg-gray-100 dark:bg-gray-800">noindex, nofollow</option>
                 </select>
               </div>
               <Field label="Canonical URL" value={data.canonical} onChange={(v) => update("canonical", v)} placeholder="https://yoursite.com/page" />
@@ -109,12 +109,12 @@ export default function MetaTagGeneratorPage() {
               <Field label="OG URL" value={data.ogUrl} onChange={(v) => update("ogUrl", v)} placeholder="Defaults to Canonical URL" />
               <Field label="OG Image URL" value={data.ogImage} onChange={(v) => update("ogImage", v)} placeholder="https://yoursite.com/image.jpg (1200x630)" />
               <div>
-                <label className="block text-base font-medium text-gray-300 mb-2">OG Type</label>
+                <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">OG Type</label>
                 <select value={data.ogType} onChange={(e) => update("ogType", e.target.value)} className="input-field">
-                  <option value="" className="bg-gray-800">—</option>
-                  <option value="website" className="bg-gray-800">website</option>
-                  <option value="article" className="bg-gray-800">article</option>
-                  <option value="product" className="bg-gray-800">product</option>
+                  <option value="" className="bg-gray-100 dark:bg-gray-800">—</option>
+                  <option value="website" className="bg-gray-100 dark:bg-gray-800">website</option>
+                  <option value="article" className="bg-gray-100 dark:bg-gray-800">article</option>
+                  <option value="product" className="bg-gray-100 dark:bg-gray-800">product</option>
                 </select>
               </div>
               <Field label="Site Name" value={data.siteName} onChange={(v) => update("siteName", v)} placeholder="Your Site Name" />
@@ -125,11 +125,11 @@ export default function MetaTagGeneratorPage() {
             <h3 className="text-lg font-semibold text-brand-400 mb-4">Twitter Card</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-base font-medium text-gray-300 mb-2">Card Type</label>
+                <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">Card Type</label>
                 <select value={data.twitterCard} onChange={(e) => update("twitterCard", e.target.value)} className="input-field">
-                  <option value="" className="bg-gray-800">—</option>
-                  <option value="summary" className="bg-gray-800">summary</option>
-                  <option value="summary_large_image" className="bg-gray-800">summary_large_image</option>
+                  <option value="" className="bg-gray-100 dark:bg-gray-800">—</option>
+                  <option value="summary" className="bg-gray-100 dark:bg-gray-800">summary</option>
+                  <option value="summary_large_image" className="bg-gray-100 dark:bg-gray-800">summary_large_image</option>
                 </select>
               </div>
               <Field label="Twitter Site (@handle)" value={data.twitterSite} onChange={(v) => update("twitterSite", v)} placeholder="@yoursite" />
@@ -153,14 +153,14 @@ export default function MetaTagGeneratorPage() {
 
         <div className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-medium text-gray-300">Generated Meta Tags</h3>
+            <h3 className="text-base font-medium text-gray-600 dark:text-gray-300">Generated Meta Tags</h3>
             <button onClick={copyToClipboard} className="btn-secondary text-sm py-1.5 px-3">
               {copied ? "✓ Copied!" : "Copy"}
             </button>
           </div>
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">{output || "<!-- Fill in fields to generate tags -->"}</pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-base text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">How to deploy:</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
+            <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to deploy:</p>
             <ol className="list-decimal list-inside space-y-1">
               <li>Copy the generated tags</li>
               <li>Paste into your page&apos;s <code className="text-brand-400">&lt;head&gt;</code> section</li>
@@ -172,36 +172,36 @@ export default function MetaTagGeneratorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🏷️ Open Graph &amp; AI-Specific Meta Tags FAQ</h2>
-          <p className="text-gray-400">Understand how social metadata and AI attribution tags help chatbots index and cite your pages.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🏷️ Open Graph &amp; AI-Specific Meta Tags FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Understand how social metadata and AI attribution tags help chatbots index and cite your pages.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. Do AI search engines use Open Graph and Twitter Cards?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. Do AI search engines use Open Graph and Twitter Cards?</h3>
             <p>
               Yes. When Perplexity or ChatGPT Search cites your website in an answer, they generate a rich visual preview card. They crawl your <code>og:title</code>, <code>og:description</code>, and <code>og:image</code> tags to build these preview snippets.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. What are AI-specific tags (like ai:summary)?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. What are AI-specific tags (like ai:summary)?</h3>
             <p>
               AI-specific meta tags (such as <code>ai:summary</code> or <code>ai:keywords</code>) are custom tags that target LLM crawlers. By providing a clean, one-sentence page summary, you give AI models an instant summary that bypasses parsing noise, reducing hallucination in citations.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. What is the role of Google Scholar Citation tags?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. What is the role of Google Scholar Citation tags?</h3>
             <p>
               If you host technical papers, case studies, or blog guides, adding citation metadata (e.g. <code>citation_title</code>, <code>citation_author</code>) helps academic and technical search models (like Consensus or Google Scholar) parse and cite your pages correctly.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How do I test if my meta tags are active?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How do I test if my meta tags are active?</h3>
             <p>
               You can test your metadata by using official sharing checkers like the **Facebook Sharing Debugger** or **LinkedIn Post Inspector**, or use our **AI Crawler Tester** to see exactly how bots scrape your tag blocks.
             </p>

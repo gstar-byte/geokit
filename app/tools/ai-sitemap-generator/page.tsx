@@ -126,8 +126,8 @@ export default function AiSitemapGeneratorPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">AI Sitemap Generator</h1>
-        <p className="text-lg text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">AI Sitemap Generator</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           Generate an XML sitemap optimized for AI crawlers. Set priority hints and update frequencies to help GPTBot, ClaudeBot, and other AI models discover your most important pages.
         </p>
       </div>
@@ -135,8 +135,8 @@ export default function AiSitemapGeneratorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           {/* Import Section */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/30 p-5 space-y-3">
-            <label className="block text-sm font-semibold text-white">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/30 p-5 space-y-3">
+            <label className="block text-sm font-semibold text-gray-900 dark:text-white">
               📥 Import from existing Sitemap
             </label>
             <div className="flex gap-2">
@@ -167,7 +167,7 @@ export default function AiSitemapGeneratorPage() {
           </div>
 
           <div>
-            <label className="block text-base font-medium text-gray-300 mb-2">
+            <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">
               Base URL
             </label>
             <input
@@ -184,7 +184,7 @@ export default function AiSitemapGeneratorPage() {
 
           <div>
             <div className="flex items-center justify-between mb-3">
-              <label className="block text-base font-medium text-gray-300">
+              <label className="block text-base font-medium text-gray-600 dark:text-gray-300">
                 URLs ({urls.filter((u) => u.url.trim()).length})
               </label>
               <button
@@ -197,7 +197,7 @@ export default function AiSitemapGeneratorPage() {
 
             <div className="space-y-3">
               {urls.map((u, i) => (
-                <div key={i} className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 space-y-3">
+                <div key={i} className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">URL {i + 1}</span>
                     {urls.length > 1 && (
@@ -233,13 +233,13 @@ export default function AiSitemapGeneratorPage() {
                         onChange={(e) => updateUrl(i, "changefreq", e.target.value)}
                         className="input-field text-sm"
                       >
-                        <option value="" className="bg-gray-800">—</option>
-                        <option value="always" className="bg-gray-800">always</option>
-                        <option value="hourly" className="bg-gray-800">hourly</option>
-                        <option value="daily" className="bg-gray-800">daily</option>
-                        <option value="weekly" className="bg-gray-800">weekly</option>
-                        <option value="monthly" className="bg-gray-800">monthly</option>
-                        <option value="yearly" className="bg-gray-800">yearly</option>
+                        <option value="" className="bg-gray-100 dark:bg-gray-800">—</option>
+                        <option value="always" className="bg-gray-100 dark:bg-gray-800">always</option>
+                        <option value="hourly" className="bg-gray-100 dark:bg-gray-800">hourly</option>
+                        <option value="daily" className="bg-gray-100 dark:bg-gray-800">daily</option>
+                        <option value="weekly" className="bg-gray-100 dark:bg-gray-800">weekly</option>
+                        <option value="monthly" className="bg-gray-100 dark:bg-gray-800">monthly</option>
+                        <option value="yearly" className="bg-gray-100 dark:bg-gray-800">yearly</option>
                       </select>
                     </div>
                     <div>
@@ -249,15 +249,15 @@ export default function AiSitemapGeneratorPage() {
                         onChange={(e) => updateUrl(i, "priority", e.target.value)}
                         className="input-field text-sm"
                       >
-                        <option value="" className="bg-gray-800">—</option>
-                        <option value="1.0" className="bg-gray-800">1.0</option>
-                        <option value="0.9" className="bg-gray-800">0.9</option>
-                        <option value="0.8" className="bg-gray-800">0.8</option>
-                        <option value="0.7" className="bg-gray-800">0.7</option>
-                        <option value="0.6" className="bg-gray-800">0.6</option>
-                        <option value="0.5" className="bg-gray-800">0.5</option>
-                        <option value="0.4" className="bg-gray-800">0.4</option>
-                        <option value="0.3" className="bg-gray-800">0.3</option>
+                        <option value="" className="bg-gray-100 dark:bg-gray-800">—</option>
+                        <option value="1.0" className="bg-gray-100 dark:bg-gray-800">1.0</option>
+                        <option value="0.9" className="bg-gray-100 dark:bg-gray-800">0.9</option>
+                        <option value="0.8" className="bg-gray-100 dark:bg-gray-800">0.8</option>
+                        <option value="0.7" className="bg-gray-100 dark:bg-gray-800">0.7</option>
+                        <option value="0.6" className="bg-gray-100 dark:bg-gray-800">0.6</option>
+                        <option value="0.5" className="bg-gray-100 dark:bg-gray-800">0.5</option>
+                        <option value="0.4" className="bg-gray-100 dark:bg-gray-800">0.4</option>
+                        <option value="0.3" className="bg-gray-100 dark:bg-gray-800">0.3</option>
                       </select>
                     </div>
                   </div>
@@ -269,7 +269,7 @@ export default function AiSitemapGeneratorPage() {
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-medium text-gray-300">Preview</h3>
+            <h3 className="text-base font-medium text-gray-600 dark:text-gray-300">Preview</h3>
             <div className="flex gap-2">
               <button onClick={copyToClipboard} className="btn-secondary text-sm py-1.5 px-3">
                 {copied ? "✓ Copied!" : "Copy"}
@@ -280,8 +280,8 @@ export default function AiSitemapGeneratorPage() {
             </div>
           </div>
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">{output}</pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-base text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">How to deploy:</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
+            <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to deploy:</p>
             <ol className="list-decimal list-inside space-y-1">
               <li>Download as <code className="text-brand-400">sitemap.xml</code></li>
               <li>Upload to your website root directory</li>
@@ -293,36 +293,36 @@ export default function AiSitemapGeneratorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🗺️ XML Sitemap &amp; AI Crawler Optimization FAQ</h2>
-          <p className="text-gray-400">Learn how to build and maintain clean XML sitemaps to optimize crawl budget for AI search engines.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🗺️ XML Sitemap &amp; AI Crawler Optimization FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Learn how to build and maintain clean XML sitemaps to optimize crawl budget for AI search engines.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. Why do AI crawlers need an XML sitemap?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. Why do AI crawlers need an XML sitemap?</h3>
             <p>
               AI search engines (such as Perplexity and ChatGPT Search) crawl the web to find primary content sources. An XML sitemap serves as an explicit directory, helping AI crawlers discover new pages faster without needing to brute-force click internal links.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. What is a "clean" sitemap and why does it matter?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. What is a "clean" sitemap and why does it matter?</h3>
             <p>
               A clean sitemap should only contain indexable URLs that return a `200 OK` status code. Including redirected pages (301/302), broken pages (404), or pages with `noindex` tags wastes the crawl budget of AI scrapers, which can lead to important pages being ignored.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Do AI crawlers respect Priority and Change Frequency tags?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Do AI crawlers respect Priority and Change Frequency tags?</h3>
             <p>
               Yes. AI crawlers use the <code>&lt;priority&gt;</code> tag (0.0 to 1.0) to understand which pages are core resources (like documentation or key features) versus secondary pages. The <code>&lt;changefreq&gt;</code> tag helps crawlers schedule re-visits efficiently.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How do I help AI crawlers find my sitemap automatically?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How do I help AI crawlers find my sitemap automatically?</h3>
             <p>
               First, submit the sitemap URL directly to Google Search Console. Second, add the absolute sitemap link directive at the very bottom of your <code>robots.txt</code> file (e.g. <code>Sitemap: https://yourdomain.com/sitemap.xml</code>) so all bots can discover it.
             </p>

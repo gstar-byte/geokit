@@ -147,10 +147,10 @@ export default function AiSearchGraderPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
           AI Search Grader — Test Your Brand Visibility in ChatGPT, Gemini &amp; Claude
         </h1>
-        <p className="text-lg text-gray-400">
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           Enter your brand name and niche to see how visible you are across AI search engines.
           We&apos;ll query 6 AI models with niche prompts and measure your brand&apos;s visibility, ranking, and share of voice vs competitors.
         </p>
@@ -160,7 +160,7 @@ export default function AiSearchGraderPage() {
       <div className="space-y-4 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">
               Brand Name <span className="text-red-400">*</span>
             </label>
             <input
@@ -172,7 +172,7 @@ export default function AiSearchGraderPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">
               Niche / Product Description <span className="text-red-400">*</span>
             </label>
             <input
@@ -186,7 +186,7 @@ export default function AiSearchGraderPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">
             Competitors (optional, comma-separated)
           </label>
           <input
@@ -200,7 +200,7 @@ export default function AiSearchGraderPage() {
 
         {serverHasKey === false && (
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1.5">
               API Key <span className="text-red-400">*</span>
             </label>
             <input
@@ -250,7 +250,7 @@ export default function AiSearchGraderPage() {
       )}
 
       {loading && (
-        <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-8 space-y-5">
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 space-y-5">
           <div className="flex items-center justify-center">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-500" />
           </div>
@@ -261,7 +261,7 @@ export default function AiSearchGraderPage() {
             </p>
           </div>
           <div className="space-y-2">
-            <div className="h-2.5 rounded-full bg-gray-800 overflow-hidden">
+            <div className="h-2.5 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-400 transition-all duration-200 ease-linear"
                 style={{ width: `${Math.min(progress, 100)}%` }}
@@ -282,12 +282,12 @@ export default function AiSearchGraderPage() {
         <div className="space-y-6">
           {/* Overall Score */}
           <div className={`rounded-xl border p-8 text-center ${getScoreBg(result.overallScore)}`}>
-            <div className="text-sm text-gray-400 mb-2">AI Search Score for</div>
-            <div className="text-xl font-semibold text-white mb-3">{result.brand}</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">AI Search Score for</div>
+            <div className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{result.brand}</div>
             <div className={`text-6xl font-bold ${getScoreColor(result.overallScore)} mb-2`}>
               {result.overallScore}
             </div>
-            <div className="text-sm text-gray-400 mb-1">out of 100</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">out of 100</div>
             <p className={`text-base font-medium ${getScoreColor(result.overallScore)}`}>
               {getScoreLabel(result.overallScore)}
             </p>
@@ -298,20 +298,20 @@ export default function AiSearchGraderPage() {
 
           {/* Competitor Comparison */}
           {allScores.length > 1 && (
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Brand vs Competitors</h3>
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Brand vs Competitors</h3>
               <div className="space-y-3">
                 {allScores.map((item, i) => (
                   <div key={i} className="flex items-center gap-4">
                     <div className="w-32 flex-shrink-0">
                       <span
-                        className={`text-sm font-medium ${item.isBrand ? "text-brand-400" : "text-gray-300"}`}
+                        className={`text-sm font-medium ${item.isBrand ? "text-brand-400" : "text-gray-600 dark:text-gray-300"}`}
                       >
                         {item.name}
                         {item.isBrand && " (You)"}
                       </span>
                     </div>
-                    <div className="flex-1 h-8 bg-gray-800 rounded-lg overflow-hidden relative">
+                    <div className="flex-1 h-8 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden relative">
                       <div
                         className={`h-full rounded-lg transition-all ${
                           item.isBrand
@@ -320,7 +320,7 @@ export default function AiSearchGraderPage() {
                         }`}
                         style={{ width: `${Math.max(item.score, 2)}%` }}
                       />
-                      <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-bold text-white">
+                      <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-900 dark:text-white">
                         {item.score}
                       </span>
                     </div>
@@ -331,8 +331,8 @@ export default function AiSearchGraderPage() {
           )}
 
           {/* Per-Model Results */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Per-Model Breakdown</h3>
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Per-Model Breakdown</h3>
             <div className="space-y-3">
               {result.modelSummaries.map((model, i) => (
                 <div
@@ -340,12 +340,12 @@ export default function AiSearchGraderPage() {
                   className={`rounded-lg border p-4 ${
                     model.error
                       ? "border-red-500/20 bg-red-500/5"
-                      : "border-gray-700 bg-gray-800/30"
+                      : "border-gray-700 bg-gray-100 dark:bg-gray-800/30"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-white">{model.name}</span>
+                      <span className="text-sm font-medium text-gray-900 dark:text-white">{model.name}</span>
                       {model.free && (
                         <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-400">
                           Free
@@ -364,14 +364,14 @@ export default function AiSearchGraderPage() {
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div>
                         <span className="text-gray-500">Visibility</span>
-                        <p className="text-gray-200">
+                        <p className="text-gray-700 dark:text-gray-200">
                           {model.brandAppearedIn}/{model.brandTotalPrompts} prompts
                           <span className="text-gray-500"> ({model.brandVisibility}%)</span>
                         </p>
                       </div>
                       <div>
                         <span className="text-gray-500">Avg Ranking</span>
-                        <p className="text-gray-200">
+                        <p className="text-gray-700 dark:text-gray-200">
                           {model.brandAverageRanking !== null
                             ? `#${model.brandAverageRanking}`
                             : "N/A"}
@@ -379,16 +379,16 @@ export default function AiSearchGraderPage() {
                       </div>
                       <div>
                         <span className="text-gray-500">Market Share</span>
-                        <p className="text-gray-200">{Math.round(model.marketShare * 100)}%</p>
+                        <p className="text-gray-700 dark:text-gray-200">{Math.round(model.marketShare * 100)}%</p>
                       </div>
                     </div>
                   )}
                   {/* Per-model competitor data */}
                   {!model.error && model.competitorData.length > 0 && (
-                    <div className="mt-3 pt-3 border-t border-gray-700/50">
+                    <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-700/50">
                       <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs">
                         {model.competitorData.map((comp, j) => (
-                          <span key={j} className="text-gray-400">
+                          <span key={j} className="text-gray-500 dark:text-gray-400">
                             {comp.name}:{" "}
                             <span className={getScoreColor(comp.score)}>{comp.score}</span>
                             <span className="text-gray-600">
@@ -407,18 +407,18 @@ export default function AiSearchGraderPage() {
           </div>
 
           {/* Prompts Used */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
             <button
               onClick={() => setShowPrompts(!showPrompts)}
               className="flex items-center justify-between w-full"
             >
-              <h3 className="text-lg font-semibold text-white">Prompts Used ({result.prompts.length})</h3>
-              <span className="text-gray-400 text-sm">{showPrompts ? "Hide" : "Show"}</span>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Prompts Used ({result.prompts.length})</h3>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">{showPrompts ? "Hide" : "Show"}</span>
             </button>
             {showPrompts && (
               <ol className="mt-4 space-y-2 list-decimal list-inside">
                 {result.prompts.map((p, i) => (
-                  <li key={i} className="text-sm text-gray-300">
+                  <li key={i} className="text-sm text-gray-600 dark:text-gray-300">
                     {p}
                   </li>
                 ))}
@@ -427,22 +427,22 @@ export default function AiSearchGraderPage() {
           </div>
 
           {/* Sample Responses */}
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
             <button
               onClick={() => setShowSamples(!showSamples)}
               className="flex items-center justify-between w-full"
             >
-              <h3 className="text-lg font-semibold text-white">Sample AI Responses</h3>
-              <span className="text-gray-400 text-sm">{showSamples ? "Hide" : "Show"}</span>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Sample AI Responses</h3>
+              <span className="text-gray-500 dark:text-gray-400 text-sm">{showSamples ? "Hide" : "Show"}</span>
             </button>
             {showSamples && (
               <div className="mt-4 space-y-4">
                 {result.modelSummaries
                   .filter((m) => !m.error && m.sampleResponse)
                   .map((model, i) => (
-                    <div key={i} className="rounded-lg border border-gray-700 bg-gray-800/30 p-4">
-                      <div className="text-xs font-medium text-gray-400 mb-2">{model.name}</div>
-                      <p className="text-sm text-gray-300 whitespace-pre-wrap">
+                    <div key={i} className="rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/30 p-4">
+                      <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">{model.name}</div>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">
                         {model.sampleResponse}
                         {model.sampleResponse.length >= 500 && "..."}
                       </p>
@@ -454,7 +454,7 @@ export default function AiSearchGraderPage() {
 
           {/* CTA */}
           <div className="rounded-lg border border-brand-500/30 bg-brand-500/10 p-6 text-center">
-            <p className="text-white font-medium mb-3 text-lg">
+            <p className="text-gray-900 dark:text-white font-medium mb-3 text-lg">
               Want to improve your AI visibility?
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -476,7 +476,7 @@ export default function AiSearchGraderPage() {
       )}
 
       {!result && !loading && !error && (
-        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <p className="text-sm mb-4">
             Enter your brand name and niche above. We&apos;ll send prompts to{" "}
             {serverProvider === "google" ? "3 Google Gemini models" : "6 AI models (ChatGPT, Gemini, Claude, Llama, Mistral, DeepSeek)"}{" "}
@@ -489,7 +489,7 @@ export default function AiSearchGraderPage() {
             ).map((m) => (
               <span
                 key={m}
-                className="rounded-full bg-gray-800 px-3 py-1 text-gray-400 border border-gray-700"
+                className="rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-700"
               >
                 {m}
               </span>
@@ -499,36 +499,36 @@ export default function AiSearchGraderPage() {
       )}
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">📊 AI Search Brand Visibility FAQ</h2>
-          <p className="text-gray-400">Discover how AI answer engines evaluate your brand and how to benchmark your share of voice.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">📊 AI Search Brand Visibility FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Discover how AI answer engines evaluate your brand and how to benchmark your share of voice.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What is an AI Search Grader?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What is an AI Search Grader?</h3>
             <p>
               It is a specialized diagnostic utility that simulates user inquiries on multiple LLMs (such as ChatGPT, Gemini, and Claude). It scans the model's text responses to check if, when, and how your brand is recommended or cited for niche topics.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. How is my AI Brand Visibility score calculated?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. How is my AI Brand Visibility score calculated?</h3>
             <p>
               The score (0–100) measures how frequently your brand appears in recommendations, your average ranking position when listed alongside competitors, the sentiment (positive vs. neutral), and your relative share of voice across the 6 queried models.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Why does my brand rank differently across different LLMs?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why does my brand rank differently across different LLMs?</h3>
             <p>
               Each model uses distinct training databases, crawl schedules, and retrieval pipelines. Anthropic's Claude favors deep, technical documentation (making <code>llms.txt</code> highly effective), Google's Gemini prioritizes live Google search integration, and ChatGPT favors broad brand consensus.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How can I boost my brand visibility in AI responses?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How can I boost my brand visibility in AI responses?</h3>
             <p>
               Focus on entity-building: establish consistent brand descriptions on authoritative off-site domains (LinkedIn, Crunchbase, Wikipedia). Earn positive discussions on forums like Reddit, and ensure your site has complete schema metadata to make it easily readable for real-time search crawlers.
             </p>

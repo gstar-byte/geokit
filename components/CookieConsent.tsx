@@ -24,7 +24,6 @@ export default function CookieConsent() {
     } else if (consent === "denied") {
       updateConsentState(false);
     } else {
-      // 首次访问延迟1秒展示
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 1000);
@@ -58,49 +57,108 @@ export default function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 max-w-md w-[calc(100vw-3rem)] rounded-2xl border border-gray-800 bg-gray-900/95 p-6 shadow-2xl backdrop-blur-md animate-fade-in-up transition-all duration-300">
+    <div
+      className="fixed bottom-6 right-6 z-50 max-w-md w-[calc(100vw-3rem)] rounded-2xl border p-6 shadow-2xl backdrop-blur-md animate-fade-in-up transition-all duration-300"
+      style={{
+        borderColor: "var(--border)",
+        background: "color-mix(in srgb, var(--surface) 95%, transparent)",
+      }}
+    >
       {/* Top Header & Badge & Close */}
       <div className="flex items-center justify-between mb-3">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-400">
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+          <svg
+            className="h-3.5 w-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            />
           </svg>
           Client-side Safe
         </div>
         <button
           onClick={closeBanner}
-          className="text-gray-400 hover:text-white transition-colors"
+          className="transition-colors"
+          style={{ color: "var(--text-muted)" }}
           aria-label="Close privacy banner"
         >
-          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
 
       {/* Main Title & Description */}
-      <h3 className="text-lg font-bold text-white mb-2">
+      <h3
+        className="text-lg font-bold mb-2"
+        style={{ color: "var(--text-primary)" }}
+      >
         Cookie &amp; Privacy Settings
       </h3>
-      <p className="text-xs text-gray-300 leading-relaxed mb-4">
-        We use local storage to optimize your experience. All GEO tools run 100% client-side in your browser; your data never leaves your device.
+      <p
+        className="text-xs leading-relaxed mb-4"
+        style={{ color: "var(--text-secondary)" }}
+      >
+        We use local storage to optimize your experience. All GEO tools run 100%
+        client-side in your browser; your data never leaves your device.
       </p>
 
       {/* Expandable Preferences Section */}
       {showCustomizer && (
-        <div className="mb-4 rounded-xl border border-gray-800 bg-gray-950/60 p-3.5 space-y-3 animate-fade-in">
+        <div
+          className="mb-4 rounded-xl border p-3.5 space-y-3 animate-fade-in"
+          style={{
+            borderColor: "var(--border)",
+            background: "var(--surface-alt)",
+          }}
+        >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold text-white">Essential Local Storage</p>
-              <p className="text-[11px] text-gray-400">Required for client-side processing &amp; app preferences.</p>
+              <p
+                className="text-xs font-semibold"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Essential Local Storage
+              </p>
+              <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+                Required for client-side processing &amp; app preferences.
+              </p>
             </div>
-            <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Always Active</span>
+            <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">
+              Always Active
+            </span>
           </div>
 
-          <div className="border-t border-gray-800 pt-2.5 flex items-center justify-between">
+          <div
+            className="border-t pt-2.5 flex items-center justify-between"
+            style={{ borderColor: "var(--border)" }}
+          >
             <div>
-              <p className="text-xs font-semibold text-white">Analytics Cookies</p>
-              <p className="text-[11px] text-gray-400">Anonymous Google Analytics to measure tool usage.</p>
+              <p
+                className="text-xs font-semibold"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Analytics Cookies
+              </p>
+              <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+                Anonymous Google Analytics to measure tool usage.
+              </p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -109,26 +167,31 @@ export default function CookieConsent() {
                 onChange={(e) => setAnalyticsConsent(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-9 h-5 bg-gray-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+              <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
             </label>
           </div>
         </div>
       )}
 
       {/* Footer Link & Actions */}
-      <div className="flex flex-col gap-3 pt-3 border-t border-gray-800/60">
+      <div
+        className="flex flex-col gap-3 pt-3 border-t"
+        style={{ borderColor: "color-mix(in srgb, var(--border) 60%, transparent)" }}
+      >
         <div className="flex flex-wrap items-center justify-between gap-2">
           <Link
             href="/privacy"
             onClick={closeBanner}
-            className="text-xs font-medium text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
+            className="text-xs font-medium underline underline-offset-4 transition-colors"
+            style={{ color: "var(--text-muted)" }}
           >
             Learn more about our policy
           </Link>
 
           <button
             onClick={() => setShowCustomizer(!showCustomizer)}
-            className="text-xs font-medium text-gray-400 hover:text-white transition-colors"
+            className="text-xs font-medium transition-colors"
+            style={{ color: "var(--text-muted)" }}
           >
             {showCustomizer ? "Hide Preferences" : "Customize Preferences"}
           </button>
@@ -139,13 +202,18 @@ export default function CookieConsent() {
             <>
               <button
                 onClick={handleSavePreferences}
-                className="flex-1 rounded-xl border border-gray-700 bg-gray-800/80 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700 transition-colors text-center"
+                className="flex-1 rounded-xl border px-4 py-2 text-xs font-semibold transition-colors text-center"
+                style={{
+                  borderColor: "var(--border)",
+                  background: "var(--surface-alt)",
+                  color: "var(--text-primary)",
+                }}
               >
                 Save Preferences
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
+                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
               >
                 Accept All
               </button>
@@ -154,13 +222,17 @@ export default function CookieConsent() {
             <>
               <button
                 onClick={handleRejectAll}
-                className="flex-1 rounded-xl border border-gray-700 bg-transparent px-4 py-2 text-xs font-semibold text-gray-300 hover:bg-gray-850 hover:text-white transition-colors text-center"
+                className="flex-1 rounded-xl border bg-transparent px-4 py-2 text-xs font-semibold transition-colors text-center"
+                style={{
+                  borderColor: "var(--border)",
+                  color: "var(--text-secondary)",
+                }}
               >
                 Reject All
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
+                className="flex-1 rounded-xl bg-emerald-500 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-400 active:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20 text-center"
               >
                 Accept All
               </button>
@@ -171,4 +243,3 @@ export default function CookieConsent() {
     </div>
   );
 }
-

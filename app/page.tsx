@@ -181,17 +181,17 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/20 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 text-center">
-          <div className="inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm text-brand-300 mb-6 animate-fade-in">
+          <div className="inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-sm text-brand-600 dark:text-brand-300 mb-6 animate-fade-in">
             {t("Free · No Signup · No Data Collected", "Free · No Signup · No Data Collected")}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             {t("Free GEO Tools for ", "Free GEO Tools for ")}
             <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
               {t("AI Search", "AI Search")}
             </span>{" "}
             {t("Optimization", "Optimization")}
           </h1>
-          <p className="mx-auto max-w-2xl text-xl text-gray-400 mb-8">
+          <p className="mx-auto max-w-2xl text-xl text-gray-500 dark:text-gray-400 mb-8">
             {t(
               "Free GEO toolkit to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.",
               "Optimize your website for ChatGPT, Perplexity, Google AI Overviews, and other AI search engines. Generate llms.txt, AI robots.txt, AI-friendly schema markup, and check your AI readiness score — all in one place."
@@ -210,8 +210,8 @@ export default function HomePage() {
 
       {/* Tools Grid */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold text-white mb-2">{t("All Tools", "All Tools")}</h2>
-        <p className="text-lg text-gray-400 mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t("All Tools", "All Tools")}</h2>
+        <p className="text-lg text-gray-500 dark:text-gray-400 mb-8">
           {t(
             "Thirteen free tools to make your website visible to AI search engines.",
             "Thirteen free tools to make your website visible to AI search engines."
@@ -223,15 +223,15 @@ export default function HomePage() {
               <div className="flex items-start justify-between mb-3">
                 <span className="text-3xl">{tool.icon}</span>
                 {tool.tag && (
-                  <span className="rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-300">
+                  <span className="rounded-full bg-brand-500/10 px-2.5 py-1 text-xs font-medium text-brand-600 dark:text-brand-300">
                     {t(tool.tag, tool.tag)}
                   </span>
                 )}
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-brand-400 transition-colors">
                 {t(tool.title, tool.title)}
               </h3>
-              <p className="text-base text-gray-400 leading-relaxed">
+              <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">
                 {t(tool.desc, tool.desc)}
               </p>
             </Link>
@@ -244,10 +244,10 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-2xl mb-3">🔒</div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {t("100% Private", "100% Private")}
             </h3>
-            <p className="text-base text-gray-400">
+            <p className="text-base text-gray-500 dark:text-gray-400">
               {t(
                 "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs.",
                 "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs."
@@ -256,10 +256,10 @@ export default function HomePage() {
           </div>
           <div>
             <div className="text-2xl mb-3">⚡</div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {t("Instant Results", "Instant Results")}
             </h3>
-            <p className="text-base text-gray-400">
+            <p className="text-base text-gray-500 dark:text-gray-400">
               {t(
                 "No signup, no waiting. Open a tool and start using it immediately. Everything is processed locally.",
                 "No signup, no waiting. Open a tool and start using it immediately. Everything is processed locally."
@@ -268,10 +268,10 @@ export default function HomePage() {
           </div>
           <div>
             <div className="text-2xl mb-3">🆓</div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {t("Free Forever", "Free Forever")}
             </h3>
-            <p className="text-base text-gray-400">
+            <p className="text-base text-gray-500 dark:text-gray-400">
               {t(
                 "All tools are completely free with no limits. No premium plans, no credits, no hidden fees.",
                 "All tools are completely free with no limits. No premium plans, no credits, no hidden fees."
@@ -280,10 +280,10 @@ export default function HomePage() {
           </div>
           <div>
             <div className="text-2xl mb-3">📶</div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {t("PWA & Offline Ready", "PWA & Offline Ready")}
             </h3>
-            <p className="text-base text-gray-400">
+            <p className="text-base text-gray-500 dark:text-gray-400">
               {t(
                 "Install GEOKit on your desktop or mobile device. Core utility tools run fully offline without any network access.",
                 "Install GEOKit on your desktop or mobile device. Core utility tools run fully offline without any network access."
@@ -295,15 +295,15 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section className="mx-auto max-w-3xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           {t("Frequently Asked Questions", "Frequently Asked Questions")}
         </h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-white font-medium mb-2">
+            <h3 className="text-gray-900 dark:text-white font-medium mb-2">
               {t("What is GEO (Generative Engine Optimization)?", "What is GEO (Generative Engine Optimization)?")}
             </h3>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-500 dark:text-gray-400 text-base">
               {t(
                 "GEO is the practice of optimizing your website so that AI search engines like ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and recommend your content. It includes technical signals like llms.txt, AI crawler access, and structured data.",
                 "GEO is the practice of optimizing your website so that AI search engines like ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and recommend your content. It includes technical signals like llms.txt, AI crawler access, and structured data."
@@ -311,10 +311,10 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <h3 className="text-white font-medium mb-2">
+            <h3 className="text-gray-900 dark:text-white font-medium mb-2">
               {t("What is llms.txt?", "What is llms.txt?")}
             </h3>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-500 dark:text-gray-400 text-base">
               {t(
                 "llms.txt is a markdown file placed at the root of your website (e.g., example.com/llms.txt) that provides LLM-friendly content. It tells AI models what your site is about and which pages are most important, similar to how robots.txt guides search engine crawlers.",
                 "llms.txt is a markdown file placed at the root of your website (e.g., example.com/llms.txt) that provides LLM-friendly content. It tells AI models what your site is about and which pages are most important, similar to how robots.txt guides search engine crawlers."
@@ -325,7 +325,7 @@ export default function HomePage() {
             <h3 className="text-white font-medium mb-2">
               {t("Do I need to sign up or pay?", "Do I need to sign up or pay?")}
             </h3>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-500 dark:text-gray-400 text-base">
               {t(
                 "No. All GEOKit tools are 100% free with no signup required. Just open a tool and start using it. Everything runs in your browser.",
                 "No. All GEOKit tools are 100% free with no signup required. Just open a tool and start using it. Everything runs in your browser."
@@ -336,7 +336,7 @@ export default function HomePage() {
             <h3 className="text-white font-medium mb-2">
               {t("Are these tools safe to use?", "Are these tools safe to use?")}
             </h3>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-500 dark:text-gray-400 text-base">
               {t(
                 "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab.",
                 "Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab."
@@ -347,7 +347,7 @@ export default function HomePage() {
             <h3 className="text-white font-medium mb-2">
               {t("Can I use GEOKit tools offline?", "Can I use GEOKit tools offline?")}
             </h3>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-500 dark:text-gray-400 text-base">
               {t(
                 "Yes! GEOKit is built as a Progressive Web App (PWA). You can install it on your device and use all core utility tools (like generators, validators, lists, and copy formatters) completely offline. Only diagnostic crawler tools require a network connection.",
                 "Yes! GEOKit is built as a Progressive Web App (PWA). You can install it on your device and use all core utility tools (like generators, validators, lists, and copy formatters) completely offline. Only diagnostic crawler tools require a network connection."

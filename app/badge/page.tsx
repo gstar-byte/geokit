@@ -40,7 +40,7 @@ function BadgeContent() {
     <div className="mx-auto max-w-3xl px-4 py-12">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-3">AI Readiness Badge</h1>
-        <p className="text-lg text-gray-400">
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           Show your AI Readiness Score on your website with a free embeddable badge.
           When visitors click the badge, they&apos;ll link back to GEOKit — helping
           others discover GEO tools while showing off your score.
@@ -48,7 +48,7 @@ function BadgeContent() {
       </div>
 
       {/* Badge Preview */}
-      <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-8 mb-8 text-center">
+      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 mb-8 text-center">
         <div
           className="inline-flex items-center gap-3 rounded-xl px-6 py-3 shadow-lg"
           style={{
@@ -86,7 +86,7 @@ function BadgeContent() {
       {/* Controls */}
       <div className="space-y-6 mb-8">
         <div>
-          <label className="block text-base font-medium text-gray-300 mb-2">
+          <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">
             Your Score (0-100)
           </label>
           <input
@@ -105,7 +105,7 @@ function BadgeContent() {
         </div>
 
         <div>
-          <label className="block text-base font-medium text-gray-300 mb-2">
+          <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">
             Your Website URL
           </label>
           <input
@@ -118,7 +118,7 @@ function BadgeContent() {
         </div>
 
         <div>
-          <label className="block text-base font-medium text-gray-300 mb-2">
+          <label className="block text-base font-medium text-gray-600 dark:text-gray-300 mb-2">
             Badge Style
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -129,7 +129,7 @@ function BadgeContent() {
                 className={`rounded-lg border p-3 text-center text-base font-medium capitalize transition-colors ${
                   style === s
                     ? "border-brand-500 bg-brand-500/10 text-white"
-                    : "border-gray-800 bg-gray-900/50 text-gray-400 hover:border-gray-700"
+                    : "border-gray-800 bg-gray-900/50 text-gray-500 dark:text-gray-400 hover:border-gray-700"
                 }`}
               >
                 {s}
@@ -142,15 +142,15 @@ function BadgeContent() {
       {/* Embed Code */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-medium text-gray-300">Embed Code</h3>
+          <h3 className="text-base font-medium text-gray-600 dark:text-gray-300">Embed Code</h3>
           <button onClick={copyToClipboard} className="btn-secondary text-sm py-1.5 px-3">
             {copied ? "✓ Copied!" : "Copy Code"}
           </button>
         </div>
         <pre className="code-block whitespace-pre-wrap text-sm">{embedCode}</pre>
 
-        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-base text-gray-400">
-          <p className="mb-2 font-medium text-gray-300">How to use:</p>
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
+          <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to use:</p>
           <ol className="list-decimal list-inside space-y-1 text-sm">
             <li>Run the <a href="/tools/ai-readiness-checker" className="text-brand-400 hover:underline">AI Readiness Checker</a> to get your real score</li>
             <li>Adjust the score slider above to match your result</li>
@@ -164,7 +164,7 @@ function BadgeContent() {
       {/* Link bait explanation */}
       <div className="mt-8 rounded-lg border border-brand-500/30 bg-brand-500/10 p-6">
         <h3 className="text-lg font-semibold text-white mb-2">Why share your badge?</h3>
-        <ul className="space-y-2 text-base text-gray-300">
+        <ul className="space-y-2 text-base text-gray-600 dark:text-gray-300">
           <li>• Show visitors your site is optimized for AI search</li>
           <li>• Build trust with an independently verified score</li>
           <li>• Help the GEO community grow by linking to free tools</li>

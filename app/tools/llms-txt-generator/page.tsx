@@ -325,10 +325,10 @@ export default function LlmsTxtGeneratorPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
           {t("llms.txt Generator", "llms.txt Generator")}
         </h1>
-        <p className="text-gray-400">
+        <p className="text-gray-500 dark:text-gray-400">
           Create an llms.txt file that tells AI models what your site is about
           and which pages matter most. Deploy to your site root as{" "}
           <code className="text-brand-400">/llms.txt</code>.
@@ -336,13 +336,13 @@ export default function LlmsTxtGeneratorPage() {
       </div>
 
       {/* Mode Toggle */}
-      <div className="flex gap-1 rounded-lg border border-gray-800 bg-gray-900/50 p-1 mb-8 w-fit">
+      <div className="flex gap-1 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-1 mb-8 w-fit">
         <button
           onClick={() => setMode("auto")}
           className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             mode === "auto"
-              ? "bg-brand-500 text-white"
-              : "text-gray-400 hover:text-white"
+              ? "bg-brand-500 text-gray-900 dark:text-white"
+              : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-white"
           }`}
         >
           {t("🔗 Auto from URL", "🔗 Auto from URL")}
@@ -351,8 +351,8 @@ export default function LlmsTxtGeneratorPage() {
           onClick={() => setMode("manual")}
           className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             mode === "manual"
-              ? "bg-brand-500 text-white"
-              : "text-gray-400 hover:text-white"
+              ? "bg-brand-500 text-gray-900 dark:text-white"
+              : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-white"
           }`}
         >
           {t("✏️ Manual", "✏️ Manual")}
@@ -366,7 +366,7 @@ export default function LlmsTxtGeneratorPage() {
           {mode === "auto" && (
             <div className="rounded-lg border border-brand-500/30 bg-brand-500/5 p-4 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                   Website URL
                 </label>
                 <div className="flex gap-3">
@@ -402,25 +402,25 @@ export default function LlmsTxtGeneratorPage() {
                     id="generateFull"
                     checked={generateFull}
                     onChange={(e) => setGenerateFull(e.target.checked)}
-                    className="rounded border-gray-800 bg-gray-900 text-brand-500 focus:ring-brand-500 h-4 w-4"
+                    className="rounded border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-brand-500 focus:ring-brand-500 h-4 w-4"
                   />
-                  <label htmlFor="generateFull" className="text-xs text-gray-300 select-none cursor-pointer">
+                  <label htmlFor="generateFull" className="text-xs text-gray-600 dark:text-gray-300 select-none cursor-pointer">
                     Also crawl page content to generate <code className="text-brand-400">llms-full.txt</code> (takes longer)
                   </label>
                 </div>
               </div>
 
               {/* Collapsible Scraping Settings */}
-              <div className="border-t border-gray-800/80 pt-3">
+              <div className="border-t border-gray-200 dark:border-gray-800/80 pt-3">
                 <button
                   onClick={() => setShowSettings(!showSettings)}
-                  className="text-xs text-gray-400 hover:text-white flex items-center gap-1 font-medium transition-colors"
+                  className="text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-white flex items-center gap-1 font-medium transition-colors"
                 >
                   ⚙️ {showSettings ? "Hide Advanced Scraping Settings" : "Show Advanced Scraping Settings"}
                 </button>
 
                 {showSettings && (
-                  <div className="mt-3 p-3 rounded-lg bg-gray-950/60 border border-gray-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in">
+                  <div className="mt-3 p-3 rounded-lg bg-white dark:bg-gray-950/60 border border-gray-200 dark:border-gray-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <input
@@ -428,9 +428,9 @@ export default function LlmsTxtGeneratorPage() {
                           id="stripHeader"
                           checked={stripHeader}
                           onChange={(e) => setStripHeader(e.target.checked)}
-                          className="rounded border-gray-700 bg-gray-900 text-brand-500 h-4.5 w-4.5"
+                          className="rounded border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-brand-500 h-4.5 w-4.5"
                         />
-                        <label htmlFor="stripHeader" className="text-xs text-gray-300 select-none cursor-pointer">
+                        <label htmlFor="stripHeader" className="text-xs text-gray-600 dark:text-gray-300 select-none cursor-pointer">
                           Strip headers &amp; navs
                         </label>
                       </div>
@@ -440,9 +440,9 @@ export default function LlmsTxtGeneratorPage() {
                           id="stripFooter"
                           checked={stripFooter}
                           onChange={(e) => setStripFooter(e.target.checked)}
-                          className="rounded border-gray-700 bg-gray-900 text-brand-500 h-4.5 w-4.5"
+                          className="rounded border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-brand-500 h-4.5 w-4.5"
                         />
-                        <label htmlFor="stripFooter" className="text-xs text-gray-300 select-none cursor-pointer">
+                        <label htmlFor="stripFooter" className="text-xs text-gray-600 dark:text-gray-300 select-none cursor-pointer">
                           Strip footers
                         </label>
                       </div>
@@ -452,15 +452,15 @@ export default function LlmsTxtGeneratorPage() {
                           id="stripSidebar"
                           checked={stripSidebar}
                           onChange={(e) => setStripSidebar(e.target.checked)}
-                          className="rounded border-gray-700 bg-gray-900 text-brand-500 h-4.5 w-4.5"
+                          className="rounded border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-brand-500 h-4.5 w-4.5"
                         />
-                        <label htmlFor="stripSidebar" className="text-xs text-gray-300 select-none cursor-pointer">
+                        <label htmlFor="stripSidebar" className="text-xs text-gray-600 dark:text-gray-300 select-none cursor-pointer">
                           Strip sidebars
                         </label>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-400 mb-1">Max Words Per Page</label>
+                      <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Max Words Per Page</label>
                       <select
                         value={maxWords}
                         onChange={(e) => setMaxWords(Number(e.target.value))}
@@ -493,16 +493,16 @@ export default function LlmsTxtGeneratorPage() {
 
           {/* AI Notes Auto-enrich Config */}
           {autoGenerated && (
-            <div className="rounded-lg border border-brand-500/30 bg-gray-900/40 p-4 space-y-3">
-              <h4 className="text-sm font-semibold text-white flex items-center gap-1.5">
+            <div className="rounded-lg border border-brand-500/30 bg-gray-50 dark:bg-gray-900/40 p-4 space-y-3">
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white flex items-center gap-1.5">
                 <span>🤖</span> AI Note Auto-Enrichment
               </h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 Generate professional, high-density 1-sentence summaries for all page notes dynamically using your own LLM API Key (100% private).
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] text-gray-400 mb-1">API Provider</label>
+                  <label className="block text-[11px] text-gray-500 dark:text-gray-400 mb-1">API Provider</label>
                   <select
                     value={apiProvider}
                     onChange={(e) => setApiProvider(e.target.value as any)}
@@ -514,7 +514,7 @@ export default function LlmsTxtGeneratorPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[11px] text-gray-400 mb-1">API Key</label>
+                  <label className="block text-[11px] text-gray-500 dark:text-gray-400 mb-1">API Key</label>
                   <input
                     type="password"
                     value={apiKey}
@@ -548,7 +548,7 @@ export default function LlmsTxtGeneratorPage() {
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Site Title (H1) *
             </label>
             <input
@@ -561,7 +561,7 @@ export default function LlmsTxtGeneratorPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Summary
             </label>
             <textarea
@@ -576,10 +576,10 @@ export default function LlmsTxtGeneratorPage() {
           {sections.map((section, sIdx) => (
             <div
               key={section.id}
-              className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 space-y-4"
+              className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 space-y-4"
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-400">
+                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
                   Section {sIdx + 1}
                 </span>
                 {sections.length > 1 && (
@@ -599,7 +599,7 @@ export default function LlmsTxtGeneratorPage() {
                 className="input-field"
               />
               {section.links.map((link, lIdx) => (
-                <div key={lIdx} className="space-y-2 pl-4 border-l border-gray-800">
+                <div key={lIdx} className="space-y-2 pl-4 border-l border-gray-200 dark:border-gray-800">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-gray-500">Link {lIdx + 1}</span>
                     {section.links.length > 1 && (
@@ -665,8 +665,8 @@ export default function LlmsTxtGeneratorPage() {
                 onClick={() => setActiveTab("standard")}
                 className={`text-sm font-medium px-3 py-1.5 rounded-md transition-colors ${
                   activeTab === "standard"
-                    ? "bg-brand-500/10 border border-brand-500/30 text-white"
-                    : "text-gray-400 hover:text-white"
+                    ? "bg-brand-500/10 border border-brand-500/30 text-gray-900 dark:text-white"
+                    : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-white"
                 }`}
               >
                 Standard (llms.txt)
@@ -676,8 +676,8 @@ export default function LlmsTxtGeneratorPage() {
                   onClick={() => setActiveTab("full")}
                   className={`text-sm font-medium px-3 py-1.5 rounded-md transition-colors ${
                     activeTab === "full"
-                      ? "bg-brand-500/10 border border-brand-500/30 text-white"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-brand-500/10 border border-brand-500/30 text-gray-900 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-white"
                   }`}
                 >
                   Full (llms-full.txt)
@@ -702,9 +702,9 @@ export default function LlmsTxtGeneratorPage() {
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">
             {output || (activeTab === "standard" ? "# Your llms.txt will appear here" : "# Your llms-full.txt will appear here")}
           </pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-5 text-sm text-gray-400 space-y-4">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5 text-sm text-gray-500 dark:text-gray-400 space-y-4">
             <div>
-              <p className="mb-2 font-bold text-gray-300">How to deploy:</p>
+              <p className="mb-2 font-bold text-gray-600 dark:text-gray-300">How to deploy:</p>
               <ol className="list-decimal list-inside space-y-1">
                 <li>Download the file as <code className="text-brand-400">{activeTab === "standard" ? "llms.txt" : "llms-full.txt"}</code></li>
                 <li>Upload to your website root directory</li>
@@ -719,22 +719,22 @@ export default function LlmsTxtGeneratorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">📄 llms.txt Specification Guide &amp; FAQ</h2>
-          <p className="text-gray-400">Everything you need to know about implementing machine-readable site maps for LLMs and AI agents.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">📄 llms.txt Specification Guide &amp; FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Everything you need to know about implementing machine-readable site maps for LLMs and AI agents.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What is the llms.txt standard?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What is the llms.txt standard?</h3>
             <p>
               It is a community-driven specification that provides a lightweight, markdown-formatted table of contents for your website. It is designed to be easily read by LLM scrapers (like GPTBot or ClaudeBot) to give them quick context about your page hierarchies.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. llms.txt vs. llms-full.txt: What is the difference?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. llms.txt vs. llms-full.txt: What is the difference?</h3>
             <p>
               <code>llms.txt</code> acts as the <strong>Index</strong>, containing only your H1 site title, a blockquote summary, and lists of structured links. 
               <code>llms-full.txt</code> acts as the <strong>Corpus</strong>, containing the actual full plain-text markdown content of all key pages compiled into a single file for direct injection into AI context windows.
@@ -742,14 +742,14 @@ export default function LlmsTxtGeneratorPage() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Where should these files be placed?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Where should these files be placed?</h3>
             <p>
               Both files must be served over HTTPS from the root directory of your website (e.g. <code>https://example.com/llms.txt</code>). AI crawlers are hardcoded to check this location by default.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How does this help my website's AI rankings?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How does this help my website's AI rankings?</h3>
             <p>
               By providing AI search engines with clean, high-density markdown devoid of heavy HTML/JS scripts, you reduce crawler overhead. It helps models understand exact page topics, leading to more accurate citations and fewer answer hallucinations.
             </p>

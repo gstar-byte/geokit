@@ -153,28 +153,28 @@ export default function GeoChecklistPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">GEO Checklist</h1>
-        <p className="text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">GEO Checklist</h1>
+        <p className="text-gray-500 dark:text-gray-400">
           A step-by-step checklist to optimize your site for AI search engines. Track your progress across all GEO tasks. Your progress is saved locally.
         </p>
       </div>
 
       {/* Progress bar */}
-      <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 mb-8">
+      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 mb-8">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-medium text-gray-300">Progress</span>
-          <span className="text-sm text-gray-400">
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Progress</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
             {completedCount} / {totalCount} completed
           </span>
         </div>
-        <div className="h-3 rounded-full bg-gray-800 overflow-hidden">
+        <div className="h-3 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-brand-500 to-brand-400 transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
         <div className={`text-center mt-3 text-lg font-bold ${
-          progress === 100 ? "text-green-400" : progress >= 50 ? "text-yellow-400" : "text-gray-400"
+          progress === 100 ? "text-green-400" : progress >= 50 ? "text-yellow-400" : "text-gray-500 dark:text-gray-400"
         }`}>
           {progress === 100
             ? "🎉 All done! Your site is GEO-optimized."
@@ -207,7 +207,7 @@ export default function GeoChecklistPage() {
                       onClick={() => toggle(item.id)}
                       className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded border-2 flex items-center justify-center transition-colors ${
                         checked[item.id]
-                          ? "border-green-500 bg-green-500 text-white"
+                          ? "border-green-500 bg-green-500 text-gray-900 dark:text-white"
                           : "border-gray-600 hover:border-gray-500"
                       }`}
                     >
@@ -215,11 +215,11 @@ export default function GeoChecklistPage() {
                     </button>
                     <div className="flex-1">
                       <h3 className={`text-sm font-medium mb-1 ${
-                        checked[item.id] ? "text-gray-500 line-through" : "text-white"
+                        checked[item.id] ? "text-gray-500 line-through" : "text-gray-900 dark:text-white"
                       }`}>
                         {item.title}
                       </h3>
-                      <p className="text-sm text-gray-400 mb-2">{item.desc}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{item.desc}</p>
                       {item.toolLink && (
                         <a
                           href={item.toolLink}
@@ -237,36 +237,36 @@ export default function GeoChecklistPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">📑 GEO Checklist Optimization &amp; FAQ</h2>
-          <p className="text-gray-400">Step-by-step roadmap details to make your site discoverable and authoritative for AI answer engines.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">📑 GEO Checklist Optimization &amp; FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Step-by-step roadmap details to make your site discoverable and authoritative for AI answer engines.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. How is GEO different from traditional SEO?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. How is GEO different from traditional SEO?</h3>
             <p>
               Traditional SEO aims to rank your pages in search engine result links. Generative Engine Optimization (GEO) focuses on getting your content synthesized and cited as the authoritative source inside the direct answer generated by AI chatbots (like Perplexity or Gemini).
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. What are the three highest-impact GEO actions?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. What are the three highest-impact GEO actions?</h3>
             <p>
               First, deploy **structured JSON-LD schema** (FAQPage, Organization, Person) to provide explicit relationships. Second, format key sections in **Question-and-Answer style** (which AI models prefer for extraction). Third, hosting an **llms.txt** file to serve as a high-density roadmap.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Why do AI models favor semantic HTML?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why do AI models favor semantic HTML?</h3>
             <p>
               AI crawlers (specifically ClaudeBot) scan page structures to isolate main content from site boilerplate (like headers, sidebars, footers). Using tags like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> instead of nested divs makes extraction cleaner and reduces hallucination risk.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. Do traditional backlinks still matter for GEO?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. Do traditional backlinks still matter for GEO?</h3>
             <p>
               Yes, but in a different way. While traditional algorithms counted link weight, LLM models look for "brand consensus"—how often your company is mentioned and discussed on platforms like Reddit, Wikipedia, and forums. GEO focuses on entity brand presence rather than raw link profiles.
             </p>

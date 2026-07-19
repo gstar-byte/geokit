@@ -312,18 +312,18 @@ export default function AiReadinessCheckerPage() {
     <div className="mx-auto max-w-4xl px-4 py-12">
       {/* Title */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">AI Readiness Checker</h1>
-        <p className="text-lg text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">AI Readiness Checker</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400">
           30+ checks across 7 categories. Audit your domain or run side-by-side competitor comparisons instantly.
         </p>
       </div>
 
       {/* Tab Selectors */}
-      <div className="flex border-b border-gray-800 gap-6 mb-6">
+      <div className="flex border-b border-gray-200 dark:border-gray-800 gap-6 mb-6">
         <button
           onClick={() => setActiveTab("single")}
           className={`pb-3 text-sm font-semibold border-b-2 transition-all ${
-            activeTab === "single" ? "border-brand-500 text-white" : "border-transparent text-gray-400 hover:text-gray-200"
+            activeTab === "single" ? "border-brand-500 text-gray-900 dark:text-white" : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:text-gray-200"
           }`}
         >
           🔍 Single Domain Audit
@@ -331,7 +331,7 @@ export default function AiReadinessCheckerPage() {
         <button
           onClick={() => setActiveTab("compare")}
           className={`pb-3 text-sm font-semibold border-b-2 transition-all ${
-            activeTab === "compare" ? "border-brand-500 text-white" : "border-transparent text-gray-400 hover:text-gray-200"
+            activeTab === "compare" ? "border-brand-500 text-gray-900 dark:text-white" : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:text-gray-200"
           }`}
         >
           ⚖️ Compare Domains
@@ -343,7 +343,7 @@ export default function AiReadinessCheckerPage() {
         <div className="space-y-6 animate-fade-in">
           {/* Site Type Selector */}
           <div>
-            <label className="text-sm font-medium text-gray-300 mb-3 block">
+            <label className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3 block">
               Select your site type for optimized scoring:
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -353,8 +353,8 @@ export default function AiReadinessCheckerPage() {
                   onClick={() => setSiteType(st.key)}
                   className={`rounded-lg border p-3 text-center transition-all duration-200 ${
                     siteType === st.key
-                      ? "border-brand-500 bg-brand-500/10 text-white"
-                      : "border-gray-700 bg-gray-900/50 text-gray-400 hover:border-gray-500 hover:text-gray-200"
+                      ? "border-brand-500 bg-brand-500/10 text-gray-900 dark:text-white"
+                      : "border-gray-700 bg-gray-900/50 text-gray-500 dark:text-gray-400 hover:border-gray-500 hover:text-gray-700 dark:text-gray-200"
                   }`}
                 >
                   <div className="text-xl mb-1">{st.icon}</div>
@@ -399,7 +399,7 @@ export default function AiReadinessCheckerPage() {
           {result && !loading && (
             <div className="space-y-6">
               {/* Score Header */}
-              <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-8">
+              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   {/* Score Circle */}
                   <div className="relative flex-shrink-0">
@@ -431,11 +431,11 @@ export default function AiReadinessCheckerPage() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
                       {result.categories.map((cat) => (
                         <div key={cat.key} className="text-xs">
-                          <div className="flex justify-between text-gray-400 mb-0.5">
+                          <div className="flex justify-between text-gray-500 dark:text-gray-400 mb-0.5">
                             <span>{cat.icon} {cat.label}</span>
                             <span className={getScoreColor(cat.score)}>{cat.score}%</span>
                           </div>
-                          <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full"
                               style={{
@@ -462,11 +462,11 @@ export default function AiReadinessCheckerPage() {
                     <div key={cat.key} className={`rounded-xl border ${getScoreBorderColor(cat.score)} bg-gray-900/50 overflow-hidden`}>
                       <button
                         onClick={() => toggleCategory(cat.key)}
-                        className="w-full flex items-center gap-3 p-4 hover:bg-gray-800/30 transition-colors"
+                        className="w-full flex items-center gap-3 p-4 hover:bg-gray-100 dark:bg-gray-800/30 transition-colors"
                       >
                         <span className="text-xl">{cat.icon}</span>
                         <div className="flex-1 text-left">
-                          <div className="text-sm font-medium text-white">{cat.label}</div>
+                          <div className="text-sm font-medium text-gray-900 dark:text-white">{cat.label}</div>
                           <div className="text-xs text-gray-500">{passCount}/{total} passed</div>
                         </div>
                         <div className={`text-lg font-bold ${getScoreColor(cat.score)}`}>{cat.score}%</div>
@@ -474,7 +474,7 @@ export default function AiReadinessCheckerPage() {
                       </button>
 
                       {isOpen && (
-                        <div className="border-t border-gray-800 divide-y divide-gray-800/50">
+                        <div className="border-t border-gray-200 dark:border-gray-800 divide-y divide-gray-800/50">
                           {cat.results.map((check, i) => {
                             const cfg = statusConfig[check.status];
                             return (
@@ -484,12 +484,12 @@ export default function AiReadinessCheckerPage() {
                                 </span>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between mb-0.5">
-                                    <h4 className="text-sm font-medium text-white truncate">{check.name}</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">{check.name}</h4>
                                     <span className={`text-xs ${cfg.color} flex-shrink-0 ml-2`}>
                                       {Math.round(check.weightedPoints)}/{Math.round(check.weightedMax)}
                                     </span>
                                   </div>
-                                  <p className="text-xs text-gray-400">{check.message}</p>
+                                  <p className="text-xs text-gray-500 dark:text-gray-400">{check.message}</p>
                                 </div>
                               </div>
                             );
@@ -503,8 +503,8 @@ export default function AiReadinessCheckerPage() {
 
               {/* Badge & Print CTA */}
               <div className="rounded-xl border border-brand-500/40 bg-brand-500/10 p-6 text-center">
-                <p className="text-white text-lg font-medium mb-2">🏆 Show off your score!</p>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-gray-900 dark:text-white text-lg font-medium mb-2">🏆 Show off your score!</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
                   Download a PDF scan report for your records or generate an embeddable score badge.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
@@ -524,16 +524,16 @@ export default function AiReadinessCheckerPage() {
 
           {/* History Chart & Trends */}
           {history.length > 1 && (
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 space-y-4">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 space-y-4">
               <div className="flex justify-between items-center">
-                <h3 className="text-sm font-semibold text-white">📈 Scan Score Trend</h3>
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">📈 Scan Score Trend</h3>
                 <button onClick={clearHistory} className="text-xs text-gray-500 hover:text-red-400 transition-colors">
                   Clear history
                 </button>
               </div>
 
               {/* SVG Line Chart */}
-              <div className="w-full h-32 bg-gray-950/40 rounded-lg p-2 relative overflow-hidden flex items-end">
+              <div className="w-full h-32 bg-white dark:bg-gray-950/40 rounded-lg p-2 relative overflow-hidden flex items-end">
                 <svg className="absolute inset-0 w-full h-full p-4" viewBox="0 0 100 100" preserveAspectRatio="none">
                   {/* Grid Lines */}
                   <line x1="0" y1="20" x2="100" y2="20" stroke="#1f2937" strokeWidth="0.5" strokeDasharray="2" />
@@ -563,7 +563,7 @@ export default function AiReadinessCheckerPage() {
                 <div className="w-full flex justify-between px-2 z-10 text-[10px] text-gray-500 font-mono">
                   {history.slice().reverse().map((item, idx) => (
                     <div key={idx} className="text-center">
-                      <div className="text-white font-bold mb-1">{item.score}</div>
+                      <div className="text-gray-900 dark:text-white font-bold mb-1">{item.score}</div>
                       <div>{item.date}</div>
                     </div>
                   ))}
@@ -579,7 +579,7 @@ export default function AiReadinessCheckerPage() {
         <div className="space-y-6 animate-fade-in">
           {/* Site Type Selector */}
           <div>
-            <label className="text-sm font-medium text-gray-300 mb-3 block">
+            <label className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3 block">
               Select site type for weight adjustments:
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -589,8 +589,8 @@ export default function AiReadinessCheckerPage() {
                   onClick={() => setCompSiteType(st.key)}
                   className={`rounded-lg border p-3 text-center transition-all duration-200 ${
                     compSiteType === st.key
-                      ? "border-brand-500 bg-brand-500/10 text-white"
-                      : "border-gray-700 bg-gray-900/50 text-gray-400 hover:border-gray-500 hover:text-gray-200"
+                      ? "border-brand-500 bg-brand-500/10 text-gray-900 dark:text-white"
+                      : "border-gray-700 bg-gray-900/50 text-gray-500 dark:text-gray-400 hover:border-gray-500 hover:text-gray-700 dark:text-gray-200"
                   }`}
                 >
                   <div className="text-xl mb-1">{st.icon}</div>
@@ -603,7 +603,7 @@ export default function AiReadinessCheckerPage() {
           {/* Dual URL Inputs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs text-gray-400 mb-1">Your Website URL</label>
+              <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Your Website URL</label>
               <input
                 type="text"
                 value={compUrl1}
@@ -613,7 +613,7 @@ export default function AiReadinessCheckerPage() {
               />
             </div>
             <div>
-              <label className="block text-xs text-gray-400 mb-1">Competitor Website URL</label>
+              <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Competitor Website URL</label>
               <input
                 type="text"
                 value={compUrl2}
@@ -651,9 +651,9 @@ export default function AiReadinessCheckerPage() {
           {compResult1 && compResult2 && !compLoading && (
             <div className="space-y-6">
               {/* Score Rings Side-By-Side */}
-              <div className="grid grid-cols-2 gap-4 rounded-xl border border-gray-800 bg-gray-900/50 p-6 text-center">
+              <div className="grid grid-cols-2 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 text-center">
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-400 mb-3 truncate">{compResult1.url}</h4>
+                  <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 truncate">{compResult1.url}</h4>
                   <div className="relative inline-block">
                     <svg width="100" height="100" viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="8" />
@@ -674,7 +674,7 @@ export default function AiReadinessCheckerPage() {
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-400 mb-3 truncate">{compResult2.url}</h4>
+                  <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 truncate">{compResult2.url}</h4>
                   <div className="relative inline-block">
                     <svg width="100" height="100" viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="8" />
@@ -696,8 +696,8 @@ export default function AiReadinessCheckerPage() {
               </div>
 
               {/* Category Gap Breakdown Table */}
-              <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-                <h3 className="text-sm font-semibold text-white mb-4">⚖️ Category Comparison</h3>
+              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">⚖️ Category Comparison</h3>
                 <div className="space-y-4">
                   {compResult1.categories.map((cat1) => {
                     const cat2 = compResult2.categories.find((c) => c.key === cat1.key);
@@ -706,18 +706,18 @@ export default function AiReadinessCheckerPage() {
                     const diff = score1 - score2;
 
                     return (
-                      <div key={cat1.key} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/60 pb-3 last:border-b-0 last:pb-0">
+                      <div key={cat1.key} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-200 dark:border-gray-800/60 pb-3 last:border-b-0 last:pb-0">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">{cat1.icon}</span>
-                          <span className="text-xs font-medium text-white">{cat1.label}</span>
+                          <span className="text-xs font-medium text-gray-900 dark:text-white">{cat1.label}</span>
                         </div>
                         <div className="flex items-center gap-6 text-xs">
                           <div>
-                            <span className="text-gray-400 mr-2">You:</span>
+                            <span className="text-gray-500 dark:text-gray-400 mr-2">You:</span>
                             <span className={`font-semibold ${getScoreColor(score1)}`}>{score1}%</span>
                           </div>
                           <div>
-                            <span className="text-gray-400 mr-2">Competitor:</span>
+                            <span className="text-gray-500 dark:text-gray-400 mr-2">Competitor:</span>
                             <span className={`font-semibold ${getScoreColor(score2)}`}>{score2}%</span>
                           </div>
                           <div className="w-16 text-right">
@@ -742,7 +742,7 @@ export default function AiReadinessCheckerPage() {
 
       {/* Empty State */}
       {!result && !compResult1 && !loading && !compLoading && !error && !compError && (
-        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <div className="text-4xl mb-3">🔍</div>
           <p className="text-sm mb-2">
             Enter your website URL above to run a comprehensive AI readiness audit.
@@ -754,50 +754,50 @@ export default function AiReadinessCheckerPage() {
       )}
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">📊 AI Readiness Assessment Pillars &amp; FAQ</h2>
-          <p className="text-gray-400">Discover the details behind our 30+ audit checks and how to optimize your site for Large Language Models.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">📊 AI Readiness Assessment Pillars &amp; FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Discover the details behind our 30+ audit checks and how to optimize your site for Large Language Models.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">🛡️ 1. AI Crawler Access</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">🛡️ 1. AI Crawler Access</h3>
             <p>
               AI models rely on web scrapers to build training corpuses or fetch real-time search context. We check if your <code>robots.txt</code> allows crawlers like <code>GPTBot</code> or <code>ClaudeBot</code>. Blocking these bots keeps your content secure but prevents your brand from being cited in answers.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">💎 2. Structured JSON-LD Schema</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">💎 2. Structured JSON-LD Schema</h3>
             <p>
               Schema markup provides clear semantic context. AI search engines are 3x more likely to cite pages with well-defined <code>FAQPage</code>, <code>Product</code>, or <code>Person</code> schemas because they present answers in pre-parsed, structured blocks.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">✏️ 3. Content Structure &amp; Depth</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">✏️ 3. Content Structure &amp; Depth</h3>
             <p>
               AI models evaluate content depth and heading clarity. We analyze heading levels (H1-H6), word counts, readability (mix of short/long sentences), and keyword density to ensure your content is authoritative and easy to index.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">📑 4. Machine-Readable Files</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">📑 4. Machine-Readable Files</h3>
             <p>
               Modern AI agents search for specific helper files at your domain root. We scan for the existence of <code>llms.txt</code> (high-level index) and <code>llms-full.txt</code> (full plain text corpus) to check if your site provides an optimized road map.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">🔒 5. Technical &amp; SSR Rendering</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">🔒 5. Technical &amp; SSR Rendering</h3>
             <p>
               Many crawlers do not execute JavaScript. If your website relies entirely on Client-Side Rendering (SPA), bots will fetch an empty page. We check for Server-Side Rendering (SSR) signals and security headers to confirm bots can access your site.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">🔗 6. How can I improve my score?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">🔗 6. How can I improve my score?</h3>
             <p>
               Start by defining a clear <code>llms.txt</code> file at your root, adding structured <code>FAQPage</code> and <code>Organization</code> schemas, and ensuring your site content doesn't rely entirely on client-side JS rendering.
             </p>

@@ -132,10 +132,10 @@ export default function AiRobotsTxtPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
           AI Robots.txt Generator
         </h1>
-        <p className="text-gray-400">
+        <p className="text-gray-500 dark:text-gray-400">
           Control which AI crawlers (GPTBot, ClaudeBot, PerplexityBot) can
           access your site. Generate a production-ready robots.txt in seconds.
         </p>
@@ -144,7 +144,7 @@ export default function AiRobotsTxtPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Preset
             </label>
             <select
@@ -153,7 +153,7 @@ export default function AiRobotsTxtPage() {
               className="input-field"
             >
               {Object.entries(presets).map(([key, label]) => (
-                <option key={key} value={key} className="bg-gray-800">
+                <option key={key} value={key} className="bg-gray-100 dark:bg-gray-800">
                   {label}
                 </option>
               ))}
@@ -171,9 +171,9 @@ export default function AiRobotsTxtPage() {
                   .map((crawler) => (
                     <label
                       key={crawler.userAgent}
-                      className="flex items-center justify-between rounded-lg border border-gray-800 bg-gray-900/50 px-4 py-2.5 cursor-pointer hover:border-gray-700"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 px-4 py-2.5 cursor-pointer hover:border-gray-300 dark:border-gray-700"
                     >
-                      <span className="text-sm text-gray-300">
+                      <span className="text-sm text-gray-600 dark:text-gray-300">
                         {crawler.name}
                       </span>
                       <button
@@ -197,7 +197,7 @@ export default function AiRobotsTxtPage() {
           ))}
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Sitemap URL (optional)
             </label>
             <input
@@ -210,7 +210,7 @@ export default function AiRobotsTxtPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Custom Rules (optional)
             </label>
             <textarea
@@ -225,7 +225,7 @@ export default function AiRobotsTxtPage() {
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium text-gray-300">Preview</h3>
+            <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300">Preview</h3>
             <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
@@ -244,9 +244,9 @@ export default function AiRobotsTxtPage() {
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">
             {output}
           </pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-5 text-sm text-gray-400 space-y-4">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5 text-sm text-gray-500 dark:text-gray-400 space-y-4">
             <div>
-              <p className="mb-2 font-bold text-gray-300">How to deploy:</p>
+              <p className="mb-2 font-bold text-gray-600 dark:text-gray-300">How to deploy:</p>
               <ol className="list-decimal list-inside space-y-1">
                 <li>Download as <code className="text-brand-400">robots.txt</code></li>
                 <li>Upload to your website root directory</li>
@@ -259,22 +259,22 @@ export default function AiRobotsTxtPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🤖 AI Robots.txt Configuration Guide &amp; FAQ</h2>
-          <p className="text-gray-400">Learn how to manage crawler access for modern artificial intelligence training bots and search scrapers.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🤖 AI Robots.txt Configuration Guide &amp; FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Learn how to manage crawler access for modern artificial intelligence training bots and search scrapers.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What is an AI Robots.txt?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What is an AI Robots.txt?</h3>
             <p>
               It is a standard <code>robots.txt</code> file containing specific directives for AI crawlers (like <code>GPTBot</code>, <code>ClaudeBot</code>, and <code>PerplexityBot</code>). While traditional robots.txt managed search engine indexing, modern configurations help you toggle whether AI models can scrape your content for LLM training.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. Should I block or allow AI crawlers?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Should I block or allow AI crawlers?</h3>
             <p>
               <strong>Allowing</strong> bots helps your brand get cited and recommended in real-time answers (e.g., in Perplexity or ChatGPT search summaries). 
               <strong>Blocking</strong> bots prevents them from using your copyright or proprietary content to train their future LLM models.
@@ -282,14 +282,14 @@ export default function AiRobotsTxtPage() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. What is the difference between robots.txt and llms.txt?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. What is the difference between robots.txt and llms.txt?</h3>
             <p>
               <code>robots.txt</code> is a gatekeeper file used to block or allow access at the URL crawl level. <code>llms.txt</code> is an open markdown guide that actively helps allowed AI bots read and understand your site structure with high token efficiency.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. Is robots.txt legally binding?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. Is robots.txt legally binding?</h3>
             <p>
               No, robots.txt is a voluntary standard. Respected AI giants like OpenAI, Anthropic, and Google honor these directives. However, malicious scrapers will bypass them. If you need hard protection, you must block IP addresses using Web Application Firewalls (WAF) like Cloudflare.
             </p>

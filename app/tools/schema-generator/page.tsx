@@ -234,9 +234,9 @@ export default function SchemaGeneratorPage() {
       case "FAQPage":
         return (
           <div className="space-y-4">
-            <p className="text-sm text-gray-400">Add your FAQ questions and answers. FAQPage schema is 3.2x more likely to be cited in Google AI Overviews.</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Add your FAQ questions and answers. FAQPage schema is 3.2x more likely to be cited in Google AI Overviews.</p>
             {faqs.map((faq, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-800 bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Q&A {i + 1}</span>
                   {faqs.length > 1 && (
@@ -258,7 +258,7 @@ export default function SchemaGeneratorPage() {
             <Field label="Logo URL" value={data.logo} onChange={(v) => update("logo", v)} placeholder="https://yoursite.com/logo.png" />
             <Field label="Description" value={data.description} onChange={(v) => update("description", v)} placeholder="Company description" />
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Social Profiles (comma-separated URLs)</label>
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Social Profiles (comma-separated URLs)</label>
               <textarea value={data.sameAs} onChange={(e) => update("sameAs", e.target.value)} placeholder="https://twitter.com/yourbrand, https://github.com/yourbrand" rows={2} className="input-field text-sm" />
             </div>
           </>
@@ -269,7 +269,7 @@ export default function SchemaGeneratorPage() {
             <Field label="Guide Title *" value={data.name} onChange={(v) => update("name", v)} placeholder="How to optimize for AI search" />
             <Field label="Description" value={data.description} onChange={(v) => update("description", v)} placeholder="A brief description of the guide" />
             {steps.map((step, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-800 bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Step {i + 1}</span>
                   {steps.length > 1 && (
@@ -305,7 +305,7 @@ export default function SchemaGeneratorPage() {
             <Field label="Website URL" value={data.url} onChange={(v) => update("url", v)} placeholder="https://janedoe.com" />
             <Field label="Image URL" value={data.image} onChange={(v) => update("image", v)} placeholder="https://janedoe.com/avatar.jpg" />
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Social Profiles (comma-separated URLs)</label>
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Social Profiles (comma-separated URLs)</label>
               <textarea value={data.sameAs} onChange={(e) => update("sameAs", e.target.value)} placeholder="https://linkedin.com/in/jane, https://github.com/jane" rows={2} className="input-field text-sm" />
             </div>
           </>
@@ -328,9 +328,9 @@ export default function SchemaGeneratorPage() {
       case "BreadcrumbList":
         return (
           <div className="space-y-4">
-            <p className="text-sm text-gray-400">Define the breadcrumb navigation items in hierarchical order.</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Define the breadcrumb navigation items in hierarchical order.</p>
             {breadcrumbs.map((bc, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-800 bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Breadcrumb {i + 1}</span>
                   {breadcrumbs.length > 1 && (
@@ -361,8 +361,8 @@ export default function SchemaGeneratorPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">Schema for AI Generator</h1>
-        <p className="text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Schema for AI Generator</h1>
+        <p className="text-gray-500 dark:text-gray-400">
           Generate AI-friendly JSON-LD structured data that helps ChatGPT, Perplexity, and Google AI Overviews understand and cite your content.
         </p>
       </div>
@@ -370,7 +370,7 @@ export default function SchemaGeneratorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Schema Type</label>
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Schema Type</label>
             <div className="grid grid-cols-2 gap-2">
               {schemaTypes.map((st) => (
                 <button
@@ -382,7 +382,7 @@ export default function SchemaGeneratorPage() {
                       : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
                   }`}
                 >
-                  <div className="text-sm font-medium text-white">{st.label}</div>
+                  <div className="text-sm font-medium text-gray-900 dark:text-white">{st.label}</div>
                   <div className="text-xs text-gray-500 mt-1">{st.desc}</div>
                 </button>
               ))}
@@ -393,14 +393,14 @@ export default function SchemaGeneratorPage() {
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium text-gray-300">JSON-LD Output</h3>
+            <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300">JSON-LD Output</h3>
             <button onClick={copyToClipboard} className="btn-secondary text-sm py-1.5 px-3">
               {copied ? "✓ Copied!" : "Copy"}
             </button>
           </div>
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">{jsonLdBlock}</pre>
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-sm text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">How to deploy:</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to deploy:</p>
             <ol className="list-decimal list-inside space-y-1">
               <li>Copy the JSON-LD script tag</li>
               <li>Paste into your page&apos;s <code className="text-brand-400">&lt;head&gt;</code> section</li>
@@ -412,36 +412,36 @@ export default function SchemaGeneratorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">💎 Schema Markup &amp; AI Entity Optimization FAQ</h2>
-          <p className="text-gray-400">Learn how structured JSON-LD helps ChatGPT, Claude, and Perplexity index and attribute your website.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">💎 Schema Markup &amp; AI Entity Optimization FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Learn how structured JSON-LD helps ChatGPT, Claude, and Perplexity index and attribute your website.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. Why is Schema markup important for AI search?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. Why is Schema markup important for AI search?</h3>
             <p>
               AI models construct "knowledge graphs" of entities (people, products, places, organizations). Standard HTML is difficult to parse reliably. JSON-LD schema acts as an explicit translation layer, feeding AI crawlers clear relationships, which increases your citation rate by up to 3.2x.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. How does the Person schema help with E-E-A-T?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. How does the Person schema help with E-E-A-T?</h3>
             <p>
               AI crawlers look for signs of Experience, Expertise, Authoritativeness, and Trust (E-E-A-T). By generating a <code>Person</code> schema for your authors—including links to their LinkedIn or GitHub via the <code>sameAs</code> attribute—you verify their identity and authority in the model's training data.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. What is the difference between Schema.org Validator and Google Rich Results Test?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. What is the difference between Schema.org Validator and Google Rich Results Test?</h3>
             <p>
               The **Schema.org Validator** checks general vocabulary syntax and logical schema compliance globally. The **Google Rich Results Test** checks if your markup qualifies for specific search features on Google (like review stars, product prices, or FAQ dropdowns). You should use both.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. Where should I insert the JSON-LD script?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. Where should I insert the JSON-LD script?</h3>
             <p>
               You can insert the generated <code>&lt;script type="application/ld+json"&gt;</code> block anywhere in the HTML—either in the <code>&lt;head&gt;</code> or the <code>&lt;body&gt;</code>. We recommend pasting it into the head section for better crawling speed.
             </p>
@@ -455,7 +455,7 @@ export default function SchemaGeneratorPage() {
 function Field({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (v: string) => void; placeholder: string }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-300 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">{label}</label>
       <input type="text" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="input-field" />
     </div>
   );

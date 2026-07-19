@@ -145,15 +145,15 @@ export default function LlmsTxtValidatorPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">llms.txt Validator</h1>
-        <p className="text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">llms.txt Validator</h1>
+        <p className="text-gray-500 dark:text-gray-400">
           Paste your llms.txt content to check if it follows the spec — H1 title, valid markdown, link format, and more.
         </p>
       </div>
 
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
             llms.txt Content
           </label>
           <textarea
@@ -210,15 +210,15 @@ export default function LlmsTxtValidatorPage() {
                     <span className={`text-lg ${cfg.color} flex-shrink-0`}>
                       {cfg.icon}
                     </span>
-                    <p className="text-sm text-gray-300 flex-1">{issue.message}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 flex-1">{issue.message}</p>
                   </div>
                 );
               })}
             </div>
 
             {errors > 0 && (
-              <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-                <p className="text-sm text-gray-400 mb-2">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                   Need to create a valid llms.txt? Use our generator:
                 </p>
                 <a href="/tools/llms-txt-generator" className="text-brand-400 hover:underline text-sm">
@@ -231,36 +231,36 @@ export default function LlmsTxtValidatorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🔍 llms.txt Syntax &amp; Validation FAQ</h2>
-          <p className="text-gray-400">Ensure your AI roadmap file is perfectly structured for LLM parsers and crawler ingestion.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🔍 llms.txt Syntax &amp; Validation FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Ensure your AI roadmap file is perfectly structured for LLM parsers and crawler ingestion.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What are the key rules for a valid llms.txt?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What are the key rules for a valid llms.txt?</h3>
             <p>
               A valid <code>llms.txt</code> file must begin with exactly one H1 header (e.g., <code># Project Name</code>), followed immediately by a blockquote summary (e.g., <code>&gt; A brief description</code>). All subheadings must use H2 (<code>##</code>) format, and links should follow the standard list link pattern.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. Why are HTML tags and code blocks discouraged in llms.txt?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Why are HTML tags and code blocks discouraged in llms.txt?</h3>
             <p>
               The <code>llms.txt</code> file is designed to be a high-density, low-token directory index. Adding complex HTML tags, inline scripts, or markdown code blocks adds unnecessary token overhead and parsing noise for LLM crawlers. Keep it to pure, clean markdown.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. Why is there a 50KB size warning?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why is there a 50KB size warning?</h3>
             <p>
               AI agents ingest this file into their active context window to map out your site's resources. If the index exceeds 50KB, it consumes valuable tokens that the model could use for processing actual page content. If you have extensive links, split them into multiple sub-sections or use a full-text <code>llms-full.txt</code>.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. How often should I re-validate?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. How often should I re-validate?</h3>
             <p>
               You should validate your file whenever you update your website architecture, add new API documentation, or change key landing page URLs. Validating ensures no broken absolute URLs or malformed markdown syntax slips into your live configuration.
             </p>

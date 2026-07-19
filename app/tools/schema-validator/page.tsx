@@ -186,7 +186,7 @@ function RichResultsPreview({ schema }: { schema: any }) {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
-        <span key={i} className={i <= Math.round(rating) ? "text-yellow-400" : "text-gray-300"}>
+        <span key={i} className={i <= Math.round(rating) ? "text-yellow-400" : "text-gray-600 dark:text-gray-300"}>
           {i <= Math.round(rating) ? "★" : "☆"}
         </span>
       );
@@ -227,7 +227,7 @@ function RichResultsPreview({ schema }: { schema: any }) {
         {questions.slice(0, 5).map((q, i) => (
           <FaqAccordionItem key={i} question={q.name || q.question || `Question ${i + 1}`} answer={q.acceptedAnswer?.text || q.answer || ""} defaultOpen={i < 2} />
         ))}
-        {questions.length === 0 && <div className="text-sm text-gray-400 py-2">No questions found in mainEntity.</div>}
+        {questions.length === 0 && <div className="text-sm text-gray-500 dark:text-gray-400 py-2">No questions found in mainEntity.</div>}
       </div>
     );
   }
@@ -286,7 +286,7 @@ function RichResultsPreview({ schema }: { schema: any }) {
             </div>
           ))}
         </div>
-        {steps.length === 0 && <div className="text-sm text-gray-400">No steps found.</div>}
+        {steps.length === 0 && <div className="text-sm text-gray-500 dark:text-gray-400">No steps found.</div>}
       </div>
     );
   }
@@ -311,7 +311,7 @@ function FaqAccordionItem({ question, answer, defaultOpen }: { question: string;
     <div className="py-2">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between text-left group">
         <span className="text-sm font-medium text-gray-800 group-hover:text-blue-700 transition-colors">{question}</span>
-        <svg className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className={`w-4 h-4 text-gray-500 dark:text-gray-400 flex-shrink-0 transition-transform ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
@@ -410,8 +410,8 @@ export default function SchemaValidatorPage() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">Schema Validator &amp; Rich Results Preview</h1>
-        <p className="text-gray-400">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Schema Validator &amp; Rich Results Preview</h1>
+        <p className="text-gray-500 dark:text-gray-400">
           Paste your JSON-LD structured data to validate syntax, check required fields, and preview how it will appear in Google Rich Results and AI search.
         </p>
       </div>
@@ -421,7 +421,7 @@ export default function SchemaValidatorPage() {
         <div className="space-y-6">
           {/* URL 自动提取 */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Extract from URL</label>
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Extract from URL</label>
             <div className="flex gap-2">
               <input
                 type="url"
@@ -460,21 +460,21 @@ export default function SchemaValidatorPage() {
 
           {/* 分隔线 */}
           <div className="flex items-center gap-3">
-            <div className="flex-1 border-t border-gray-800" />
+            <div className="flex-1 border-t border-gray-200 dark:border-gray-800" />
             <span className="text-xs text-gray-500">or paste JSON-LD directly</span>
-            <div className="flex-1 border-t border-gray-800" />
+            <div className="flex-1 border-t border-gray-200 dark:border-gray-800" />
           </div>
 
           {/* 输入框 */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-medium text-gray-300">JSON-LD Input</label>
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">JSON-LD Input</label>
               <div className="flex gap-2">
                 <button onClick={loadExample} className="text-xs text-brand-400 hover:text-brand-300 transition-colors">
                   Load Example
                 </button>
                 {input && (
-                  <button onClick={handleCopy} className="text-xs text-gray-400 hover:text-gray-300 transition-colors">
+                  <button onClick={handleCopy} className="text-xs text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300 transition-colors">
                     {copied ? "✓ Copied" : "Copy"}
                   </button>
                 )}
@@ -515,7 +515,7 @@ export default function SchemaValidatorPage() {
           {results && (
             <div className="space-y-4">
               {/* 统计摘要 */}
-              <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
                 <div className="flex items-center gap-4 text-sm">
                   <span className="text-green-400 font-medium">{passCount} passed</span>
                   <span className="text-red-400 font-medium">{failCount} failed</span>
@@ -539,8 +539,8 @@ export default function SchemaValidatorPage() {
                     >
                       <span className={`text-base ${cfg.color} flex-shrink-0 mt-0.5`}>{cfg.icon}</span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-medium text-white">{item.label}</h3>
-                        <p className="text-xs text-gray-400 mt-0.5">{item.message}</p>
+                        <h3 className="text-sm font-medium text-gray-900 dark:text-white">{item.label}</h3>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{item.message}</p>
                       </div>
                     </div>
                   );
@@ -552,7 +552,7 @@ export default function SchemaValidatorPage() {
 
         {/* -- Right Column: Rich Results Preview -- */}
         <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-300">Rich Results Preview</h3>
+          <h3 className="text-sm font-medium text-gray-600 dark:text-gray-300">Rich Results Preview</h3>
 
           {parsedSchema ? (
             <div className="rounded-xl bg-white p-6 shadow-lg">
@@ -562,12 +562,12 @@ export default function SchemaValidatorPage() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 </div>
-                <span className="text-xs text-gray-400 ml-2">Google Search Preview</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">Google Search Preview</span>
               </div>
               <RichResultsPreview schema={parsedSchema} />
             </div>
           ) : (
-            <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-10 text-center">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-10 text-center">
               <div className="text-gray-600 text-4xl mb-3">🔍</div>
               <p className="text-sm text-gray-500">
                 Paste valid JSON-LD and click <span className="text-brand-400">Validate</span> to see a preview of how your structured data will appear in Google Rich Results.
@@ -576,11 +576,11 @@ export default function SchemaValidatorPage() {
           )}
 
           {/* Supported type list */}
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-            <p className="text-sm font-medium text-gray-300 mb-3">Supported Rich Result Types</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
+            <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Supported Rich Result Types</p>
             <div className="flex flex-wrap gap-1.5">
               {KNOWN_TYPES.map((t) => (
-                <span key={t} className="text-xs px-2 py-1 rounded-md bg-gray-800 text-gray-400 border border-gray-700">
+                <span key={t} className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-700">
                   {t}
                 </span>
               ))}
@@ -588,8 +588,8 @@ export default function SchemaValidatorPage() {
           </div>
 
           {/* Tips */}
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-sm text-gray-400">
-            <p className="mb-2 font-medium text-gray-300">Tips for Rich Results</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">Tips for Rich Results</p>
             <ul className="list-disc list-inside space-y-1 text-xs">
               <li>Always include <code className="text-brand-400">@context</code> and <code className="text-brand-400">@type</code></li>
               <li>Add a <code className="text-brand-400">description</code> for better snippets</li>
@@ -600,8 +600,8 @@ export default function SchemaValidatorPage() {
           </div>
 
           {/* CTA — 链接 to Schema Generator */}
-          <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 text-center">
-            <p className="text-sm text-white font-medium mb-2">Need to create schema from scratch?</p>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-center">
+            <p className="text-sm text-gray-900 dark:text-white font-medium mb-2">Need to create schema from scratch?</p>
             <a href="/tools/schema-generator" className="btn-secondary text-sm inline-block">
               Open Schema Generator →
             </a>
@@ -610,36 +610,36 @@ export default function SchemaValidatorPage() {
       </div>
 
       {/* Educational FAQ Section */}
-      <div className="mt-16 border-t border-gray-800 pt-12 space-y-8">
+      <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-12 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">🔍 Schema Validation &amp; Rich Results FAQ</h2>
-          <p className="text-gray-400">Ensure your structured JSON-LD syntax is flawless before deploying to avoid crawling errors.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">🔍 Schema Validation &amp; Rich Results FAQ</h2>
+          <p className="text-gray-500 dark:text-gray-400">Ensure your structured JSON-LD syntax is flawless before deploying to avoid crawling errors.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-500 dark:text-gray-400">
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">1. What does a Schema Validator do?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">1. What does a Schema Validator do?</h3>
             <p>
               It parses your raw JSON-LD markup to detect structural syntax errors (such as trailing commas, mismatched braces, or invalid properties) and validates it against Schema.org vocabulary definitions so that search engines can read it without errors.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">2. Why does a trailing comma break JSON-LD schema?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Why does a trailing comma break JSON-LD schema?</h3>
             <p>
               JSON-LD is standard JSON under the hood. Standard JSON parsers do not tolerate trailing commas at the end of object parameters or array lists. A single trailing comma causes the parser to throw a syntax error, resulting in the entire schema block being skipped by crawlers.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">3. What is a Rich Results search preview?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. What is a Rich Results search preview?</h3>
             <p>
               It is a simulated visual representation of how your structured metadata (like FAQPage, Product ratings, or Article headline) will look on a Google search results page. Previews help you ensure key details are correctly extracted by search engines.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-white text-base">4. Can I have multiple schema types on a single page?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">4. Can I have multiple schema types on a single page?</h3>
             <p>
               Yes. You can declare multiple schemas within a single <code>&lt;script&gt;</code> block by using a JSON-LD array or linking them via an <code>@graph</code> block. For example, you can combine an <code>Organization</code> schema and a <code>WebSite</code> schema on your homepage.
             </p>
