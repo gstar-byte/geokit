@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white mb-6">About GEOKit</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">About GEOKit</h1>
       <div className="prose prose-invert max-w-none space-y-6 text-gray-500 dark:text-gray-400">
         <p>
-          GEOKit is a free toolkit for <strong className="text-white">Generative Engine Optimization (GEO)</strong> —
+          GEOKit is a free toolkit for <strong className="text-gray-900 dark:text-white">Generative Engine Optimization (GEO)</strong> —
           the practice of optimizing your website so that AI search engines like
           ChatGPT, Perplexity, and Google AI Overviews can understand, cite, and
           recommend your content.
@@ -17,61 +17,73 @@ export default function AboutPage() {
           models through technical signals like <code className="text-brand-400">llms.txt</code>,
           AI crawler access, and structured data.
         </p>
-        <h2 className="text-xl font-semibold text-white">Why GEOKit?</h2>
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Why GEOKit?</h2>
         <ul className="list-disc list-inside space-y-2">
-          <li><strong className="text-white">100% Free</strong> — No signup, no premium plans, no limits</li>
-          <li><strong className="text-white">100% Private</strong> — All tools run in your browser, nothing is sent to servers</li>
-          <li><strong className="text-white">All-in-one</strong> — Everything you need for GEO in one place</li>
-          <li><strong className="text-white">No tracking</strong> — We don&apos;t track you or store your data</li>
+          <li><strong className="text-gray-900 dark:text-white">100% Free</strong> — No signup, no premium plans, no limits</li>
+          <li><strong className="text-gray-900 dark:text-white">100% Private</strong> — All tools run in your browser, nothing is sent to servers</li>
+          <li><strong className="text-gray-900 dark:text-white">All-in-one</strong> — Everything you need for GEO in one place</li>
+          <li><strong className="text-gray-900 dark:text-white">No tracking</strong> — We don&apos;t track you or store your data</li>
         </ul>
-        <h2 className="text-xl font-semibold text-white">The Tools</h2>
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">The Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">
           <Link href="/tools/llms-txt-generator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">llms.txt Generator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">llms.txt Generator</h3>
             <p className="text-sm text-gray-500 mt-1">Create an llms.txt file for AI models</p>
           </Link>
           <Link href="/tools/ai-robots-txt-generator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">AI Robots.txt Generator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">AI Robots.txt Generator</h3>
             <p className="text-sm text-gray-500 mt-1">Control AI crawler access</p>
           </Link>
           <Link href="/tools/schema-generator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">Schema for AI Generator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">Schema for AI Generator</h3>
             <p className="text-sm text-gray-500 mt-1">Generate AI-friendly JSON-LD</p>
           </Link>
           <Link href="/tools/ai-readiness-checker" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">AI Readiness Checker</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">AI Readiness Checker</h3>
             <p className="text-sm text-gray-500 mt-1">Score your site&apos;s AI readiness</p>
           </Link>
           <Link href="/tools/llms-txt-validator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">llms.txt Validator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">llms.txt Validator</h3>
             <p className="text-sm text-gray-500 mt-1">Validate your llms.txt file</p>
           </Link>
           <Link href="/tools/geo-checklist" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">GEO Checklist</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">GEO Checklist</h3>
             <p className="text-sm text-gray-500 mt-1">Step-by-step GEO optimization guide</p>
           </Link>
           <Link href="/tools/ai-sitemap-generator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">AI Sitemap Generator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">AI Sitemap Generator</h3>
             <p className="text-sm text-gray-500 mt-1">Generate an XML sitemap optimized for AI crawlers</p>
           </Link>
           <Link href="/tools/meta-tag-generator" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">Meta Tag Generator</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">Meta Tag Generator</h3>
             <p className="text-sm text-gray-500 mt-1">Generate Open Graph and AI-specific meta tags</p>
           </Link>
           <Link href="/tools/qa-content-formatter" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">Q&A Content Formatter</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">Q&A Content Formatter</h3>
             <p className="text-sm text-gray-500 mt-1">Transform content into Q&A format for AI retrieval</p>
           </Link>
           <Link href="/tools/ai-crawler-tester" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">AI Crawler Tester</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">AI Crawler Tester</h3>
             <p className="text-sm text-gray-500 mt-1">Simulate how AI crawlers see your page</p>
           </Link>
           <Link href="/tools/ai-search-grader" className="tool-card group">
-            <h3 className="text-white font-medium group-hover:text-brand-400">AI Search Grader</h3>
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">AI Search Grader</h3>
             <p className="text-sm text-gray-500 mt-1">Test your brand visibility in AI search models</p>
           </Link>
+          <Link href="/tools/geo-score" className="tool-card group">
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">GEO Score</h3>
+            <p className="text-sm text-gray-500 mt-1">Grade your content&apos;s AI citability</p>
+          </Link>
+          <Link href="/tools/schema-validator" className="tool-card group">
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">Schema Validator &amp; Preview</h3>
+            <p className="text-sm text-gray-500 mt-1">Validate JSON-LD and preview rich results</p>
+          </Link>
+          <Link href="/tools/sitemap-validator" className="tool-card group">
+            <h3 className="text-gray-900 dark:text-white font-medium group-hover:text-brand-400">Sitemap Validator &amp; Checker</h3>
+            <p className="text-sm text-gray-500 mt-1">Audit sitemap compliance and broken links</p>
+          </Link>
         </div>
-        <h2 className="text-xl font-semibold text-white">What is GEO?</h2>
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">What is GEO?</h2>
         <p>
           GEO (Generative Engine Optimization) is a new discipline that focuses on
           optimizing websites for AI-powered search engines. Unlike traditional SEO
@@ -83,10 +95,10 @@ export default function AboutPage() {
         </p>
         <ul className="list-disc list-inside space-y-2">
           <li><code className="text-brand-400">llms.txt</code> — A markdown file that tells AI models what your site is about</li>
-          <li><strong className="text-white">AI crawler access</strong> — Allowing GPTBot, ClaudeBot, etc. in robots.txt</li>
-          <li><strong className="text-white">Structured data</strong> — JSON-LD schema that helps AI understand your content</li>
-          <li><strong className="text-white">Semantic HTML</strong> — Clean, structured markup for AI comprehension</li>
-          <li><strong className="text-white">Q&amp;A format</strong> — Content formatted as questions and answers</li>
+          <li><strong className="text-gray-900 dark:text-white">AI crawler access</strong> — Allowing GPTBot, ClaudeBot, etc. in robots.txt</li>
+          <li><strong className="text-gray-900 dark:text-white">Structured data</strong> — JSON-LD schema that helps AI understand your content</li>
+          <li><strong className="text-gray-900 dark:text-white">Semantic HTML</strong> — Clean, structured markup for AI comprehension</li>
+          <li><strong className="text-gray-900 dark:text-white">Q&amp;A format</strong> — Content formatted as questions and answers</li>
         </ul>
       </div>
     </div>

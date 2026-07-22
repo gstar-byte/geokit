@@ -1,0 +1,264 @@
+openapi: 3.0.3
+info:
+  title: GEOKit API
+  description: >-
+    Free GEO (Generative Engine Optimization) diagnostic API. Audit website
+    readiness for AI search engines, test AI crawler access, validate sitemaps,
+    and extract structured data.
+  version: 1.0.0
+  contact:
+    email: support@geokit.site
+  license:
+    name: MIT
+servers:
+  - url: https://geokit.site
+paths:
+  /api/check-readiness:
+    post:
+      operationId: checkReadiness
+      summary: Audit a URL's AI search readiness
+      description: >-
+        Fetches the target URL and scores it 0-100 across GEO signals:
+        metadata, robots.txt AI crawler rules, sitemap presence, llms.txt,
+        structured data, and content structure.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url]
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: The website URL to audit
+                siteType:
+                  type: string
+                  default: general
+                  description: Site category hint (e.g. general, blog, saas, ecommerce)
+      responses:
+        '200':
+          description: Readiness report with score and per-check results
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid URL
+  /api/crawl-test:
+    post:
+      operationId: crawlTest
+      summary: Simulate how AI crawlers see a page
+      description: >-
+        Fetches a URL the way AI crawlers (GPTBot, ClaudeBot, PerplexityBot)
+        would, and reports what content is extractable without JavaScript
+        rendering.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url]
+              properties:
+                url:
+                  type: string
+                  format: uri
+      responses:
+        '200':
+          description: Per-crawler extraction report
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid URL
+  /api/check-sitemap:
+    post:
+      operationId: checkSitemap
+      summary: Validate an XML sitemap and audit its URLs
+      description: >-
+        Validates sitemap XML syntax and sitemaps.org namespace compliance,
+        detects sitemap index files, measures file weight, and pings the top
+        URLs for HTTP status codes to find broken links and redirects.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sitemapUrl]
+              properties:
+                sitemapUrl:
+                  type: string
+                  format: uri
+                  description: Full URL of the sitemap.xml to validate
+      responses:
+        '200':
+          description: Sitemap validation report with URL status audit
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid sitemap URL
+  /api/fetch-sitemap:
+    post:
+      operationId: fetchSitemap
+      summary: Discover and fetch a site's sitemap
+      description: Locates the sitemap for a given site URL and returns its parsed contents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url]
+              properties:
+                url:
+                  type: string
+                  format: uri
+      responses:
+        '200':
+          description: Parsed sitemap contents
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid URL
+  /api/fetch-schema:
+    post:
+      operationId: fetchSchema
+      summary: Extract JSON-LD structured data from a page
+      description: Fetches a URL and returns all JSON-LD schema blocks found in the HTML.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url]
+              properties:
+                url:
+                  type: string
+                  format: uri
+      responses:
+        '200':
+          description: Extracted JSON-LD blocks
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid URL
+  /api/fetch-full-content:
+    post:
+      operationId: fetchFullContent
+      summary: Extract clean readable content from pages
+      description: >-
+        Fetches one or more URLs and returns LLM-friendly plain text with
+        optional stripping of header, footer, and sidebar boilerplate.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [urls]
+              properties:
+                urls:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+                stripHeader:
+                  type: boolean
+                  default: true
+                stripFooter:
+                  type: boolean
+                  default: true
+                stripSidebar:
+                  type: boolean
+                  default: true
+                maxWords:
+                  type: integer
+                  default: 1000
+      responses:
+        '200':
+          description: Cleaned page contents
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid urls array
+  /api/ai-search-grader:
+    post:
+      operationId: gradeBrandVisibility
+      summary: Measure brand visibility across AI search models
+      description: >-
+        Queries multiple AI models (ChatGPT, Gemini, Claude, Llama, Mistral,
+        DeepSeek) with niche-relevant prompts and measures brand mentions,
+        ranking position, and competitor share of voice.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [brand, niche]
+              properties:
+                brand:
+                  type: string
+                  description: Brand name to measure
+                niche:
+                  type: string
+                  description: Niche or product description used to build test prompts
+                competitors:
+                  type: array
+                  items:
+                    type: string
+                  description: Optional competitor brand names for share-of-voice comparison
+                apiKey:
+                  type: string
+                  description: Optional user-provided model API key
+      responses:
+        '200':
+          description: Visibility grading job created or report returned
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing brand or niche
+  /api/badge:
+    get:
+      operationId: getBadge
+      summary: Generate an AI Readiness Score badge image
+      description: Returns an embeddable SVG/PNG badge showing a 0-100 AI readiness score.
+      parameters:
+        - name: score
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 100
+        - name: url
+          in: query
+          schema:
+            type: string
+            format: uri
+        - name: style
+          in: query
+          schema:
+            type: string
+            enum: [dark, light, gradient]
+      responses:
+        '200':
+          description: Badge image
+          content:
+            image/svg+xml: {}
+            image/png: {}

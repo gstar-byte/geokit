@@ -16,7 +16,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "GEOKit",
   url: "https://geokit.site",
-  description: "Free toolkit for Generative Engine Optimization (GEO). 13 free tools to optimize websites for AI search engines.",
+  description: "Free toolkit for Generative Engine Optimization (GEO). 14 free tools to optimize websites for AI search engines.",
 };
 
 const tools = [
@@ -213,8 +213,8 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t("All Tools", "All Tools")}</h2>
         <p className="text-lg text-gray-500 dark:text-gray-400 mb-8">
           {t(
-            "Thirteen free tools to make your website visible to AI search engines.",
-            "Thirteen free tools to make your website visible to AI search engines."
+            "Fourteen free tools to make your website visible to AI search engines.",
+            "Fourteen free tools to make your website visible to AI search engines."
           )}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -322,7 +322,7 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <h3 className="text-white font-medium mb-2">
+            <h3 className="text-gray-900 dark:text-white font-medium mb-2">
               {t("Do I need to sign up or pay?", "Do I need to sign up or pay?")}
             </h3>
             <p className="text-gray-500 dark:text-gray-400 text-base">
@@ -333,7 +333,7 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <h3 className="text-white font-medium mb-2">
+            <h3 className="text-gray-900 dark:text-white font-medium mb-2">
               {t("Are these tools safe to use?", "Are these tools safe to use?")}
             </h3>
             <p className="text-gray-500 dark:text-gray-400 text-base">
@@ -344,7 +344,7 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <h3 className="text-white font-medium mb-2">
+            <h3 className="text-gray-900 dark:text-white font-medium mb-2">
               {t("Can I use GEOKit tools offline?", "Can I use GEOKit tools offline?")}
             </h3>
             <p className="text-gray-500 dark:text-gray-400 text-base">

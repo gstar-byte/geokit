@@ -30,6 +30,17 @@ export const metadata: Metadata = {
     "AI optimization tools",
     "free SEO tools",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "GEOKit — Free GEO Tools for AI Search Optimization",
     description:
@@ -81,8 +92,6 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="mcp" href="/api/mcp" />
-        <meta name="mcp-server" content="/api/mcp" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-76D0P54CSL"
@@ -104,9 +113,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
-          <div style={{ display: "none" }} aria-hidden="true">
-            swagger openapi graphql webmcp /api/mcp
-          </div>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

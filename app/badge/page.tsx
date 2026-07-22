@@ -39,7 +39,7 @@ function BadgeContent() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-3">AI Readiness Badge</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">AI Readiness Badge</h1>
         <p className="text-lg text-gray-500 dark:text-gray-400">
           Show your AI Readiness Score on your website with a free embeddable badge.
           When visitors click the badge, they&apos;ll link back to GEOKit — helping
@@ -99,7 +99,7 @@ function BadgeContent() {
           />
           <div className="flex justify-between text-sm text-gray-500 mt-1">
             <span>0</span>
-            <span className="text-white font-bold">{score}</span>
+            <span className="text-gray-900 dark:text-white font-bold">{score}</span>
             <span>100</span>
           </div>
         </div>
@@ -128,7 +128,7 @@ function BadgeContent() {
                 onClick={() => setStyle(s)}
                 className={`rounded-lg border p-3 text-center text-base font-medium capitalize transition-colors ${
                   style === s
-                    ? "border-brand-500 bg-brand-500/10 text-white"
+                    ? "border-brand-500 bg-brand-500/10 text-gray-900 dark:text-white"
                     : "border-gray-800 bg-gray-900/50 text-gray-500 dark:text-gray-400 hover:border-gray-700"
                 }`}
               >
@@ -163,7 +163,7 @@ function BadgeContent() {
 
       {/* Link bait explanation */}
       <div className="mt-8 rounded-lg border border-brand-500/30 bg-brand-500/10 p-6">
-        <h3 className="text-lg font-semibold text-white mb-2">Why share your badge?</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Why share your badge?</h3>
         <ul className="space-y-2 text-base text-gray-600 dark:text-gray-300">
           <li>• Show visitors your site is optimized for AI search</li>
           <li>• Build trust with an independently verified score</li>

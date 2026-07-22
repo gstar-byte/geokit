@@ -72,8 +72,8 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     // Homepage
     "Free GEO toolkit to optimize your site for AI search: llms.txt generator, schema markup, robots.txt, readiness checker & more. No signup.":
       "免费的生成引擎优化 (GEO) 工具集，帮助优化您的网站以在 ChatGPT、Perplexity 和 Google AI Overviews 中获得更高引用率，无需注册。",
-    "Thirteen free tools to make your website visible to AI search engines.":
-      "13 个免费工具，让您的网站对 AI 搜索引擎清晰可见。",
+    "Fourteen free tools to make your website visible to AI search engines.":
+      "14 个免费工具，让您的网站对 AI 搜索引擎清晰可见。",
     "All Tools": "全部工具",
     "Frequently Asked Questions": "常见问题",
     "What is GEO (Generative Engine Optimization)?": "什么是 GEO（生成引擎优化）？",
