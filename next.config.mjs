@@ -3,6 +3,44 @@ const nextConfig = {
   reactStrictMode: true,
   async headers() {
     return [
+      // Short cache for favicon/icon files to accelerate Google favicon re-crawl
+      {
+        source: "/favicon.ico",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/favicon.png",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/icon-192.png",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/icon-512.png",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
+        ],
+      },
+      // Global security headers
       {
         source: "/:path*",
         headers: [
@@ -37,3 +75,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
