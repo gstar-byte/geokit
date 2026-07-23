@@ -200,7 +200,7 @@ export default function GeoChecklistPage() {
                     className={`flex items-start gap-4 rounded-lg border p-4 cursor-pointer transition-colors ${
                       checked[item.id]
                         ? "border-green-500/30 bg-green-500/5"
-                        : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
+                        : "border-gray-200 bg-white/80 dark:border-gray-800 dark:bg-gray-900/50 hover:border-gray-300 dark:hover:border-gray-700"
                     }`}
                   >
                     <button

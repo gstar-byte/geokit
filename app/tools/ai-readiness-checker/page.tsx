@@ -52,16 +52,16 @@ const SITE_TYPES: { key: SiteType; label: string; icon: string; desc: string }[]
 ];
 
 const statusConfig = {
-  pass: { color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/30", icon: "✓" },
-  fail: { color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/30", icon: "✗" },
-  warn: { color: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/30", icon: "⚠" },
-  info: { color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/30", icon: "ℹ" },
+  pass: { color: "text-green-600 dark:text-green-400", bg: "bg-green-500/10", border: "border-green-500/30", icon: "✓" },
+  fail: { color: "text-red-600 dark:text-red-400", bg: "bg-red-500/10", border: "border-red-500/30", icon: "✗" },
+  warn: { color: "text-amber-600 dark:text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/30", icon: "⚠" },
+  info: { color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/30", icon: "ℹ" },
 };
 
 function getScoreColor(score: number) {
-  if (score >= 80) return "text-green-400";
-  if (score >= 50) return "text-yellow-400";
-  return "text-red-400";
+  if (score >= 80) return "text-green-600 dark:text-green-400";
+  if (score >= 50) return "text-amber-600 dark:text-yellow-400";
+  return "text-red-600 dark:text-red-400";
 }
 
 function getScoreBorderColor(score: number) {
@@ -459,22 +459,22 @@ export default function AiReadinessCheckerPage() {
                   const total = cat.results.length;
 
                   return (
-                    <div key={cat.key} className={`rounded-xl border ${getScoreBorderColor(cat.score)} bg-gray-900/50 overflow-hidden`}>
+                    <div key={cat.key} className={`rounded-xl border ${getScoreBorderColor(cat.score)} bg-white/80 dark:bg-gray-900/50 shadow-xs overflow-hidden`}>
                       <button
                         onClick={() => toggleCategory(cat.key)}
-                        className="w-full flex items-center gap-3 p-4 hover:bg-gray-100 dark:bg-gray-800/30 transition-colors"
+                        className="w-full flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors"
                       >
                         <span className="text-xl">{cat.icon}</span>
                         <div className="flex-1 text-left">
-                          <div className="text-sm font-medium text-gray-900 dark:text-white">{cat.label}</div>
-                          <div className="text-xs text-gray-500">{passCount}/{total} passed</div>
+                          <div className="text-sm font-semibold text-gray-900 dark:text-white">{cat.label}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{passCount}/{total} passed</div>
                         </div>
                         <div className={`text-lg font-bold ${getScoreColor(cat.score)}`}>{cat.score}%</div>
-                        <span className={`text-gray-500 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>▼</span>
+                        <span className={`text-gray-400 dark:text-gray-500 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>▼</span>
                       </button>
 
                       {isOpen && (
-                        <div className="border-t border-gray-200 dark:border-gray-800 divide-y divide-gray-800/50">
+                        <div className="border-t border-gray-200 dark:border-gray-800 divide-y divide-gray-100 dark:divide-gray-800/50 bg-white/50 dark:bg-transparent">
                           {cat.results.map((check, i) => {
                             const cfg = statusConfig[check.status];
                             return (
@@ -485,11 +485,11 @@ export default function AiReadinessCheckerPage() {
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between mb-0.5">
                                     <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">{check.name}</h4>
-                                    <span className={`text-xs ${cfg.color} flex-shrink-0 ml-2`}>
+                                    <span className={`text-xs font-semibold ${cfg.color} flex-shrink-0 ml-2`}>
                                       {Math.round(check.weightedPoints)}/{Math.round(check.weightedMax)}
                                     </span>
                                   </div>
-                                  <p className="text-xs text-gray-500 dark:text-gray-400">{check.message}</p>
+                                  <p className="text-xs text-gray-600 dark:text-gray-400">{check.message}</p>
                                 </div>
                               </div>
                             );

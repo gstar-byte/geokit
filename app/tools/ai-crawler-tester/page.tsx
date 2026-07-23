@@ -96,7 +96,7 @@ export default function AiCrawlerTesterPage() {
           {result.results.map((r, i) => (
             <div
               key={i}
-              className={`rounded-xl border p-6 ${crawlerColors[r.crawler] || "border-gray-800 bg-gray-900/50"}`}
+              className={`rounded-xl border p-6 ${crawlerColors[r.crawler] || "border-gray-200 bg-white/80 dark:border-gray-800 dark:bg-gray-900/50"}`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
