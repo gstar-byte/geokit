@@ -356,6 +356,29 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Featured On Badges */}
+      <section className="mx-auto max-w-3xl px-4 py-12 text-center">
+        <p className="text-sm font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-6">
+          {t("Featured On", "Featured On")}
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <a
+            href="https://smollaunch.com"
+            target="_blank"
+            rel="noopener"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://smollaunch.com/badges/featured.svg"
+              alt="GEOKit — Featured on Smol Launch"
+              loading="lazy"
+              width={250}
+              height={60}
+            />
+          </a>
+        </div>
+      </section>
     </>
   );
 }
