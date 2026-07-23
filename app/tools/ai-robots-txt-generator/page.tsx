@@ -171,7 +171,7 @@ export default function AiRobotsTxtPage() {
                   .map((crawler) => (
                     <label
                       key={crawler.userAgent}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 px-4 py-2.5 cursor-pointer hover:border-gray-300 dark:border-gray-700"
+                      className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 px-4 py-2.5 cursor-pointer hover:border-gray-300 dark:border-gray-700"
                     >
                       <span className="text-sm text-gray-600 dark:text-gray-300">
                         {crawler.name}
@@ -244,7 +244,7 @@ export default function AiRobotsTxtPage() {
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">
             {output}
           </pre>
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5 text-sm text-gray-500 dark:text-gray-400 space-y-4">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-5 text-sm text-gray-500 dark:text-gray-400 space-y-4">
             <div>
               <p className="mb-2 font-bold text-gray-600 dark:text-gray-300">How to deploy:</p>
               <ol className="list-decimal list-inside space-y-1">

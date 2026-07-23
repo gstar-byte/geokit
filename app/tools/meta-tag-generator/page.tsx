@@ -159,7 +159,7 @@ export default function MetaTagGeneratorPage() {
             </button>
           </div>
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">{output || "<!-- Fill in fields to generate tags -->"}</pre>
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
             <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to deploy:</p>
             <ol className="list-decimal list-inside space-y-1">
               <li>Copy the generated tags</li>

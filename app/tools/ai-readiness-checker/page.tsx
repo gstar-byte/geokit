@@ -399,7 +399,7 @@ export default function AiReadinessCheckerPage() {
           {result && !loading && (
             <div className="space-y-6">
               {/* Score Header */}
-              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8">
+              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   {/* Score Circle */}
                   <div className="relative flex-shrink-0">
@@ -524,7 +524,7 @@ export default function AiReadinessCheckerPage() {
 
           {/* History Chart & Trends */}
           {history.length > 1 && (
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 space-y-4">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6 space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">📈 Scan Score Trend</h3>
                 <button onClick={clearHistory} className="text-xs text-gray-500 hover:text-red-400 transition-colors">
@@ -651,7 +651,7 @@ export default function AiReadinessCheckerPage() {
           {compResult1 && compResult2 && !compLoading && (
             <div className="space-y-6">
               {/* Score Rings Side-By-Side */}
-              <div className="grid grid-cols-2 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 text-center">
+              <div className="grid grid-cols-2 gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6 text-center">
                 <div>
                   <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 truncate">{compResult1.url}</h4>
                   <div className="relative inline-block">
@@ -696,7 +696,7 @@ export default function AiReadinessCheckerPage() {
               </div>
 
               {/* Category Gap Breakdown Table */}
-              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+              <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">⚖️ Category Comparison</h3>
                 <div className="space-y-4">
                   {compResult1.categories.map((cat1) => {
@@ -742,7 +742,7 @@ export default function AiReadinessCheckerPage() {
 
       {/* Empty State */}
       {!result && !compResult1 && !loading && !compLoading && !error && !compError && (
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <div className="text-4xl mb-3">🔍</div>
           <p className="text-sm mb-2">
             Enter your website URL above to run a comprehensive AI readiness audit.

@@ -110,13 +110,13 @@ export default function SitemapValidatorPage() {
         <div className="space-y-6 animate-fade-in">
           {/* Metadata Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-5">
               <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Total URLs Found</span>
               <div className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{result.totalUrls}</div>
               <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Parsed from XML location tags</div>
             </div>
 
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-5">
               <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Crawl Results</span>
               <div className="text-3xl font-bold text-gray-900 dark:text-white mt-1">
                 <span className="text-green-400">{passCount} OK</span>
@@ -125,7 +125,7 @@ export default function SitemapValidatorPage() {
               <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Checked top {result.urlsChecked} pages</div>
             </div>
 
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-5">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-5">
               <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">File Details</span>
               <div className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{result.xmlSizeKb} KB</div>
               <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Sitemap size limit is 50MB</div>
@@ -133,7 +133,7 @@ export default function SitemapValidatorPage() {
           </div>
 
           {/* Compliance Checklist */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">📜 Format Compliance</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between text-sm pb-2 border-b border-gray-200 dark:border-gray-800/60">
@@ -156,7 +156,7 @@ export default function SitemapValidatorPage() {
           </div>
 
           {/* Links Audit List */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white">🔗 URL Status Audit (Top 20)</h3>
               <span className="text-xs text-gray-500">HEAD/GET status pings</span>

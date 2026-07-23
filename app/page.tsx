@@ -181,7 +181,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/20 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 text-center">
-          <div className="inline-flex items-center rounded-full border border-brand-200 bg-white/80 dark:bg-brand-950/60 dark:border-brand-700/50 px-4 py-1.5 text-sm font-medium text-brand-700 dark:text-brand-300 shadow-xs backdrop-blur-sm mb-6 animate-fade-in">
+          <div className="inline-flex items-center rounded-full border border-brand-200 bg-white/80 dark:bg-gray-900/60 dark:border-brand-700/50 px-4 py-1.5 text-sm font-medium text-brand-700 dark:text-brand-300 shadow-xs backdrop-blur-sm mb-6 animate-fade-in">
             {t("Free · No Signup · No Data Collected", "Free · No Signup · No Data Collected")}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">

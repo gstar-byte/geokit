@@ -520,7 +520,7 @@ function DimensionCards({ dimensions }: { dimensions: DimensionResult[] }) {
         return (
           <div
             key={i}
-            className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3"
+            className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-3"
           >
             <div className="flex items-center justify-between mb-1.5">
               <h3 className="text-xs font-medium text-gray-900 dark:text-white">{dim.name}</h3>
@@ -612,7 +612,7 @@ export default function GeoScorePage() {
 
       {/* Results area */}
       {!hasResults ? (
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-12 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-12 text-center text-gray-500">
           <svg
             className="w-12 h-12 mx-auto mb-4 text-gray-600"
             fill="none"
@@ -637,7 +637,7 @@ export default function GeoScorePage() {
           {/* Dual Score Rings */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* GEO Score Panel */}
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
               <div className="text-center mb-5">
                 <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20">
                   <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">🤖 GEO Score</span>
@@ -651,7 +651,7 @@ export default function GeoScorePage() {
             </div>
 
             {/* SEO Score Panel */}
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
               <div className="text-center mb-5">
                 <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
                   <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">🔍 SEO Score</span>
@@ -666,7 +666,7 @@ export default function GeoScorePage() {
           </div>
 
           {/* Combined Summary */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <div className="flex items-center justify-center gap-8 mb-4">
               <div className="text-center">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">{geoResult.total}</span>
@@ -689,7 +689,7 @@ export default function GeoScorePage() {
           </div>
 
           {/* CTA */}
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 text-center">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6 text-center">
             <p className="text-gray-900 dark:text-white font-medium mb-3">
               Improve your scores with these tools
             </p>

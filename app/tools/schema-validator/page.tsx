@@ -515,7 +515,7 @@ export default function SchemaValidatorPage() {
           {results && (
             <div className="space-y-4">
               {/* 统计摘要 */}
-              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4">
                 <div className="flex items-center gap-4 text-sm">
                   <span className="text-green-400 font-medium">{passCount} passed</span>
                   <span className="text-red-400 font-medium">{failCount} failed</span>
@@ -567,7 +567,7 @@ export default function SchemaValidatorPage() {
               <RichResultsPreview schema={parsedSchema} />
             </div>
           ) : (
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-10 text-center">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-10 text-center">
               <div className="text-gray-600 text-4xl mb-3">🔍</div>
               <p className="text-sm text-gray-500">
                 Paste valid JSON-LD and click <span className="text-brand-400">Validate</span> to see a preview of how your structured data will appear in Google Rich Results.
@@ -576,7 +576,7 @@ export default function SchemaValidatorPage() {
           )}
 
           {/* Supported type list */}
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4">
             <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Supported Rich Result Types</p>
             <div className="flex flex-wrap gap-1.5">
               {KNOWN_TYPES.map((t) => (
@@ -588,7 +588,7 @@ export default function SchemaValidatorPage() {
           </div>
 
           {/* Tips */}
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
             <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">Tips for Rich Results</p>
             <ul className="list-disc list-inside space-y-1 text-xs">
               <li>Always include <code className="text-brand-400">@context</code> and <code className="text-brand-400">@type</code></li>
@@ -600,7 +600,7 @@ export default function SchemaValidatorPage() {
           </div>
 
           {/* CTA — 链接 to Schema Generator */}
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-center">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4 text-center">
             <p className="text-sm text-gray-900 dark:text-white font-medium mb-2">Need to create schema from scratch?</p>
             <a href="/tools/schema-generator" className="btn-secondary text-sm inline-block">
               Open Schema Generator →

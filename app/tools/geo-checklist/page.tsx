@@ -160,7 +160,7 @@ export default function GeoChecklistPage() {
       </div>
 
       {/* Progress bar */}
-      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6 mb-8">
+      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6 mb-8">
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Progress</span>
           <span className="text-sm text-gray-500 dark:text-gray-400">

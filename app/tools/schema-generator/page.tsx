@@ -236,7 +236,7 @@ export default function SchemaGeneratorPage() {
           <div className="space-y-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">Add your FAQ questions and answers. FAQPage schema is 3.2x more likely to be cited in Google AI Overviews.</p>
             {faqs.map((faq, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Q&A {i + 1}</span>
                   {faqs.length > 1 && (
@@ -269,7 +269,7 @@ export default function SchemaGeneratorPage() {
             <Field label="Guide Title *" value={data.name} onChange={(v) => update("name", v)} placeholder="How to optimize for AI search" />
             <Field label="Description" value={data.description} onChange={(v) => update("description", v)} placeholder="A brief description of the guide" />
             {steps.map((step, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Step {i + 1}</span>
                   {steps.length > 1 && (
@@ -330,7 +330,7 @@ export default function SchemaGeneratorPage() {
           <div className="space-y-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">Define the breadcrumb navigation items in hierarchical order.</p>
             {breadcrumbs.map((bc, i) => (
-              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-3">
+              <div key={i} className="space-y-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500">Breadcrumb {i + 1}</span>
                   {breadcrumbs.length > 1 && (
@@ -399,7 +399,7 @@ export default function SchemaGeneratorPage() {
             </button>
           </div>
           <pre className="code-block min-h-[400px] whitespace-pre-wrap">{jsonLdBlock}</pre>
-          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4 text-sm text-gray-500 dark:text-gray-400">
             <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to deploy:</p>
             <ol className="list-decimal list-inside space-y-1">
               <li>Copy the JSON-LD script tag</li>

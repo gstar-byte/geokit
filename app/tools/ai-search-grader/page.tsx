@@ -250,7 +250,7 @@ export default function AiSearchGraderPage() {
       )}
 
       {loading && (
-        <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 space-y-5">
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8 space-y-5">
           <div className="flex items-center justify-center">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-500" />
           </div>
@@ -298,7 +298,7 @@ export default function AiSearchGraderPage() {
 
           {/* Competitor Comparison */}
           {allScores.length > 1 && (
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Brand vs Competitors</h3>
               <div className="space-y-3">
                 {allScores.map((item, i) => (
@@ -331,7 +331,7 @@ export default function AiSearchGraderPage() {
           )}
 
           {/* Per-Model Results */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Per-Model Breakdown</h3>
             <div className="space-y-3">
               {result.modelSummaries.map((model, i) => (
@@ -407,7 +407,7 @@ export default function AiSearchGraderPage() {
           </div>
 
           {/* Prompts Used */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <button
               onClick={() => setShowPrompts(!showPrompts)}
               className="flex items-center justify-between w-full"
@@ -427,7 +427,7 @@ export default function AiSearchGraderPage() {
           </div>
 
           {/* Sample Responses */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <button
               onClick={() => setShowSamples(!showSamples)}
               className="flex items-center justify-between w-full"
@@ -476,7 +476,7 @@ export default function AiSearchGraderPage() {
       )}
 
       {!result && !loading && !error && (
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <p className="text-sm mb-4">
             Enter your brand name and niche above. We&apos;ll send prompts to{" "}
             {serverProvider === "google" ? "3 Google Gemini models" : "6 AI models (ChatGPT, Gemini, Claude, Llama, Mistral, DeepSeek)"}{" "}

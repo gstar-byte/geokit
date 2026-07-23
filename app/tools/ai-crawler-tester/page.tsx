@@ -116,7 +116,7 @@ export default function AiCrawlerTesterPage() {
           ))}
 
           {/* Text preview */}
-          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-6">
+          <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Extracted Text Preview (first 500 chars)
             </h3>
@@ -141,7 +141,7 @@ export default function AiCrawlerTesterPage() {
       )}
 
       {!result && !loading && !error && (
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 text-center text-gray-500">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8 text-center text-gray-500">
           <p className="text-base">
             Enter your website URL above to see how AI crawlers perceive your page. We&apos;ll simulate GPTBot, ClaudeBot, and PerplexityBot perspectives and show you exactly what content they can extract.
           </p>

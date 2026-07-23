@@ -217,7 +217,7 @@ export default function LlmsTxtValidatorPage() {
             </div>
 
             {errors > 0 && (
-              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                   Need to create a valid llms.txt? Use our generator:
                 </p>

@@ -48,7 +48,7 @@ function BadgeContent() {
       </div>
 
       {/* Badge Preview */}
-      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-8 mb-8 text-center">
+      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-8 mb-8 text-center">
         <div
           className="inline-flex items-center gap-3 rounded-xl px-6 py-3 shadow-lg"
           style={{
@@ -149,7 +149,7 @@ function BadgeContent() {
         </div>
         <pre className="code-block whitespace-pre-wrap text-sm">{embedCode}</pre>
 
-        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-50 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 p-4 text-base text-gray-500 dark:text-gray-400">
           <p className="mb-2 font-medium text-gray-600 dark:text-gray-300">How to use:</p>
           <ol className="list-decimal list-inside space-y-1 text-sm">
             <li>Run the <a href="/tools/ai-readiness-checker" className="text-brand-400 hover:underline">AI Readiness Checker</a> to get your real score</li>
