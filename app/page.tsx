@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/components/i18n";
+import { tools } from "@/lib/tools-config";
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
@@ -19,98 +20,7 @@ const organizationJsonLd = {
   description: "Free toolkit for Generative Engine Optimization (GEO). 14 free tools to optimize websites for AI search engines.",
 };
 
-const tools = [
-  {
-    href: "/tools/llms-txt-generator",
-    title: "llms.txt Generator",
-    desc: "Create an llms.txt file that tells AI models what your site is about and which pages matter most.",
-    icon: "📄",
-    tag: "Most Popular",
-  },
-  {
-    href: "/tools/ai-robots-txt-generator",
-    title: "AI Robots.txt Generator",
-    desc: "Control which AI crawlers (GPTBot, ClaudeBot, PerplexityBot) can access your site with a production-ready robots.txt.",
-    icon: "🤖",
-  },
-  {
-    href: "/tools/schema-generator",
-    title: "Schema for AI Generator",
-    desc: "Generate AI-friendly JSON-LD structured data that helps ChatGPT, Perplexity, and Google AI Overviews understand your content.",
-    icon: "🏷️",
-  },
-  {
-    href: "/tools/ai-readiness-checker",
-    title: "AI Readiness Checker",
-    desc: "Enter your URL and get an instant 0–100 score showing how well AI search engines can read and cite your site.",
-    icon: "📊",
-    tag: "Free Check",
-  },
-  {
-    href: "/tools/llms-txt-validator",
-    title: "llms.txt Validator",
-    desc: "Paste your llms.txt content to check if it follows the spec — H1 title, valid markdown, link format, and more.",
-    icon: "✅",
-  },
-  {
-    href: "/tools/geo-checklist",
-    title: "GEO Checklist",
-    desc: "A step-by-step checklist to optimize your site for AI search engines. Track your progress across all GEO tasks.",
-    icon: "📋",
-  },
-  {
-    href: "/tools/ai-sitemap-generator",
-    title: "AI Sitemap Generator",
-    desc: "Generate an XML sitemap optimized for AI crawlers with priority hints and update frequencies.",
-    icon: "🗺️",
-  },
-  {
-    href: "/tools/meta-tag-generator",
-    title: "Meta Tag Generator",
-    desc: "Generate Open Graph + AI-specific meta tags including citation, author, and content signals.",
-    icon: "🏷️",
-  },
-  {
-    href: "/tools/qa-content-formatter",
-    title: "Q&A Content Formatter",
-    desc: "Transform your content into Q&A format that AI models naturally parse and cite in answers.",
-    icon: "💬",
-  },
-  {
-    href: "/tools/ai-crawler-tester",
-    title: "AI Crawler Tester",
-    desc: "Simulate how AI crawlers see your page. Check what content GPTBot, ClaudeBot, and others can extract.",
-    icon: "🔍",
-  },
-  {
-    href: "/tools/ai-search-grader",
-    title: "AI Search Grader",
-    desc: "See how visible your brand is in AI search. We query 6 AI models with niche-relevant prompts and measure your brand's visibility and ranking.",
-    icon: "🎯",
-    tag: "New",
-  },
-  {
-    href: "/tools/geo-score",
-    title: "GEO Score",
-    desc: "Paste your content and get an instant 0–100 score measuring how likely AI search engines are to cite it.",
-    icon: "📈",
-    tag: "New",
-  },
-  {
-    href: "/tools/schema-validator",
-    title: "Schema Validator & Preview",
-    desc: "Validate your JSON-LD structured data and preview how it appears in Google Rich Results.",
-    icon: "🔎",
-    tag: "New",
-  },
-  {
-    href: "/tools/sitemap-validator",
-    title: "Sitemap Validator & Checker",
-    desc: "Enter your sitemap URL to check XML syntax compliance, sitemaps.org format, file weight, and run instant HTTP status checks for page URLs to find broken links.",
-    icon: "🗺️",
-    tag: "New",
-  },
-];
+
 
 const faqJsonLd = {
   "@context": "https://schema.org",
