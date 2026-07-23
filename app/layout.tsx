@@ -110,6 +110,12 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* DevHunt launch banner */}
+        <script
+          defer
+          data-url="https://devhunt.org/tool/geokit"
+          src="https://cdn.jsdelivr.net/gh/sidiDev/devhunt-banner/indexV0.js"
+        />
       </head>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
