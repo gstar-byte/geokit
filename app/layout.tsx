@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import PWARegister from "@/components/PWARegister";
 import ThemeProvider from "@/components/ThemeProvider";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0e1a" },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geokit.site"),
@@ -66,6 +73,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://geokit.site",
+  },
+  other: {
+    "citation_title": "GEOKit — Free GEO Tools for AI Search Optimization",
+    "citation_author": "GEOKit Team",
+    "citation_publication_date": "2026-07-22",
   },
 };
 

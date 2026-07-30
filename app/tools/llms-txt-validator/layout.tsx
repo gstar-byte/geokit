@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'llms.txt Validator — Check Specification Compliance',
   description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+  keywords: ["llms.txt validator", "llms.txt checker", "llms.txt spec compliance", "llms.txt linter", "AI markdown validator"],
   alternates: {
     canonical: 'https://geokit.site/tools/llms-txt-validator',
   },
@@ -28,48 +29,54 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdGraph = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": 'llms.txt Validator',
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": 'https://geokit.site/tools/llms-txt-validator',
-  "description": 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "GEOKit",
-    "url": "https://geokit.site"
-  }
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://geokit.site"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tools",
-      "item": "https://geokit.site/#tools"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "WebApplication",
+      "@id": "https://geokit.site/tools/llms-txt-validator/#webapp",
       "name": 'llms.txt Validator',
-      "item": 'https://geokit.site/tools/llms-txt-validator'
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "url": 'https://geokit.site/tools/llms-txt-validator',
+      "description": 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://geokit.site/#organization",
+        "name": "GEOKit",
+        "url": "https://geokit.site",
+        "logo": "https://geokit.site/icon-512.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geokit.site/tools/llms-txt-validator/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": 'llms.txt Validator',
+          "item": 'https://geokit.site/tools/llms-txt-validator'
+        }
+      ]
     }
   ]
 };
@@ -79,11 +86,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       {children}
     </>

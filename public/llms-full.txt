@@ -197,6 +197,12 @@ A: Yes. All tools on GEOKit are 100% free for both personal and commercial use w
 **Q: Does GEOKit send user data to remote servers?**
 A: No. All diagnostic calculations, generation logic, parsing, and scoring run 100% locally inside your browser DOM.
 
+**Q: Are these tools safe to use?**
+A: Yes. All processing happens client-side in your browser. Your inputs and outputs are never sent to any server. You can verify this by checking your browser's network tab.
+
+**Q: Can I use GEOKit tools offline?**
+A: Yes! GEOKit is built as a Progressive Web App (PWA). You can install it on your device and use all core utility tools (like generators, validators, lists, and copy formatters) completely offline. Only diagnostic crawler tools require a network connection.
+
 ---
 
 ## 6. Contact & Machine Endpoints

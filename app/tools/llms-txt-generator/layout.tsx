@@ -68,7 +68,7 @@ const jsonLdGraph = {
           "@type": "ListItem",
           "position": 2,
           "name": "Tools",
-          "item": "https://geokit.site/#tools"
+          "item": "https://geokit.site"
         },
         {
           "@type": "ListItem",

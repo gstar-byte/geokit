@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'GEO Checklist — Step-by-Step AI Optimization Guide',
   description: 'Follow an interactive checklist to optimize your website for ChatGPT, Perplexity, and Google AI Overviews.',
+  keywords: ["GEO checklist", "AI optimization guide", "AI search optimization checklist", "GEO tasks", "AI SEO checklist"],
   alternates: {
     canonical: 'https://geokit.site/tools/geo-checklist',
   },
@@ -28,48 +29,54 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdGraph = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": 'GEO Checklist',
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": 'https://geokit.site/tools/geo-checklist',
-  "description": 'Follow an interactive checklist to optimize your website for ChatGPT, Perplexity, and Google AI Overviews.',
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "GEOKit",
-    "url": "https://geokit.site"
-  }
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://geokit.site"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tools",
-      "item": "https://geokit.site/#tools"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "WebApplication",
+      "@id": "https://geokit.site/tools/geo-checklist/#webapp",
       "name": 'GEO Checklist',
-      "item": 'https://geokit.site/tools/geo-checklist'
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "url": 'https://geokit.site/tools/geo-checklist',
+      "description": 'Follow an interactive checklist to optimize your website for ChatGPT, Perplexity, and Google AI Overviews.',
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://geokit.site/#organization",
+        "name": "GEOKit",
+        "url": "https://geokit.site",
+        "logo": "https://geokit.site/icon-512.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geokit.site/tools/geo-checklist/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": 'GEO Checklist',
+          "item": 'https://geokit.site/tools/geo-checklist'
+        }
+      ]
     }
   ]
 };
@@ -79,11 +86,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       {children}
     </>

@@ -28,48 +28,54 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdGraph = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": 'Meta Tag Generator',
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": 'https://geokit.site/tools/meta-tag-generator',
-  "description": 'Generate OpenGraph, Twitter Cards, and AI-specific citation meta tags for your site.',
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "GEOKit",
-    "url": "https://geokit.site"
-  }
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://geokit.site"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tools",
-      "item": "https://geokit.site/#tools"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "WebApplication",
+      "@id": "https://geokit.site/tools/meta-tag-generator/#webapp",
       "name": 'Meta Tag Generator',
-      "item": 'https://geokit.site/tools/meta-tag-generator'
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "url": 'https://geokit.site/tools/meta-tag-generator',
+      "description": 'Generate OpenGraph, Twitter Cards, and AI-specific citation meta tags for your site.',
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://geokit.site/#organization",
+        "name": "GEOKit",
+        "url": "https://geokit.site",
+        "logo": "https://geokit.site/icon-512.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geokit.site/tools/meta-tag-generator/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": 'Meta Tag Generator',
+          "item": 'https://geokit.site/tools/meta-tag-generator'
+        }
+      ]
     }
   ]
 };
@@ -79,11 +85,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       {children}
     </>

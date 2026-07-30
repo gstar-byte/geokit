@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'Q&A Content Formatter — Structure Text for AI Answers',
   description: 'Transform text into high-citation Q&A formats optimized for LLM answer extraction and RAG pipelines.',
+  keywords: ["Q&A content formatter", "AI content formatter", "RAG content optimizer", "LLM answer extraction", "Q&A structure for AI"],
   alternates: {
     canonical: 'https://geokit.site/tools/qa-content-formatter',
   },
@@ -28,48 +29,54 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdGraph = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": 'Q&A Content Formatter',
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": 'https://geokit.site/tools/qa-content-formatter',
-  "description": 'Transform text into high-citation Q&A formats optimized for LLM answer extraction and RAG pipelines.',
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "GEOKit",
-    "url": "https://geokit.site"
-  }
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://geokit.site"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tools",
-      "item": "https://geokit.site/#tools"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "WebApplication",
+      "@id": "https://geokit.site/tools/qa-content-formatter/#webapp",
       "name": 'Q&A Content Formatter',
-      "item": 'https://geokit.site/tools/qa-content-formatter'
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "url": 'https://geokit.site/tools/qa-content-formatter',
+      "description": 'Transform text into high-citation Q&A formats optimized for LLM answer extraction and RAG pipelines.',
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://geokit.site/#organization",
+        "name": "GEOKit",
+        "url": "https://geokit.site",
+        "logo": "https://geokit.site/icon-512.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geokit.site/tools/qa-content-formatter/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": 'Q&A Content Formatter',
+          "item": 'https://geokit.site/tools/qa-content-formatter'
+        }
+      ]
     }
   ]
 };
@@ -79,11 +86,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       {children}
     </>

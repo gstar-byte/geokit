@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://geokit.site";
+  const now = new Date().toISOString().split("T")[0];
 
-  // Static dates: update when the corresponding page content actually changes.
   const corePages = [
-    { route: "", lastModified: "2026-07-22", changeFrequency: "weekly" as const, priority: 1.0 },
+    { route: "", lastModified: now, changeFrequency: "weekly" as const, priority: 1.0 },
     { route: "/about", lastModified: "2026-07-22", changeFrequency: "monthly" as const, priority: 0.7 },
     { route: "/badge", lastModified: "2026-07-22", changeFrequency: "monthly" as const, priority: 0.8 },
   ];
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/schema-generator",
   ].map((route) => ({
     route,
-    lastModified: "2026-07-22",
+    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -37,16 +37,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/sitemap-validator",
   ].map((route) => ({
     route,
-    lastModified: "2026-07-22",
+    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
   // Machine-readable GEO assets included in sitemap for AI discovery
   const machineAssets = [
-    { route: "/llms.txt", lastModified: "2026-07-22", changeFrequency: "weekly" as const, priority: 0.9 },
-    { route: "/llms-full.txt", lastModified: "2026-07-22", changeFrequency: "weekly" as const, priority: 0.9 },
+    { route: "/llms.txt", lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { route: "/llms-full.txt", lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { route: "/openapi.yaml", lastModified: "2026-07-22", changeFrequency: "monthly" as const, priority: 0.7 },
+    { route: "/.well-known/ai-plugin.json", lastModified: "2026-07-22", changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 
   const legalPages = [

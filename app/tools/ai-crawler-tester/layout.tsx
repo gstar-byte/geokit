@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'AI Crawler Tester — Test How GPTBot & ClaudeBot See Your Page',
   description: 'Simulate AI web crawlers to test if your content is extractable by LLM web scrapers.',
+  keywords: ["AI crawler tester", "GPTBot simulation", "ClaudeBot crawl test", "AI scraper test", "LLM content extraction"],
   alternates: {
     canonical: 'https://geokit.site/tools/ai-crawler-tester',
   },
@@ -28,48 +29,54 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdGraph = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": 'AI Crawler Tester',
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": 'https://geokit.site/tools/ai-crawler-tester',
-  "description": 'Simulate AI web crawlers to test if your content is extractable by LLM web scrapers.',
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "GEOKit",
-    "url": "https://geokit.site"
-  }
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://geokit.site"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tools",
-      "item": "https://geokit.site/#tools"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
+      "@type": "WebApplication",
+      "@id": "https://geokit.site/tools/ai-crawler-tester/#webapp",
       "name": 'AI Crawler Tester',
-      "item": 'https://geokit.site/tools/ai-crawler-tester'
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "url": 'https://geokit.site/tools/ai-crawler-tester',
+      "description": 'Simulate AI web crawlers to test if your content is extractable by LLM web scrapers.',
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://geokit.site/#organization",
+        "name": "GEOKit",
+        "url": "https://geokit.site",
+        "logo": "https://geokit.site/icon-512.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geokit.site/tools/ai-crawler-tester/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://geokit.site"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": 'AI Crawler Tester',
+          "item": 'https://geokit.site/tools/ai-crawler-tester'
+        }
+      ]
     }
   ]
 };
@@ -79,11 +86,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       {children}
     </>
