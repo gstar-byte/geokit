@@ -12,8 +12,17 @@ export default function robots(): MetadataRoute.Robots {
           "/openapi.yaml",
           "/.well-known/ai-plugin.json",
         ],
+        // Block API routes, Next.js internals, and parameterised URLs
+        // to conserve Bing crawl quota (fixes "Limited crawl capacity" warning)
+        disallow: [
+          "/api/",          // All server-side API endpoints — no indexing value
+          "/_next/",        // Next.js static/runtime chunks
+          "/cdn-cgi/",      // Cloudflare internal paths
+          "/*?*",           // Any URL with query parameters (prevents duplicate content)
+        ],
       },
       // AI search & training crawlers — explicitly allowed for GEO visibility
+      // These bots index for AI answers, not for crawl-quota-sensitive engines
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "OAI-SearchBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },
@@ -42,4 +51,5 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: "https://geokit.site/sitemap.xml",
   };
 }
+
 
