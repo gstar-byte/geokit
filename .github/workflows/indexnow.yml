@@ -1,0 +1,57 @@
+name: Submit URLs to IndexNow
+
+on:
+  # 每次推送到 master 分支后触发（即部署后）
+  push:
+    branches:
+      - master
+  # 也支持手动触发
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    name: Ping IndexNow (Bing)
+    runs-on: ubuntu-latest
+    # 等待 60 秒让 CDN/部署完成，再提交 URL
+    steps:
+      - name: Wait for deployment to propagate
+        run: sleep 60
+
+      - name: Submit all site URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          echo "Submitting URLs to IndexNow..."
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"geokit.site\",
+              \"key\": \"${INDEXNOW_KEY}\",
+              \"keyLocation\": \"https://geokit.site/${INDEXNOW_KEY}.txt\",
+              \"urlList\": [
+                \"https://geokit.site/\",
+                \"https://geokit.site/about\",
+                \"https://geokit.site/badge\",
+                \"https://geokit.site/tools/llms-txt-generator\",
+                \"https://geokit.site/tools/ai-readiness-checker\",
+                \"https://geokit.site/tools/geo-score\",
+                \"https://geokit.site/tools/ai-search-grader\",
+                \"https://geokit.site/tools/ai-robots-txt-generator\",
+                \"https://geokit.site/tools/schema-generator\",
+                \"https://geokit.site/tools/llms-txt-validator\",
+                \"https://geokit.site/tools/geo-checklist\",
+                \"https://geokit.site/tools/ai-sitemap-generator\",
+                \"https://geokit.site/tools/meta-tag-generator\",
+                \"https://geokit.site/tools/qa-content-formatter\",
+                \"https://geokit.site/tools/ai-crawler-tester\",
+                \"https://geokit.site/tools/schema-validator\",
+                \"https://geokit.site/tools/sitemap-validator\"
+              ]
+            }")
+          echo "IndexNow response: HTTP $RESPONSE"
+          if [ "$RESPONSE" = "200" ] || [ "$RESPONSE" = "202" ]; then
+            echo "✅ URLs submitted successfully"
+          else
+            echo "⚠️ Unexpected response: $RESPONSE"
+            exit 1
+          fi
