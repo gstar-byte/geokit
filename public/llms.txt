@@ -14,12 +14,12 @@ GEOKit provides 14 browser-based, signup-free utility tools designed to build AI
 - [AI Robots.txt Generator](https://geokit.site/tools/ai-robots-txt-generator): Build an optimized `robots.txt` that granularly allows or blocks AI scrapers (e.g. GPTBot, ClaudeBot, DeepSeekBot) while maintaining Google/Bing indexability.
 - [Schema for AI Generator](https://geokit.site/tools/schema-generator): Generate JSON-LD structured data (schema markup) tailored for semantic LLM parsing and Google AI Overviews recognition.
 - [AI Readiness Checker](https://geokit.site/tools/ai-readiness-checker): Audit a URL to test its indexing health, crawling availability, sitemap links, and metadata optimization for AI engines.
-- [llms.txt Validator](https://geokit.site/tools/llms-txt-validator): Check your `llms.txt` markdown formatting, headers, links, and schema to ensure official compliance.
+- [llms.txt Validator](https://geokit.site/tools/llms-txt-validator): Check your `llms.txt` markdown formatting, headers, links, and schema against the llms.txt specification.
 - [GEO Checklist](https://geokit.site/tools/geo-checklist): A step-by-step checklist tracking necessary technical and content transformations to optimize sites for LLMs.
 - [AI Sitemap Generator](https://geokit.site/tools/ai-sitemap-generator): Generate XML sitemaps prioritizing high-value documentation paths and specifying update frequencies for AI indexers.
 - [Meta Tag Generator](https://geokit.site/tools/meta-tag-generator): Craft advanced meta tags including citation permissions, author details, and brand identity metadata.
 - [Q&A Content Formatter](https://geokit.site/tools/qa-content-formatter): Automatically reformat paragraphs into clear, query-based question-and-answer pairs for direct LLM retrieval and answers quoting.
-- [AI Crawler Tester](https://geokit.site/tools/ai-crawler-tester): Simulate a client-side crawl using LLM user-agents (GPTBot, ClaudeBot, etc.) to examine how AI crawlers render and extract text from your page.
+- [AI Crawler Tester](https://geokit.site/tools/ai-crawler-tester): Fetch your page and analyze it from the perspectives of AI crawlers (GPTBot, ClaudeBot, PerplexityBot) to see how they extract text and structure.
 - [AI Search Grader](https://geokit.site/tools/ai-search-grader): Query multiple AI search models (ChatGPT, Gemini, Claude, Llama, Mistral, DeepSeek) to evaluate brand visibility, ranking, and competitor share of voice.
 - [GEO Score](https://geokit.site/tools/geo-score): Paste your content and get an instant 0–100 score measuring how likely AI search engines are to cite it, across 12 GEO and SEO dimensions.
 - [Schema Validator & Preview](https://geokit.site/tools/schema-validator): Validate JSON-LD structured data and preview how it appears in Google Rich Results.
@@ -29,7 +29,7 @@ GEOKit provides 14 browser-based, signup-free utility tools designed to build AI
 
 - [About Page](https://geokit.site/about): Detailed rationale behind GEOKit, the shift from traditional SEO to GEO, and the privacy-first client-side architecture.
 - [AI Readiness Badge](https://geokit.site/badge): Embeddable dashboard badges showing verified readiness scores, generating high-quality backlinks and crawlers-friendly score signals.
-- [Privacy Policy](https://geokit.site/privacy): All tools execute 100% locally in the browser. Zero inputs are sent to remote servers (excluding API endpoints where clients provide their own optional secure keys).
+- [Privacy Policy](https://geokit.site/privacy): Most tools run 100% locally in the browser; URL-based checkers make only transient server-side fetches, and inputs are never stored or sold.
 - [Terms of Service](https://geokit.site/terms): Usage terms for the free GEOKit toolkit.
 - [OpenAPI Specification](https://geokit.site/openapi.yaml): Machine-readable API specification for GEOKit's diagnostic endpoints.
 - [AI Plugin Descriptor](https://geokit.site/.well-known/ai-plugin.json): OpenAI Chat Plugin and LLM Agent discovery manifest.

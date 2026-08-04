@@ -30,6 +30,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "anthropic-ai", allow: "/" },
       { userAgent: "Claude-User", allow: "/" },
       { userAgent: "ClaudeUser", allow: "/" },
+      { userAgent: "Claude-SearchBot", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },
       { userAgent: "Perplexity-User", allow: "/" },
       { userAgent: "PerplexityUser", allow: "/" },

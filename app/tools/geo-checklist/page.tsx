@@ -261,7 +261,7 @@ export default function GeoChecklistPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why do AI models favor semantic HTML?</h3>
             <p>
-              AI crawlers (specifically ClaudeBot) scan page structures to isolate main content from site boilerplate (like headers, sidebars, footers). Using tags like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> instead of nested divs makes extraction cleaner and reduces hallucination risk.
+              When AI crawlers and LLMs process a page, they must separate the main content from site boilerplate (headers, sidebars, footers). Using tags like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> instead of nested divs makes that extraction cleaner and reduces the risk of misinterpretation.
             </p>
           </div>
 

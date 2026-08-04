@@ -771,7 +771,7 @@ export default function AiReadinessCheckerPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">💎 2. Structured JSON-LD Schema</h3>
             <p>
-              Schema markup provides clear semantic context. AI search engines are 3x more likely to cite pages with well-defined <code>FAQPage</code>, <code>Product</code>, or <code>Person</code> schemas because they present answers in pre-parsed, structured blocks.
+              Schema markup provides clear semantic context. Well-defined <code>FAQPage</code>, <code>Product</code>, or <code>Person</code> schemas present answers as pre-parsed, structured blocks, which makes it easier for AI search engines to extract and cite your content accurately.
             </p>
           </div>
 

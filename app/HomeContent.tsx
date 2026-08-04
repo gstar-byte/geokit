@@ -77,12 +77,12 @@ export default function HomeContent() {
           <div>
             <div className="text-2xl mb-3">🔒</div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              {t("100% Private", "100% Private")}
+              {t("Private by Design", "Private by Design")}
             </h3>
             <p className="text-base text-gray-500 dark:text-gray-400">
               {t(
-                "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs.",
-                "All tools run in your browser. Your data never leaves your device. No servers, no tracking, no logs."
+                "Generators run fully in your browser. URL checkers make only transient server-side fetches, and nothing is stored or logged.",
+                "Generators run fully in your browser. URL checkers make only transient server-side fetches, and nothing is stored or logged."
               )}
             </p>
           </div>

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'llms.txt Validator — Check Specification Compliance',
-  description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+  description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against the llms.txt specification.',
   keywords: ["llms.txt validator", "llms.txt checker", "llms.txt spec compliance", "llms.txt linter", "AI markdown validator"],
   alternates: {
     canonical: 'https://geokit.site/tools/llms-txt-validator',
   },
   openGraph: {
     title: 'llms.txt Validator — Check Specification Compliance',
-    description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+    description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against the llms.txt specification.',
     type: "website",
     url: 'https://geokit.site/tools/llms-txt-validator',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: 'llms.txt Validator — Check Specification Compliance',
-    description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+    description: 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against the llms.txt specification.',
     images: ["/og-image.png"],
   },
 };
@@ -40,7 +40,7 @@ const jsonLdGraph = {
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
       "url": 'https://geokit.site/tools/llms-txt-validator',
-      "description": 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against official specifications.',
+      "description": 'Validate your llms.txt syntax, markdown links, H1 headers, and section structure against the llms.txt specification.',
       "offers": {
         "@type": "Offer",
         "price": "0",

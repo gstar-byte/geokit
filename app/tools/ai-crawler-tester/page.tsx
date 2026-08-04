@@ -166,14 +166,14 @@ export default function AiCrawlerTesterPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. Which AI bots are simulated by this tester?</h3>
             <p>
-              We simulate three core perspectives: **GPTBot** (OpenAI's primary scraping bot), **ClaudeBot / Claude-Web** (Anthropic's indexer), and **PerplexityBot** (Perplexity's real-time retrieval crawler). This shows you how these distinct entities read your page structure.
+              We analyze your page from three crawler perspectives: **GPTBot** (OpenAI&apos;s scraping bot), **ClaudeBot / Claude-SearchBot** (Anthropic&apos;s training and search indexers), and **PerplexityBot** (Perplexity&apos;s real-time retrieval crawler). This shows you how these distinct bots read your page structure.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why does PerplexityBot prioritize canonicals and schemas?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why do canonicals and schemas matter for AI answer engines?</h3>
             <p>
-              Perplexity functions as an answer engine that pulls real-time sources. It uses the <code>canonical URL</code> to ensure it cites the primary authority page, and parses structured data (like FAQ schema) to pull direct question-answer blocks to generate citations.
+              Answer engines like Perplexity pull real-time sources, so a clear <code>canonical URL</code> helps them point at the primary version of a page rather than a duplicate. Structured data (such as FAQ schema) exposes question-answer blocks that are easy to extract and cite.
             </p>
           </div>
 

@@ -744,7 +744,7 @@ export default function LlmsTxtGeneratorPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Where should these files be placed?</h3>
             <p>
-              Both files must be served over HTTPS from the root directory of your website (e.g. <code>https://example.com/llms.txt</code>). AI crawlers are hardcoded to check this location by default.
+              Both files must be served over HTTPS from the root directory of your website (e.g. <code>https://example.com/llms.txt</code>). The root path is the location defined by the llms.txt specification, so any tool or agent that looks for these files will check there first.
             </p>
           </div>
 

@@ -20,9 +20,9 @@ export default function AboutPage() {
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Why GEOKit?</h2>
         <ul className="list-disc list-inside space-y-2">
           <li><strong className="text-gray-900 dark:text-white">100% Free</strong> — No signup, no premium plans, no limits</li>
-          <li><strong className="text-gray-900 dark:text-white">100% Private</strong> — All tools run in your browser, nothing is sent to servers</li>
+          <li><strong className="text-gray-900 dark:text-white">Private by design</strong> — Generators run entirely in your browser; only the URL-based checkers make transient server-side fetches, and nothing is stored</li>
           <li><strong className="text-gray-900 dark:text-white">All-in-one</strong> — Everything you need for GEO in one place</li>
-          <li><strong className="text-gray-900 dark:text-white">No tracking</strong> — We don&apos;t track you or store your data</li>
+          <li><strong className="text-gray-900 dark:text-white">No tracking by default</strong> — Analytics only activates with your consent, and we never store or sell your inputs</li>
         </ul>
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white">The Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">

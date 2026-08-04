@@ -516,14 +516,14 @@ export default function AiSearchGraderPage() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">2. How is my AI Brand Visibility score calculated?</h3>
             <p>
-              The score (0–100) measures how frequently your brand appears in recommendations, your average ranking position when listed alongside competitors, the sentiment (positive vs. neutral), and your relative share of voice across the 6 queried models.
+              The score (0–100) combines two signals: how frequently your brand appears across the test prompts (visibility, weighted 60%) and your average ranking position when you are listed (weighted 40%). Per-model scores are then averaged using each model&apos;s market-share weight to produce your overall share-of-voice score.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Why does my brand rank differently across different LLMs?</h3>
             <p>
-              Each model uses distinct training databases, crawl schedules, and retrieval pipelines. Anthropic's Claude favors deep, technical documentation (making <code>llms.txt</code> highly effective), Google's Gemini prioritizes live Google search integration, and ChatGPT favors broad brand consensus.
+              Each model is trained on distinct data and may use different retrieval pipelines, so brand coverage varies from one LLM to another. Treat the per-model breakdown as a diagnostic: where you are missing, strengthen entity signals (consistent descriptions on authoritative domains, forum discussions, complete schema metadata) and re-test.
             </p>
           </div>
 

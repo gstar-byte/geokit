@@ -18,8 +18,8 @@
 Generative Engine Optimization (GEO) represents the paradigm shift from traditional search engine optimization (ranking blue links for keywords) to generative AI optimization (getting cited, synthesized, and recommended in direct conversational answers).
 
 GEOKit provides zero-signup, client-side browser utilities designed to solve technical and structural hurdles in AI indexing:
-- **Zero Remote Storage**: Inputs and processing remain in the client browser DOM.
-- **Standards Compliant**: Follows official specifications for `llms.txt`, schema.org JSON-LD, and robots.txt User-Agent rules.
+- **Client-First Privacy**: Generators run entirely in the browser; URL-based checkers make only transient server-side fetches, and inputs are never stored.
+- **Standards Compliant**: Follows established specifications for `llms.txt` (community standard), schema.org JSON-LD, and robots.txt User-Agent rules.
 - **Machine Readable**: All generated outputs prioritize high signal-to-noise ratio for LLM tokenization.
 
 ---
@@ -27,14 +27,14 @@ GEOKit provides zero-signup, client-side browser utilities designed to solve tec
 ## 2. Detailed Tool Documentation
 
 ### 2.1 llms.txt Generator (`/tools/llms-txt-generator`)
-- **Purpose**: Generates standardized `/llms.txt` markdown files following the official specification.
+- **Purpose**: Generates standardized `/llms.txt` markdown files following the llms.txt specification.
 - **Inputs**: Site H1 Title, Summary, Section Headings, Link Titles, URLs, and optional notes.
 - **Outputs**: Properly formatted H1, blockquote summary, H2 section headers, and bulleted markdown links.
 
 ### 2.2 AI Search Grader (`/tools/ai-search-grader`)
 - **Purpose**: Evaluates brand visibility and Share of Voice across major LLM search engines.
 - **Models Targeted**: ChatGPT (OpenAI), Gemini (Google), Claude (Anthropic), Llama (Meta), Mistral, DeepSeek.
-- **Metrics**: Mentions count, position ranking, sentiment, citation presence.
+- **Metrics**: Mentions count, visibility percentage, average ranking position, and a market-share-weighted share-of-voice score.
 
 ### 2.3 AI Robots.txt Generator (`/tools/ai-robots-txt-generator`)
 - **Purpose**: Configures granular crawler permissions for AI scrapers vs traditional search bots.
@@ -54,7 +54,7 @@ GEOKit provides zero-signup, client-side browser utilities designed to solve tec
 - **Purpose**: Interactive, client-persisted checklist guiding users through technical, structural, and content-level GEO tasks.
 
 ### 2.8 AI Sitemap Generator (`/tools/ai-sitemap-generator`)
-- **Purpose**: Constructs XML sitemaps with custom priority weighting and frequency flags tailored for LLM scrapers.
+- **Purpose**: Constructs XML sitemaps with optional priority and change-frequency hints for high-value paths.
 
 ### 2.9 Meta Tag Generator (`/tools/meta-tag-generator`)
 - **Purpose**: Generates HTML `<meta>` tags incorporating OpenGraph, Twitter Cards, citation licenses, and author metadata.

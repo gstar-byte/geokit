@@ -315,9 +315,9 @@ export default function AiSitemapGeneratorPage() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Do AI crawlers respect Priority and Change Frequency tags?</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base">3. Do crawlers respect Priority and Change Frequency tags?</h3>
             <p>
-              Yes. AI crawlers use the <code>&lt;priority&gt;</code> tag (0.0 to 1.0) to understand which pages are core resources (like documentation or key features) versus secondary pages. The <code>&lt;changefreq&gt;</code> tag helps crawlers schedule re-visits efficiently.
+              Treat them as optional hints, not guarantees. <code>&lt;priority&gt;</code> (0.0 to 1.0) and <code>&lt;changefreq&gt;</code> are defined by the sitemaps.org protocol, but major engines like Google state they ignore them, and there is no published evidence that AI crawlers honor them either. They can still help your own tooling reason about page importance.
             </p>
           </div>
 
