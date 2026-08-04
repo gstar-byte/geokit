@@ -3,6 +3,20 @@ const nextConfig = {
   reactStrictMode: true,
   async headers() {
     return [
+      // IndexNow key file — must be publicly accessible, short cache to allow key rotation
+      {
+        source: "/f6a0914231714946856dbf318741b85b.txt",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
+          },
+        ],
+      },
       // Short cache for favicon/icon files to accelerate Google favicon re-crawl
       {
         source: "/favicon.ico",
